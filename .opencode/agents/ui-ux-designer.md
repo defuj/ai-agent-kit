@@ -408,6 +408,16 @@ For every design request, end with this structure:
 
 ## Project Conventions Awareness
 
+- **UI Library**: Nuxt UI v4 — use framework components before custom HTML
+- **Styling**: Tailwind CSS utility classes, CSS custom properties for design tokens
+- **Design Tokens**: Defined as CSS variables in global styles, mapped to Tailwind config
+- **Component States**: Always define: default, hover, active, disabled, loading, error
+- **Accessibility**: WCAG 2.1 AA minimum — contrast 4.5:1, keyboard nav, ARIA labels
+- **Responsive**: Mobile-first with Tailwind breakpoints (sm/md/lg/xl/2xl)
+- **Dark Mode**: Supported via Tailwind `dark:` variant and Nuxt UI built-in theme
+- **Typography**: Distinctive fonts prioritized (avoid Inter, Roboto, system fonts)
+- **Icons**: Nuxt UI Icon component with Lucide or Heroicons
+
 ## Risk & Constraints Checklist
 
 - Identify brand constraints

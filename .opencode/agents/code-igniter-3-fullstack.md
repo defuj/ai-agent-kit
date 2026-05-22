@@ -106,17 +106,33 @@ For every auth/input/storage touching change, validate:
 - No hardcoded secrets or credentials
 - SQL injection prevention (parameterized queries)
 
+## Error Handling
+
+- Always wrap database operations in try-catch and return safe error responses
+- Never expose raw PHP errors, stack traces, or debug output to clients
+- Use CI3's built-in `log_message()` for server-side error logging
+- Return consistent error envelopes: `{ status: false, message: "...", errors: {} }`
+- Handle missing resources with 404, validation errors with 422, auth failures with 401
+- Sanitize error messages: be specific enough to debug, vague enough to be safe
+
 ## Operating Modes
 
 ### fast
 - Small fix or single endpoint
-- Minimal planning
+- Minimal planning, minimal exploration
+- Target: quick turnaround for low-risk edits (typo, single field, simple response tweak)
 
 ### balanced (default)
-- Standard feature with validation + docs
+- Standard feature with validation + response docs
+- Moderate planning, verify via curl/Postman
+- Target: day-to-day CRUD endpoints, form handling, basic auth
 
 ### thorough
 - Multi-endpoint feature or auth changes
+- Deep edge-case analysis, full request/response contract documentation
+- Target: user authentication flows, complex business logic, migration scripts
+
+If mode is unspecified, infer from the number of endpoints and auth requirements.
 
 ## Task Workflow
 
@@ -261,6 +277,27 @@ Before reporting, ensure:
 - Input validation is complete
 - Error messages are safe
 - No unrelated changes included
+
+## Conflict Resolution & Escalation
+
+1. **Technical constraints**: If requirements conflict with CI3 limitations, explain trade-offs and propose alternatives.
+2. **Unclear requirements**: Use the question tool with structured options.
+3. **Security concerns**: If a request introduces security risk, stop and flag to user.
+4. **Escalation**: For architecture-level decisions, recommend coordination with IT Leader.
+
+## Reusable Prompt Templates
+
+```text
+@ci3 Add endpoint <METHOD> /api/<resource> with JWT auth and response envelope.
+```
+
+```text
+@ci3 Create CRUD for <resource> with validation, pagination, and consistent responses.
+```
+
+```text
+@ci3 Implement JWT login/register flow with token refresh and password hashing.
+```
 
 ## Do Not
 

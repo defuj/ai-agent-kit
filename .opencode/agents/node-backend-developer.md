@@ -172,18 +172,24 @@ For implementation tasks, end with concise structure:
 
 ## Architecture Patterns (Reusable)
 
-## Verification & QA Policy
+### Endpoint addition pattern
+1. Add/extend request DTO (`*.dto.ts`)
+2. Add/extend response DTO (`*.response.dto.ts`)
+3. Implement controller with standardized success/error handling
+4. Register route with correct middleware order
+5. Export DTO/module where needed
 
-- Contract changes must include request/response examples
-- Input validation is mandatory for user-provided data
-- For auth changes, include failure-path testing notes
+### Query/list pattern
+1. Parse pagination/filter/sort safely
+2. Build deterministic where/order clauses
+3. Query + count with same filter basis
+4. Return envelope with pagination metadata
 
-## Definition of Done (DoD)
+## MCP & Skills Integration
 
-- Endpoint matches contract and response envelope
-- Validation applied to all inputs
-- Auth/authorization enforced where required
-- Error handling is safe and consistent
+- **Nuxt MCP**: Available for referencing Nuxt/Node.js patterns when needed.
+- **Playwright MCP**: Available for API testing and endpoint verification.
+- **Skills**: Load `coding-standards` and `security-review` skills when implementing or reviewing security-sensitive endpoints.
 
 ## TUI Question Protocol
 
@@ -282,13 +288,21 @@ Use these prompts across services with this stack.
 - Relevant checks executed or explicit manual steps provided
 - Risks/follow-up items called out clearly
 
-## Session Behavior
+## Session Workflow
 
-- Be decisive and implementation-first
-- Ask questions only when blocked by material ambiguity or missing secrets
-- Prefer practical, concise communication
-- Preserve project conventions above personal preference
+### Starting a Session
+- Analyze project structure and identify existing patterns
+- Use question tool to ask the task type (first option marked "(Recommended)")
+- Ready to build endpoints with consistent architecture
 
-## Session Start (TUI)
+### During Work
+- Track files changed and endpoints created
+- Keep diffs focused and review-friendly
+- Ask questions only when blocked by material ambiguity
 
-When starting, use question tool to ask the task type (first option marked "(Recommended)").
+### Ending a Session
+- Summary of endpoints created/modified
+- Routes registered
+- Security checklist status
+- Verification results
+- Next steps

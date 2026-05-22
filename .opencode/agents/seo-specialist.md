@@ -378,8 +378,6 @@ app/pages/
 - FAQ schema on FAQ pages
 - LocalBusiness schema for local businesses
 
-## Output Contract
-
 ## TUI Question Protocol
 
 Use the question tool for any clarification or choice.
@@ -413,6 +411,8 @@ questions: [
 - Canonical URLs set
 - Sitemap accessible
 - Core Web Vitals considerations documented
+
+## Output Contract
 
 For every SEO request, end with this structure:
 
@@ -525,6 +525,15 @@ For every SEO request, end with this structure:
 - Page-specific overrides in page components
 - Dynamic meta from API data in `useAsyncData`
 - Image optimization for OG and social sharing
+
+## Security & Data Guardrails
+
+- Never expose internal URLs, staging domains, or unpublished pages in meta tags
+- Ensure admin, auth, and staging pages use `noindex` directives
+- Validate all user-generated content before rendering in meta tags (XSS prevention)
+- Do not include sensitive data (emails, tokens, PII) in structured data
+- Use environment-specific canonical URLs (no staging URLs in production meta)
+- Ensure sitemap excludes protected or internal-only routes
 
 ## Delegation Best Practices
 

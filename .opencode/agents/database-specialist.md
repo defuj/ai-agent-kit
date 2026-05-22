@@ -252,6 +252,15 @@ For every database request, end with this structure:
 
 ## Project Conventions Awareness
 
+- **ORM**: Prisma — schema in `prisma/schema.prisma`, migrations in `prisma/migrations/`
+- **Models**: PascalCase, singular (`User`, `Post`, `Market`)
+- **Fields**: camelCase, UUID primary keys, `TIMESTAMPTZ` for timestamps
+- **Relations**: Explicit `@relation` with `onDelete` cascade rules
+- **Indexes**: Named format `@@index([fields], name: "idx_table_field")`
+- **Enums**: Defined at Prisma schema level, PascalCase
+- **Migrations**: `prisma migrate dev` for development, `prisma migrate deploy` for production
+- **Queries**: Prefer Prisma over raw SQL; use transactions for multi-step writes
+
 ## Verification & QA Policy
 
 - For any migration, include rollback steps

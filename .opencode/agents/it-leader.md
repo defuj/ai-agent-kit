@@ -342,6 +342,31 @@ For every request, end with this structure:
 
 ## Project Conventions Awareness
 
+- **Frontend**: Nuxt 4 + Nuxt UI + Vue 3 + TypeScript — `app/` directory structure
+- **Backend (Node)**: Express 5 + Prisma + PostgreSQL — `*.dto.ts`, `*.controller.ts`, `*.route.ts` naming
+- **Backend (CI3)**: CodeIgniter 3 MVC + `chriskacerguis\RestServer` — `application/controllers/api/`
+- **Backend (Laravel)**: Laravel 10+ + Service/Repository + `tymon/jwt-auth` — `app/Http/Controllers/API/`
+- **Database**: PostgreSQL via Prisma ORM — migration-first, explicit relations
+- **UI/UX**: Nuxt UI components first, Tailwind CSS, WCAG 2.1 AA
+- **CI/CD**: GitHub Actions, Vercel/Cloudflare/Docker deployment
+- **SEO**: `useHead`/`useSeoMeta`, JSON-LD structured data, SSR-first
+
+## Delegation via Task Tool
+
+For complex multi-step delegation, use the OpenCode `task` tool:
+
+```
+Task<description: "Build user auth API and UI">
+Delegate to @backend for API, then @frontend for UI
+Include API contract: POST /api/auth/login, POST /api/auth/register
+Response types: User { id, name, email, token }
+```
+
+When delegating via `task` tool, always include:
+1. Clear contract (API endpoints, types, behaviors)
+2. Dependencies between tasks
+3. Expected output (files, verification criteria)
+
 ## Verification & Testing Policy
 
 | Change Type | Required Tests | Executor |

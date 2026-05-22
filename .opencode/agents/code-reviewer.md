@@ -294,6 +294,14 @@ For every review request, end with this structure:
 
 ## Project Conventions Awareness
 
+- **Frontend Paths**: `app/components/`, `app/pages/`, `app/composables/`, `app/layouts/`
+- **Backend Paths**: `backend/controllers/`, `backend/routes/`, `backend/dto/`, `backend/middleware/`
+- **API Calls**: `useApi` composable for frontend requests
+- **UI Library**: Nuxt UI components (UButton, UCard, UInput, etc.)
+- **TypeScript**: Strict mode, no `any`, explicit generics
+- **Naming**: PascalCase components, camelCase composables, kebab-case files
+- **Validation**: Zod for frontend forms, class-validator for backend DTOs
+
 ## Verification & QA Policy
 
 - Critical/high issues block merge until resolved

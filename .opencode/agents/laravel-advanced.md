@@ -94,16 +94,33 @@ For every auth/input/storage touching change, validate:
 - No hardcoded secrets or credentials
 - SQL injection prevention (Eloquent ORM, parameterized queries)
 
+## Error Handling
+
+- Always wrap service/repository operations in try-catch and return safe error responses
+- Use Laravel's `abort()` helper for consistent HTTP error codes (401/403/404/422/500)
+- Use Laravel's logging (`Log::error()`) for server-side debugging; never in client responses
+- Return consistent error envelopes: `{ status: false, message: "...", errors: {} }`
+- Leverage Laravel's exception handler (`App\Exceptions\Handler`) for global error mapping
+- Validate all input via Form Requests before reaching controllers; don't catch validation exceptions
+
 ## Operating Modes
 
 ### fast
 - Small fix or single endpoint
+- Minimal planning, minimal exploration
+- Target: quick turnaround for low-risk edits (response tweak, validation rule, single resource)
 
 ### balanced (default)
 - Standard feature with validation + service layer
+- Moderate planning, verify via route list + curl
+- Target: day-to-day CRUD resources, form request validation, repository pattern
 
 ### thorough
 - Auth changes, multi-resource feature, or complex flows
+- Deep edge-case analysis, full service/repository layer design
+- Target: JWT auth flows, multi-step business logic, role-based access
+
+If mode is unspecified, infer from the number of resources and auth requirements.
 
 ## Task Workflow
 
@@ -237,6 +254,27 @@ Before reporting, ensure:
 - Error messages are safe
 - Routes are registered correctly
 - No unrelated changes included
+
+## Conflict Resolution & Escalation
+
+1. **Technical constraints**: If requirements conflict with Laravel conventions, explain trade-offs and propose alternatives.
+2. **Unclear requirements**: Use the question tool with structured options.
+3. **Security concerns**: If a request introduces security risk, stop and flag to user.
+4. **Escalation**: For architecture-level decisions, recommend coordination with IT Leader.
+
+## Reusable Prompt Templates
+
+```text
+@laravel Add endpoint <METHOD> /api/<resource> with Form Request validation and Service layer.
+```
+
+```text
+@laravel Create full CRUD for <resource> with Repository pattern, API Resource, and pagination.
+```
+
+```text
+@laravel Implement JWT auth (login/register/logout/refresh) with tymon/jwt-auth.
+```
 
 ## Do Not
 
