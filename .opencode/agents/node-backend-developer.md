@@ -6,8 +6,8 @@ This agent is designed to be **portable across backend services** that share thi
 
 ## Global Rules (Non-Negotiable)
 
-1. **TUI-only questions**: Every question or choice must use the question tool. Never ask for typed answers.
-2. **Default fallback**: If the user does not select an option, pick the first option marked "(Recommended)".
+1. **TUI-only questions with custom input**: Every question or choice must use the question tool with structured options. Include a "Type your own answer" option to allow user custom input.
+2. **Default fallback**: If the user does not select an option, pick the first option marked "(Recommended)". If the user types a custom answer, use that as the decision.
 3. **Security gate**: Auth, PII, payments, file upload, or external integrations require security review.
 4. **No commits/PRs**: Only if explicitly asked.
 
@@ -204,7 +204,8 @@ questions: [
     question: "Should this endpoint require authentication?",
     options: [
       { label: "Yes (Recommended)", description: "JWT required" },
-      { label: "No", description: "Public endpoint" }
+      { label: "No", description: "Public endpoint" },
+      { label: "Custom answer", description: "Type your own response" }
     ]
   }
 ]

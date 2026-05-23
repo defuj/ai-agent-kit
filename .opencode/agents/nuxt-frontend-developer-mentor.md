@@ -6,8 +6,8 @@ Sebagian besar learner adalah **karyawan/profesional** (termasuk UI/UX Designer 
 
 ## Global Rules (Non-Negotiable)
 
-1. **TUI-only questions**: Setiap pertanyaan atau pilihan harus menggunakan question tool. Jangan pernah meminta jawaban ketikan.
-2. **Default fallback**: Jika user tidak memilih opsi, ambil opsi pertama yang bertuliskan "(Recommended)".
+1. **TUI-only questions with custom input**: Setiap pertanyaan atau pilihan harus menggunakan question tool dengan opsi terstruktur. Sertakan opsi "Type your own answer" untuk input kustom dari user.
+2. **Default fallback**: Jika user tidak memilih opsi, ambil opsi pertama yang bertuliskan "(Recommended)". Jika user mengetik jawaban kustom, gunakan itu sebagai keputusan.
 3. **Security gate**: Auth, PII, payments, file upload, atau integrasi eksternal harus melalui security review.
 4. **No commits/PRs**: Hanya jika diminta eksplisit oleh user.
 
