@@ -17,24 +17,32 @@ Repo ini berisi konfigurasi OpenCode untuk tim IT lengkap dengan arsitektur **Le
 - Agent config: `.opencode/config.json`
 - Agent prompts: `.opencode/agents/`
   - `it-leader.md` — IT Leader & Technical Project Manager (primary)
-  - `nuxt-frontend-developer.md` — Frontend Developer (Nuxt)
-  - `node-backend-developer.md` — Backend Developer (Node.js)
-  - `ui-ux-designer.md` — UI/UX Designer
-  - `code-reviewer.md` — Code Reviewer / QA
-  - `database-specialist.md` — Database Specialist
-  - `devops-specialist.md` — DevOps / Infrastructure
-  - `seo-specialist.md` — SEO Specialist
+  - `nuxt-frontend-developer.md` — Frontend Developer (Nuxt/Vue) — `@frontend-nuxt`
+  - `react-frontend-developer.md` — Frontend Developer (React/Next.js) — `@frontend-react`
+  - `node-backend-developer.md` — Backend Developer (Node.js) — `@backend`
+  - `laravel-advanced.md` — Backend Developer (Laravel) — `@laravel`
+  - `code-igniter-3-fullstack.md` — Fullstack Developer (CodeIgniter 3) — `@ci3`
+  - `ui-ux-designer.md` — UI/UX Designer — `@designer`
+  - `code-reviewer.md` — Code Reviewer / QA — `@reviewer`
+  - `database-specialist.md` — Database Specialist — `@database`
+  - `devops-specialist.md` — DevOps / Infrastructure — `@devops`
+  - `seo-specialist.md` — SEO Specialist — `@seo`
+  - `android-developer.md` — Android Developer (Kotlin/Compose) — `@android`
+  - `flutter-developer.md` — Flutter Developer (Dart) — `@flutter`
   - `nuxt-frontend-developer-mentor.md` — Nuxt mentor (standalone)
 - Dokumentasi internal: `.opencode/agent-docs/`
   - Frontend Nuxt: `.opencode/agent-docs/frontend/nuxt/`
+  - Frontend React: `.opencode/agent-docs/frontend/react/`
   - Backend Node: `.opencode/agent-docs/backend/node/`
 - Skill lokal: `.opencode/skills/` (33 skill tersinkron)
 - Contexts: `.opencode/contexts/` (dev, research, review)
 
 Tim didesain untuk:
 
-- Nuxt 4 + Nuxt UI + Vue 3 Composition API + TypeScript (frontend)
-- Node.js + Express 5 + Prisma + PostgreSQL (backend)
+- **Frontend (Vue)**: Nuxt 4 + Nuxt UI + Vue 3 Composition API + TypeScript
+- **Frontend (React)**: React 19 + Next.js 15 (App Router) + TypeScript + shadcn/ui
+- **Backend**: Node.js + Express 5 + Prisma + PostgreSQL — atau — Laravel 10+ / CodeIgniter 3
+- **Mobile**: Android (Kotlin + Jetpack Compose) — atau — Flutter (Dart)
 - Workflow operasional tim (scope-safe, verification status, commit/PR policy)
 - Mentoring terstruktur 30 hari untuk transisi ke stack Nuxt modern
 
@@ -46,7 +54,7 @@ Tim didesain untuk:
 
 ## Integrasi dengan OpenCode Built-in Agents
 
-OpenCode memiliki **built-in agents** yang sudah tersedia secara global. Project ini **tidak mendefinisikan ulang** agent yang sudah ada — melainkan fokus pada **specialized agents** untuk stack Nuxt/Node.js.
+OpenCode memiliki **built-in agents** yang sudah tersedia secara global. Project ini **tidak mendefinisikan ulang** agent yang sudah ada — melainkan fokus pada **specialized agents** untuk berbagai stack pengembangan.
 
 ### Built-in Agents (Global)
 
@@ -69,11 +77,18 @@ Dibawah adalah **specialized agents** yang TIDAK tersedia di built-in OpenCode:
 | Agent | File | Fungsi | Ketika Dipakai |
 |-------|------|--------|---------------|
 | **IT Leader** | `it-leader.md` | Orchestration, task decomposition, integration | Semua request besar |
-| **Frontend** | `nuxt-frontend-developer.md` | Nuxt/Vue implementation + MCP integration | Implementasi frontend |
-| **Backend** | `node-backend-developer.md` | Node/Express/Prisma implementation | Implementasi backend |
-| **Designer** | `ui-ux-designer.md` | Design system, Stitch, Figma, accessibility | Design tasks |
+| **Frontend (Vue)** | `nuxt-frontend-developer.md` | Nuxt/Vue implementation + MCP integration | Implementasi Vue/Nuxt |
+| **Frontend (React)** | `react-frontend-developer.md` | React/Next.js implementation | Implementasi React/Next.js |
+| **Backend (Node)** | `node-backend-developer.md` | Node/Express/Prisma implementation | Implementasi Node.js API |
+| **Backend (Laravel)** | `laravel-advanced.md` | Laravel full-stack (Blade, Livewire, API) | Implementasi Laravel |
+| **Backend (CI3)** | `code-igniter-3-fullstack.md` | CodeIgniter 3 MVC monolith | Implementasi CI3 |
+| **Designer** | `ui-ux-designer.md` | Design system, Stitch, Figma, DESIGN.md | Design tasks |
+| **Reviewer** | `code-reviewer.md` | Code quality, security audit, testing | Review tasks |
+| **Database** | `database-specialist.md` | PostgreSQL, schema, Prisma, migrations | Database tasks |
 | **DevOps** | `devops-specialist.md` | CI/CD, Docker, monitoring, infrastructure | Deployment tasks |
 | **SEO** | `seo-specialist.md` | Meta tags, structured data, Core Web Vitals | SEO optimization |
+| **Android** | `android-developer.md` | Kotlin, Jetpack Compose, Gradle, Play Store | Android native development |
+| **Flutter** | `flutter-developer.md` | Dart, Flutter SDK, Material 3, Firebase | Cross-platform mobile |
 
 ### Integrasi Workflow
 
@@ -86,30 +101,31 @@ User Request
 │ (Primary)      │
 └────────┬────────┘
          │
-    ┌────┴────┬────────┬────────┬────────┐
-    ▼         ▼        ▼        ▼        ▼
-┌────────┐ ┌──────┐ ┌──────┐ ┌───────┐ ┌──────┐
-│Frontend│ │Backend│ │Desigr │ │Devops │ │ SEO  │
-│Custom  │ │Custom │ │Custom │ │Custom │ │Custom│
-└────┬───┘ └───┬──┘ └───┬──┘ └───┬───┘ └───┬──┘
-     │         │        │        │         │
-     ▼         │        │        │         │
-┌─────────┐   │        │        │         │
-│Built-in │   │        │        │         │
-│e2e-runner│  │        │        │         │
-└─────────┘   │        │        │         │
-              │        │        │         │
-              ▼        │        │         │
-         ┌────────┐    │        │         │
-         │Built-in│    │        │         │
-         │code-reviewer│        │         │
-         └────────┘    │        │         │
-              │        │        │         │
-              ▼        ▼        ▼         ▼
-         ┌─────────────────────────────────┐
-         │        Integration Report        │
-         │     (IT Leader combines)       │
-         └─────────────────────────────────┘
+    ┌────┴────┬──────┬──────┬──────┬──────┬──────┐
+    ▼         ▼      ▼      ▼      ▼      ▼      ▼
+┌────────┐ ┌──────┐ ┌───┐ ┌────┐ ┌────┐ ┌────┐ ┌──────┐
+│Frontend│ │Backend│ │Des│ │Rev │ │DB  │ │Dev │ │Mobile│
+│Nuxt/React│ │Node/La│ │ign│ │iew │ │Spec│ │Ops │ │And/Fl│
+│Custom  │ │Custom │ │Cus│ │Cus │ │Cus │ │Cus │ │Custom│
+└───┬────┘ └──┬───┘ └───┘ └────┘ └────┘ └────┘ └──┬───┘
+    │         │                                    │
+    ▼         │                                    │
+┌─────────┐   │                                    │
+│Built-in │   │                                    │
+│e2e-runner│  │                                    │
+└─────────┘   │                                    │
+              │                                    │
+              ▼                                    │
+         ┌────────┐                                │
+         │Built-in│                                │
+         │code-reviewer│                            │
+         └────────┘                                │
+              │                                    │
+              ▼                                    ▼
+         ┌──────────────────────────────────────────┐
+         │        Integration Report                 │
+         │     (IT Leader combines)                 │
+         └──────────────────────────────────────────┘
 ```
 
 ### Built-in Commands Available
@@ -213,18 +229,23 @@ Contoh override `code-reviewer` untuk fokus Nuxt:
 
 ## Agent yang Tersedia
 
-Repo ini menyediakan 8 agent dengan arsitektur **Leader → Subagent**:
+Repo ini menyediakan 14 agent dengan arsitektur **Leader → Subagent**:
 
 | Agent | File | Mode | Tujuan |
 |-------|------|------|--------|
 | **IT Leader** | `it-leader.md` | **primary** | Analisis requirement, arsitektur, pembagian tugas, delegasi, integrasi |
-| Frontend Developer | `nuxt-frontend-developer.md` | subagent | Implementasi frontend (komponen, halaman, composable, E2E) |
-| Backend Developer | `node-backend-developer.md` | subagent | Implementasi backend (API, DTO, controller, database, auth) |
-| UI/UX Designer | `ui-ux-designer.md` | subagent | Design system, Figma integration, accessibility, design-to-code handoff |
+| Frontend Developer (Vue/Nuxt) | `nuxt-frontend-developer.md` | subagent | Implementasi Vue/Nuxt (komponen, composable, Nuxt UI, E2E) |
+| Frontend Developer (React/Next) | `react-frontend-developer.md` | subagent | Implementasi React/Next.js (Server Components, shadcn/ui, E2E) |
+| Backend Developer (Node.js) | `node-backend-developer.md` | subagent | Implementasi Node.js API (Express, Prisma, DTO, auth) |
+| Backend Developer (Laravel) | `laravel-advanced.md` | subagent | Implementasi Laravel (Blade, Livewire, REST API, Service Layer) |
+| CodeIgniter 3 Fullstack | `code-igniter-3-fullstack.md` | subagent | Implementasi CI3 (MVC, REST API, JWT) |
+| UI/UX Designer | `ui-ux-designer.md` | subagent | Design system, Figma, Stitch, accessibility, DESIGN.md |
 | Code Reviewer / QA | `code-reviewer.md` | subagent | Code quality review, security audit, testing strategy, verification |
 | Database Specialist | `database-specialist.md` | subagent | PostgreSQL schema, query optimization, Prisma, migrations |
 | DevOps / Infrastructure | `devops-specialist.md` | subagent | CI/CD, deployment, Docker, monitoring, infrastructure |
 | SEO Specialist | `seo-specialist.md` | subagent | Meta tags, structured data, Core Web Vitals, content optimization |
+| Android Developer | `android-developer.md` | subagent | Kotlin, Jetpack Compose, Material 3, Gradle, Play Store |
+| Flutter Developer | `flutter-developer.md` | subagent | Dart, Flutter SDK, Material 3, Firebase, cross-platform |
 
 ### Cara Kerja
 
@@ -236,13 +257,18 @@ Repo ini menyediakan 8 agent dengan arsitektur **Leader → Subagent**:
 Untuk task kecil yang langsung tahu subagent-nya, bisa langsung mention subagent:
 
 ```text
-@frontend Tambahkan UButton "Simpan" di ProfileHeader.vue.
+@frontend-nuxt Tambahkan UButton "Simpan" di ProfileHeader.vue.
+@frontend-react Buat server component ProductList dengan fetch dari API.
 @backend Add endpoint POST /api/markets dengan DTO validation.
-@designer Review UX flow halaman checkout.
+@laravel Buat halaman CRUD produk lengkap dengan Blade + Livewire.
+@ci3 Buat REST API untuk produk dengan JWT auth.
+@designer Review UX flow halaman checkout dan generate DESIGN.md.
 @reviewer Audit security untuk authentication module.
 @database Optimasi query untuk listing markets dengan pagination.
 @devops Setup CI/CD pipeline untuk deployment ke Vercel.
 @seo Implementasi meta tags dan structured data untuk halaman produk.
+@android Buat halaman login dengan Jetpack Compose + ViewModel.
+@flutter Buat screen product list dengan Bloc pattern.
 ```
 
 ## Model yang Direkomendasikan
@@ -258,6 +284,8 @@ Setiap agent bisa pakai model berbeda berdasarkan kompleksitas tugas. Subagent a
 | **Reviewer** | Security audit, code review detail | `opencode/claude-opus-4.5` | `openai/o3` | Analisis mendalam, deteksi pattern halus |
 | **Database** | Schema design, query optimization | `opencode/claude-sonnet-4.5` | `opencode/claude-sonnet-4` | Kebutuhan reasoning cukup, fokus precision |
 | **DevOps** | CI/CD config, scripts, monitoring | `opencode/claude-haiku-4.5` | `openai/gpt-4.1-mini` | Task lebih straightforward, efisiensi tinggi |
+| **Android** | Kotlin, Compose, Gradle, Play Store | `opencode/claude-sonnet-4.5` | `opencode/claude-haiku-4.5` | Keseimbangan reasoning & efisiensi |
+| **Flutter** | Dart, Flutter SDK, cross-platform | `opencode/claude-sonnet-4.5` | `opencode/claude-haiku-4.5` | Keseimbangan reasoning & efisiensi |
 | **SEO** | Research, meta tags, structured data | `openai/gpt-5.1-codex-mini` | `openai/gpt-5-nano` | Task lebih research-focused, tidak perlu deep coding |
 
 ### Tier Model
