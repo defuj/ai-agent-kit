@@ -90,18 +90,11 @@
           "yarn *": "allow",
           "npx playwright*": "allow"
         },
-        "mcp": {
-          "nuxt": "allow",
-          "nuxt-ui": "allow",
-          "figma": "ask",
-          "playwright": "allow"
-        },
-        "task": {
-          "*": "allow",
-          "general": "allow",
-          "explore": "allow",
-          "scout": "allow"
-        }
+        "nuxt_*": "allow",
+        "nuxt-ui_*": "allow",
+        "figma_*": "ask",
+        "playwright_*": "allow",
+        "task": { "*": "allow" }
       }
     },
     "frontend-nuxt": {
@@ -121,12 +114,10 @@
           "yarn *": "allow",
           "npx playwright*": "allow"
         },
-        "mcp": {
-          "nuxt": "allow",
-          "nuxt-ui": "allow",
-          "figma": "ask",
-          "playwright": "allow"
-        }
+        "nuxt_*": "allow",
+        "nuxt-ui_*": "allow",
+        "figma_*": "ask",
+        "playwright_*": "allow"
       }
     },
     "frontend-react": {
@@ -146,10 +137,8 @@
           "yarn *": "allow",
           "npx playwright*": "allow"
         },
-        "mcp": {
-          "figma": "ask",
-          "playwright": "allow"
-        }
+        "figma_*": "ask",
+        "playwright_*": "allow"
       }
     },
     "backend": {
@@ -167,8 +156,7 @@
           "pnpm *": "allow",
           "bun *": "allow",
           "yarn *": "allow"
-        },
-        "mcp": {}
+        }
       }
     },
     "ci3": {
@@ -185,8 +173,7 @@
           "git status": "allow",
           "git diff": "allow",
           "git log*": "allow"
-        },
-        "mcp": {}
+        }
       }
     },
     "laravel": {
@@ -203,8 +190,7 @@
           "git status": "allow",
           "git diff": "allow",
           "git log*": "allow"
-        },
-        "mcp": {}
+        }
       }
     },
     "designer": {
@@ -222,11 +208,9 @@
           "git diff": "allow",
           "git log*": "allow"
         },
-        "mcp": {
-          "stitch": "allow",
-          "figma": "ask",
-          "nuxt-ui": "allow"
-        }
+        "stitch_*": "allow",
+        "figma_*": "ask",
+        "nuxt-ui_*": "allow"
       }
     },
     "reviewer": {
@@ -246,9 +230,7 @@
           "yarn *": "allow",
           "npx playwright*": "allow"
         },
-        "mcp": {
-          "playwright": "allow"
-        }
+        "playwright_*": "allow"
       }
     },
     "database": {
@@ -266,8 +248,7 @@
           "pnpm *": "allow",
           "bun *": "allow",
           "yarn *": "allow"
-        },
-        "mcp": {}
+        }
       }
     },
     "devops": {
@@ -286,8 +267,7 @@
           "bun *": "allow",
           "yarn *": "allow",
           "docker *": "allow"
-        },
-        "mcp": {}
+        }
       }
     },
     "seo": {
@@ -305,9 +285,7 @@
           "git diff": "allow",
           "git log*": "allow"
         },
-        "mcp": {
-          "nuxt": "allow"
-        }
+        "nuxt_*": "allow"
       }
     },
     "android": {
@@ -324,10 +302,8 @@
           "./gradlew *": "allow",
           "gradle *": "allow"
         },
-        "mcp": {
-          "figma": "ask",
-          "playwright": "allow"
-        }
+        "figma_*": "ask",
+        "playwright_*": "allow"
       }
     },
     "flutter": {
@@ -344,10 +320,8 @@
           "flutter *": "allow",
           "dart *": "allow"
         },
-        "mcp": {
-          "figma": "ask",
-          "playwright": "allow"
-        }
+        "figma_*": "ask",
+        "playwright_*": "allow"
       }
     }
   }
