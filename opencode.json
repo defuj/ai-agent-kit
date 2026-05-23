@@ -1,0 +1,328 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "formatter": true,
+  "permission": {
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "edit": "allow",
+    "bash": {
+      "*": "ask",
+      "git status": "allow",
+      "git diff": "allow",
+      "git log*": "allow",
+      "grep *": "allow"
+    },
+    "webfetch": "allow",
+    "skill": {
+      "*": "allow"
+    },
+    "todowrite": "allow",
+    "question": "allow",
+    "doom_loop": "ask",
+    "external_directory": "ask"
+  },
+  "instructions": [
+    ".opencode/instructions/INSTRUCTIONS.md",
+    ".opencode/skills/coding-standards/SKILL.md",
+    ".opencode/skills/security-review/SKILL.md"
+  ],
+  "mcp": {
+    "nuxt": {
+      "type": "remote",
+      "url": "https://nuxt.com/mcp",
+      "enabled": true,
+      "description": "Nuxt documentation, blog posts, and deployment guides"
+    },
+    "nuxt-ui": {
+      "type": "remote",
+      "url": "https://ui.nuxt.com/mcp",
+      "enabled": true,
+      "description": "Nuxt UI component documentation and examples"
+    },
+    "figma": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-figma"],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}"
+      },
+      "enabled": false,
+      "description": "Figma design file access (requires FIGMA_ACCESS_TOKEN)"
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-playwright"],
+      "enabled": true,
+      "description": "Browser automation and E2E testing with Playwright"
+    },
+    "stitch": {
+      "type": "remote",
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "${STITCH_API_KEY}"
+      },
+      "enabled": false,
+      "description": "Google Stitch AI design generation (requires STITCH_API_KEY)"
+    }
+  },
+  "agent": {
+    "leader": {
+      "description": "IT Leader & Technical Project Manager — analyzes requirements, designs architecture, decomposes tasks, delegates to subagents, and unifies outputs",
+      "mode": "primary",
+      "prompt": "{file:.opencode/agents/it-leader.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
+      "color": "#8b5cf6",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "npm *": "allow",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "yarn *": "allow",
+          "npx playwright*": "allow"
+        },
+        "nuxt_*": "allow",
+        "nuxt-ui_*": "allow",
+        "figma_*": "ask",
+        "playwright_*": "allow",
+        "task": { "*": "allow" }
+      }
+    },
+    "frontend-nuxt": {
+      "description": "Expert Vue/Nuxt frontend developer for Nuxt.js, Vue 3, Nuxt UI, and modern web technologies with MCP integration (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/nuxt-frontend-developer.md}",
+      "color": "#3b82f6",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "npm *": "allow",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "yarn *": "allow",
+          "npx playwright*": "allow"
+        },
+        "nuxt_*": "allow",
+        "nuxt-ui_*": "allow",
+        "figma_*": "ask",
+        "playwright_*": "allow"
+      }
+    },
+    "frontend-react": {
+      "description": "Expert React/Next.js frontend developer for React 19, Next.js 15, Vite, shadcn/ui, and modern web technologies (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/react-frontend-developer.md}",
+      "color": "#06b6d4",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "npm *": "allow",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "yarn *": "allow",
+          "npx playwright*": "allow"
+        },
+        "figma_*": "ask",
+        "playwright_*": "allow"
+      }
+    },
+    "backend": {
+      "description": "Expert backend developer for Node.js, Express, Prisma, and PostgreSQL (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/node-backend-developer.md}",
+      "color": "#10b981",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "npm *": "allow",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "yarn *": "allow"
+        }
+      }
+    },
+    "ci3": {
+      "description": "CodeIgniter 3 MVC fullstack developer for REST API, JWT, MySQL/PostgreSQL (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/code-igniter-3-fullstack.md}",
+      "color": "#84cc16",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "git status": "allow",
+          "git diff": "allow",
+          "git log*": "allow"
+        }
+      }
+    },
+    "laravel": {
+      "description": "Laravel backend engineer for REST API, Service/Repository, JWT, MySQL/PostgreSQL (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/laravel-advanced.md}",
+      "color": "#f97316",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "git status": "allow",
+          "git diff": "allow",
+          "git log*": "allow"
+        }
+      }
+    },
+    "designer": {
+      "description": "UI/UX Designer specializing in design systems, Google Stitch, Figma, accessibility, and design-to-code handoff (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/ui-ux-designer.md}",
+      "color": "#f59e0b",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "git status": "allow",
+          "git diff": "allow",
+          "git log*": "allow"
+        },
+        "stitch_*": "allow",
+        "figma_*": "ask",
+        "nuxt-ui_*": "allow"
+      }
+    },
+    "reviewer": {
+      "description": "Code Reviewer & QA Engineer specializing in code quality, security audit, testing strategy, and verification (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/code-reviewer.md}",
+      "color": "#ef4444",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "npm *": "allow",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "yarn *": "allow",
+          "npx playwright*": "allow"
+        },
+        "playwright_*": "allow"
+      }
+    },
+    "database": {
+      "description": "Database Specialist specializing in PostgreSQL schema design, query optimization, Prisma ORM, and migrations (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/database-specialist.md}",
+      "color": "#06b6d4",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "npm *": "allow",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "yarn *": "allow"
+        }
+      }
+    },
+    "devops": {
+      "description": "DevOps Engineer specializing in CI/CD, deployment, Docker, monitoring, and infrastructure (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/devops-specialist.md}",
+      "color": "#6366f1",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "npm *": "allow",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "yarn *": "allow",
+          "docker *": "allow"
+        }
+      }
+    },
+    "seo": {
+      "description": "SEO Specialist specializing in meta tags, structured data, Core Web Vitals, and content optimization (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/seo-specialist.md}",
+      "color": "#84cc16",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "git status": "allow",
+          "git diff": "allow",
+          "git log*": "allow"
+        },
+        "nuxt_*": "allow"
+      }
+    },
+    "android": {
+      "description": "Expert Android developer for Kotlin, Jetpack Compose, XML, Material Design 3, and Google Play (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/android-developer.md}",
+      "color": "#22c55e",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "./gradlew *": "allow",
+          "gradle *": "allow"
+        },
+        "figma_*": "ask",
+        "playwright_*": "allow"
+      }
+    },
+    "flutter": {
+      "description": "Expert Flutter developer for Dart, Flutter SDK, Material Design 3, Firebase, and cross-platform mobile apps (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/flutter-developer.md}",
+      "color": "#0284c7",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "flutter *": "allow",
+          "dart *": "allow"
+        },
+        "figma_*": "ask",
+        "playwright_*": "allow"
+      }
+    }
+  }
+}
