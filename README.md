@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="AI Agent System Banner" width="100%">
+</p>
+
 # IT Team Agent — Setup Guide
 
 Panduan ini menjelaskan cara menggunakan agent di repo ini, termasuk skill yang perlu diinstall agar agent berjalan optimal.
@@ -34,7 +38,7 @@ Repo ini berisi konfigurasi OpenCode untuk tim IT lengkap dengan arsitektur **Le
   - Frontend Nuxt: `.opencode/agent-docs/frontend/nuxt/`
   - Frontend React: `.opencode/agent-docs/frontend/react/`
   - Backend Node: `.opencode/agent-docs/backend/node/`
-- Skill lokal: `.opencode/skills/` (33 skill tersinkron)
+- Skill lokal: `.opencode/skills/` (61 skill tersinkron)
 - Contexts: `.opencode/contexts/` (dev, research, review)
 
 Tim didesain untuk:
@@ -156,6 +160,13 @@ Setelah copy `.opencode/` ke project, command berikut tersedia:
 
 # Database
 # (built-in database-reviewer bisa dipakai untuk query optimization)
+
+# Mobile
+/android-build [variant]              # Build Android (debug/release/bundle)
+/android-test [type]                  # Run Android tests (unit/instrumented)
+/flutter-build [target]               # Build Flutter (apk/appbundle/ios/web)
+/flutter-test [type]                  # Run Flutter tests with coverage
+/gpc-release [track]                  # Publish to Google Play (internal/alpha/beta/production)
 ```
 
 ## Cara Menggunakan Folder `.opencode`
@@ -314,17 +325,20 @@ Skill tersimpan di `.opencode/skills/` (lokal dalam repo), jadi developer lain t
 | Agent | Skill Utama |
 |-------|-------------|
 | IT Leader | coding-standards, backend-patterns, frontend-patterns |
-| Frontend Developer | coding-standards, frontend-patterns, frontend-design, web-design-guidelines, nuxt-ui, tdd-workflow |
+| Frontend Developer (Vue) | coding-standards, frontend-patterns, frontend-design, web-design-guidelines, nuxt-ui, tdd-workflow |
+| Frontend Developer (React) | coding-standards, frontend-patterns, frontend-design, web-design-guidelines, vercel-react-best-practices, vercel-composition-patterns, tdd-workflow |
 | Backend Developer | coding-standards, backend-patterns, postgres-patterns, security-review |
 | UI/UX Designer | frontend-design, web-design-guidelines, building-components, nuxt-ui |
 | Code Reviewer / QA | coding-standards, security-review, tdd-workflow, web-design-guidelines |
 | Database Specialist | postgres-patterns, backend-patterns |
 | DevOps / Infrastructure | backend-patterns, coding-standards |
 | SEO Specialist | frontend-patterns, web-design-guidelines, nuxt-ui |
+| **Android Developer** | coding-standards, android-jetpack-compose, edge-to-edge, navigation-3, firebase-basics, play-billing, camera1-to-camerax, r8-analyzer, migrate-xml-views-to-jetpack-compose, gpc-setup, gpc-release-flow, gpc-preflight, gpc-vitals-monitoring |
+| **Flutter Developer** | coding-standards, flutter (patterns), 10 Flutter skills, 9 Dart skills, firebase-basics |
 
 ### Skill yang tidak perlu untuk operasional tim ini
 
-Skill backend/lintas bahasa di bawah tidak diperlukan untuk stack Nuxt + Node.js:
+Skill backend/lintas bahasa di bawah tidak diperlukan untuk stack utama Nuxt + Node.js:
 
 - `springboot-*`, `java-*`, `jpa-patterns`
 - `django-*`
@@ -332,7 +346,7 @@ Skill backend/lintas bahasa di bawah tidak diperlukan untuk stack Nuxt + Node.js
 - `python-*`
 - `clickhouse-io`
 
-Catatan: skill tersebut boleh tetap disimpan jika tim memang butuh multi-stack, tapi tidak wajib untuk tim ini.
+Catatan: skill tersebut boleh tetap disimpan jika tim memang butuh multi-stack, tapi tidak wajib untuk stack utama.
 
 ### Skill lain yang tersedia di repo
 
@@ -394,6 +408,7 @@ Dari `.opencode/config.json`, agent memakai MCP berikut:
 | `nuxt` | remote | enabled | Dokumentasi Nuxt, blog, deployment guide |
 | `nuxt-ui` | remote | enabled | Dokumentasi & contoh komponen Nuxt UI |
 | `playwright` | stdio | enabled | Browser automation & E2E testing |
+| `postman` | remote | enabled | Postman API management (collections, requests, docs) |
 | `figma` | stdio | disabled | Akses Figma design file (opsional) |
 | `stitch` | remote | disabled | Google Stitch AI design generation (opsional) |
 
@@ -573,13 +588,20 @@ Dokumentasi agent tersedia di `.opencode/agent-docs/frontend/nuxt/`:
 - Config aktif: `.opencode/config.json`
 - Config contoh (model per agent): `.opencode/config.example.json`
 - Prompt IT Leader (primary): `.opencode/agents/it-leader.md`
-- Prompt frontend subagent: `.opencode/agents/nuxt-frontend-developer.md`
-- Prompt backend subagent: `.opencode/agents/node-backend-developer.md`
+- Prompt frontend (Nuxt): `.opencode/agents/nuxt-frontend-developer.md`
+- Prompt frontend (React): `.opencode/agents/react-frontend-developer.md`
+- Prompt backend (Node): `.opencode/agents/node-backend-developer.md`
+- Prompt backend (Laravel): `.opencode/agents/laravel-advanced.md`
+- Prompt backend (CI3): `.opencode/agents/code-igniter-3-fullstack.md`
 - Prompt designer subagent: `.opencode/agents/ui-ux-designer.md`
 - Prompt reviewer subagent: `.opencode/agents/code-reviewer.md`
 - Prompt database subagent: `.opencode/agents/database-specialist.md`
 - Prompt devops subagent: `.opencode/agents/devops-specialist.md`
 - Prompt seo subagent: `.opencode/agents/seo-specialist.md`
+- Prompt android subagent: `.opencode/agents/android-developer.md`
+- Prompt flutter subagent: `.opencode/agents/flutter-developer.md`
+- Commands mobile: `.opencode/commands/android-build/`, `android-test/`, `flutter-build/`, `flutter-test/`, `gpc-release/`
+- Rules mobile: `.opencode/rules/android/`, `flutter/`, `mobile/`
 - Dokumentasi utama: `.opencode/agent-docs/frontend/nuxt/README.md`
 - Quick start: `.opencode/agent-docs/frontend/nuxt/QUICK_START.md`
 - Index dokumentasi: `.opencode/agent-docs/frontend/nuxt/INDEX.md`
