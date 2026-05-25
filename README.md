@@ -13,12 +13,6 @@ Repo ini berisi konfigurasi OpenCode untuk tim IT lengkap dengan arsitektur **Le
 ### Agent Config
 
 - **Active config**: `.opencode/config.json`
-- **Example config** (dengan model berbeda per agent): `.opencode/config.example.json`
-- **Agent prompts**: `.opencode/agents/`
-- **Instructions**: `.opencode/instructions/INSTRUCTIONS.md` (rules yang dipakai semua agent)
-- **Agent examples**: `.opencode/agents/`
-
-- Agent config: `.opencode/config.json`
 - Agent prompts: `.opencode/agents/`
   - `it-leader.md` — IT Leader & Technical Project Manager (primary)
   - `nuxt-frontend-developer.md` — Frontend Developer (Nuxt/Vue) — `@frontend-nuxt`
@@ -198,25 +192,6 @@ cp .opencode/config.json /path/to/your-project/.opencode/config.json
 | `rules/` | Coding rules | Opsional |
 | `hooks/` | Automation hooks | Opsional |
 
-### Priority Konfigurasi
-
-```
-User Session
-    │
-    ▼
-Project-level config (.opencode/config.json)
-    │
-    ▼
-Global config (~/.opencode/opencode.json)
-    │
-    ▼
-OpenCode defaults
-```
-
-- **Project-level** override global
-- **Global** override defaults
-- Instructions digabungkan dari semua level
-
 ### Integrasi dengan Global OpenCode
 
 Project config ini **tidak perlu memodifikasi** konfigurasi global Anda. Cukup copy `.opencode/` ke project dan semua agent + commands akan tersedia.
@@ -240,7 +215,7 @@ Contoh override `code-reviewer` untuk fokus Nuxt:
 
 ## Agent yang Tersedia
 
-Repo ini menyediakan 14 agent dengan arsitektur **Leader → Subagent**:
+Repo ini menyediakan 13 agent (12 terdaftar di `config.json` + 1 standalone mentor) dengan arsitektur **Leader → Subagent**:
 
 | Agent | File | Mode | Tujuan |
 |-------|------|------|--------|
@@ -399,6 +374,25 @@ cp -R ./.opencode/skills/building-components ~/.opencode/skills/
 cp -R ./.opencode/skills/vercel-composition-patterns ~/.opencode/skills/
 ```
 
+### Mobile Skills
+
+Jika mengerjakan mobile development, install juga skill berikut:
+
+```bash
+# Flutter patterns & task skills
+cp -R ./.opencode/skills/flutter ~/.opencode/skills/
+cp -R ./.opencode/skills/flutter-* ~/.opencode/skills/
+
+# Dart task skills
+cp -R ./.opencode/skills/dart-* ~/.opencode/skills/
+
+# Android skills
+cp -R ./.opencode/skills/jetpack-compose ~/.opencode/skills/
+
+# Firebase (shared Android + Flutter)
+cp -R ./.opencode/skills/firebase-basics ~/.opencode/skills/
+```
+
 ## MCP yang Digunakan Agent
 
 Dari `.opencode/config.json`, agent memakai MCP berikut:
@@ -424,6 +418,83 @@ Jika ingin pakai Google Stitch MCP:
 # Get API key from https://stitch.withgoogle.com/settings/api-keys
 export STITCH_API_KEY="your-api-key"
 ```
+
+## Setup Global Config OpenCode
+
+Agar agent, skill, commands, dan rules tersedia di semua project, copy ke direktori global OpenCode.
+
+### macOS & Linux/Ubuntu
+
+Path global: `~/.opencode/`
+
+```bash
+# Buat direktori global jika belum ada
+mkdir -p ~/.opencode/skills ~/.opencode/commands ~/.opencode/rules ~/.opencode/contexts
+
+# Copy dari project ke global
+cp -R .opencode/config.json ~/.opencode/opencode.json            # Config global
+cp -R .opencode/skills/* ~/.opencode/skills/                      # Skills
+cp -R .opencode/commands/* ~/.opencode/commands/                  # Commands
+cp -R .opencode/rules/* ~/.opencode/rules/                        # Rules
+cp -R .opencode/contexts/* ~/.opencode/contexts/                  # Contexts
+```
+
+### Windows (PowerShell)
+
+Path global: `$env:USERPROFILE\.opencode\`
+
+```powershell
+# Buat direktori global jika belum ada
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.opencode\skills"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.opencode\commands"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.opencode\rules"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.opencode\contexts"
+
+# Copy dari project ke global
+Copy-Item -Recurse .opencode\config.json "$env:USERPROFILE\.opencode\opencode.json"
+Copy-Item -Recurse .opencode\skills\* "$env:USERPROFILE\.opencode\skills\"
+Copy-Item -Recurse .opencode\commands\* "$env:USERPROFILE\.opencode\commands\"
+Copy-Item -Recurse .opencode\rules\* "$env:USERPROFILE\.opencode\rules\"
+Copy-Item -Recurse .opencode\contexts\* "$env:USERPROFILE\.opencode\contexts\"
+```
+
+### Windows (Command Prompt)
+
+```cmd
+mkdir "%USERPROFILE%\.opencode\skills"
+mkdir "%USERPROFILE%\.opencode\commands"
+mkdir "%USERPROFILE%\.opencode\rules"
+mkdir "%USERPROFILE%\.opencode\contexts"
+copy /Y .opencode\config.json "%USERPROFILE%\.opencode\opencode.json"
+xcopy /E /I /Y .opencode\skills "%USERPROFILE%\.opencode\skills\"
+xcopy /E /I /Y .opencode\commands "%USERPROFILE%\.opencode\commands\"
+xcopy /E /I /Y .opencode\rules "%USERPROFILE%\.opencode\rules\"
+xcopy /E /I /Y .opencode\contexts "%USERPROFILE%\.opencode\contexts\"
+```
+
+### Verify Setup
+
+```bash
+opencode doctor                    # Cek status konfigurasi
+ls ~/.opencode/                    # Cek direktori global (macOS/Linux)
+```
+
+### Priority Konfigurasi
+
+```
+User Session
+    │
+    ▼
+Project-level config (.opencode/config.json)   ← Tertinggi
+    │
+    ▼
+Global config (~/.opencode/opencode.json)
+    │
+    ▼
+OpenCode defaults                               ← Terendah
+```
+
+Project config override global, global override defaults. Instructions digabungkan dari semua level.
 
 ## Cara Menggunakan Folder Pendukung
 
@@ -495,12 +566,12 @@ IT Leader akan:
 Untuk task kecil yang sudah jelas subagent-nya, bisa langsung mention:
 
 ```text
-@frontend Tambahkan UButton "Simpan" di app/components/profile/ProfileHeader.vue.
+@frontend-nuxt Tambahkan UButton "Simpan" di app/components/profile/ProfileHeader.vue.
 Task tiny, minimal diff, jangan ubah file lain.
 ```
 
 ```text
-@frontend Implementasikan filter status di halaman markets.
+@frontend-nuxt Implementasikan filter status di halaman markets.
 Gunakan pola useApi yang sudah ada dan laporkan verification status.
 ```
 
