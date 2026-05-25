@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Team Agent — Multi-Stack OpenCode Agent System</title>
+  <meta name="description" content="A portable multi-stack development agent toolkit for OpenCode with 12 specialized AI agents, 62 skills, and 36 commands. Copy into any project to instantly equip AI agents." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238b5cf6'/><text x='16' y='22' text-anchor='middle' fill='white' font-size='18' font-weight='bold'>T</text></svg>" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0f;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Glow effects */
+    .glow-violet { box-shadow: 0 0 60px -10px rgba(139,92,246,0.3); }
+    .glow-blue { box-shadow: 0 0 60px -10px rgba(59,130,246,0.3); }
+    .glow-cyan { box-shadow: 0 0 60px -10px rgba(6,182,212,0.3); }
+    .glow-green { box-shadow: 0 0 60px -10px rgba(16,185,129,0.3); }
+    .text-gradient {
+      background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-violet {
+      background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Grid background */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .bg-grid-lighter {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Card hover effects */
+    .agent-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+    .agent-card:hover::before { transform: scaleX(1); }
+    .agent-card:hover {
+      translate: 0 -4px;
+    }
+
+    /* Agent card glow borders */
+    .agent-card.border-violet-500\/30:hover { border-color: rgba(139,92,246,0.6); }
+    .agent-card.border-blue-500\/30:hover { border-color: rgba(59,130,246,0.6); }
+    .agent-card.border-cyan-500\/30:hover { border-color: rgba(6,182,212,0.6); }
+    .agent-card.border-emerald-500\/30:hover { border-color: rgba(16,185,129,0.6); }
+    .agent-card.border-lime-500\/30:hover { border-color: rgba(132,204,22,0.6); }
+    .agent-card.border-orange-500\/30:hover { border-color: rgba(249,115,22,0.6); }
+    .agent-card.border-amber-500\/30:hover { border-color: rgba(245,158,11,0.6); }
+    .agent-card.border-red-500\/30:hover { border-color: rgba(239,68,68,0.6); }
+    .agent-card.border-indigo-500\/30:hover { border-color: rgba(99,102,241,0.6); }
+    .agent-card.border-sky-500\/30:hover { border-color: rgba(2,132,199,0.6); }
+
+    /* Scroll animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Flow arrows */
+    .flow-arrow {
+      width: 0; height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 12px solid rgba(139,92,246,0.5);
+      margin: 0 auto;
+    }
+
+    /* Pulse dot */
+    .pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* Shimmer effect for stat numbers */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .stat-shimmer {
+      background: linear-gradient(90deg, #c084fc 0%, #818cf8 50%, #38bdf8 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    /* Bento grid utilities */
+    .bento-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.06) 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .bento-card:hover {
+      border-color: rgba(139,92,246,0.2);
+      background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(255,255,255,0.08) 100%);
+    }
+
+    /* Split text background */
+    .hero-bg {
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(139,92,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.3); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.5); }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0a0a0f]/80 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm">T</div>
+        <span class="font-semibold text-white/90 text-sm sm:text-base">IT Team Agent</span>
+      </div>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="#agents" class="text-white/50 hover:text-white/90 transition-colors hidden sm:block">Agents</a>
+        <a href="#mcp" class="text-white/50 hover:text-white/90 transition-colors hidden sm:block">MCP</a>
+        <a href="#skills" class="text-white/50 hover:text-white/90 transition-colors hidden sm:block">Skills</a>
+        <a href="#commands" class="text-white/50 hover:text-white/90 transition-colors hidden sm:block">Commands</a>
+        <a href="#quickstart" class="text-white/50 hover:text-white/90 transition-colors hidden sm:block">Quick Start</a>
+        <a href="https://github.com/defuj/frontend-developer-nuxt" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white transition-all text-sm">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="hidden sm:inline">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-grid">
+    <div class="hero-bg"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div class="max-w-4xl">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs sm:text-sm font-medium mb-8">
+          <span class="pulse-dot bg-violet-400 inline-block"></span>
+          v1.3.0 — 12 Agents &middot; 62 Skills &middot; 36 Commands
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight mb-6">
+          <span class="text-white">Multi-Stack</span><br />
+          <span class="text-gradient">Agent System</span><br />
+          <span class="text-white/50">for OpenCode</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg sm:text-xl text-white/50 max-w-2xl mb-10 leading-relaxed">
+          A portable <strong class="text-white/80">Leader &rarr; Subagent</strong> orchestration toolkit.
+          Copy into any project to instantly equip AI agents with full-stack, mobile,
+          and supporting intelligence &mdash; Nuxt, React, Node, Laravel, CI3, Android, Flutter, and more.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#quickstart" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition-all shadow-lg shadow-violet-600/25">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Quick Start
+          </a>
+          <a href="#agents" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white font-semibold transition-all">
+            Meet the Team
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="mt-16 sm:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+        <div class="bento-card text-center">
+          <div class="text-3xl sm:text-4xl font-bold stat-shimmer">12</div>
+          <div class="text-white/40 text-sm mt-1">Specialized Agents</div>
+        </div>
+        <div class="bento-card text-center">
+          <div class="text-3xl sm:text-4xl font-bold stat-shimmer">62</div>
+          <div class="text-white/40 text-sm mt-1">Skill Playbooks</div>
+        </div>
+        <div class="bento-card text-center">
+          <div class="text-3xl sm:text-4xl font-bold stat-shimmer">36</div>
+          <div class="text-white/40 text-sm mt-1">Slash Commands</div>
+        </div>
+        <div class="bento-card text-center">
+          <div class="text-3xl sm:text-4xl font-bold stat-shimmer">6</div>
+          <div class="text-white/40 text-sm mt-1">MCP Servers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== ARCHITECTURE ======== -->
+  <section class="py-20 lg:py-28 bg-[#0d0d16] border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-violet-400 font-mono text-sm tracking-widest uppercase">Architecture</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">Leader &rarr; Subagent Orchestration</h2>
+        <p class="text-white/50 max-w-2xl mx-auto">An IT Leader agent analyzes, plans, and delegates to specialized subagents &mdash; all configured for seamless parallel work.</p>
+      </div>
+
+      <!-- Flow Diagram -->
+      <div class="max-w-4xl mx-auto">
+        <!-- User Request -->
+        <div class="flex justify-center mb-8 fade-in">
+          <div class="bento-card text-center px-8 py-4">
+            <div class="text-white/40 text-xs font-mono tracking-wider mb-1">INPUT</div>
+            <div class="text-white font-semibold text-lg">&quot;Build a marketplace with auth, API, and mobile app&quot;</div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="flow-arrow mb-8"></div>
+
+        <!-- Leader -->
+        <div class="flex justify-center mb-8 fade-in">
+          <div class="bento-card text-center px-10 py-5 border-violet-500/20 glow-violet" style="border-color: rgba(139,92,246,0.3);">
+            <div class="w-10 h-10 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm mx-auto mb-3">TL</div>
+            <div class="text-white font-bold text-lg">IT Leader</div>
+            <div class="text-white/40 text-sm">Orchestration &bull; Planning &bull; Integration</div>
+            <div class="flex items-center justify-center gap-4 mt-3 text-xs text-white/30 font-mono">
+              <span>analyze</span>
+              <span class="text-violet-400">&rarr;</span>
+              <span>decompose</span>
+              <span class="text-violet-400">&rarr;</span>
+              <span>delegate</span>
+              <span class="text-violet-400">&rarr;</span>
+              <span>integrate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arrow split -->
+        <div class="relative mb-8">
+          <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-violet-500/40 to-transparent"></div>
+          <div class="flex justify-center gap-2 text-white/30 text-xs font-mono pt-8">
+            <svg class="w-5 h-5 text-violet-400/60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          </div>
+        </div>
+
+        <!-- Subagents Row -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 fade-in">
+          <div class="bento-card text-center py-3 px-2 border-blue-500/10">
+            <div class="w-6 h-6 rounded bg-blue-500/20 text-blue-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">V</div>
+            <div class="text-white/70 text-xs font-medium">Nuxt</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-cyan-500/10">
+            <div class="w-6 h-6 rounded bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">R</div>
+            <div class="text-white/70 text-xs font-medium">React</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-emerald-500/10">
+            <div class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">N</div>
+            <div class="text-white/70 text-xs font-medium">Node</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-orange-500/10">
+            <div class="w-6 h-6 rounded bg-orange-500/20 text-orange-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">L</div>
+            <div class="text-white/70 text-xs font-medium">Laravel</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-green-500/10">
+            <div class="w-6 h-6 rounded bg-green-500/20 text-green-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">A</div>
+            <div class="text-white/70 text-xs font-medium">Android</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-sky-500/10">
+            <div class="w-6 h-6 rounded bg-sky-500/20 text-sky-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">F</div>
+            <div class="text-white/70 text-xs font-medium">Flutter</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-3 mt-3 fade-in">
+          <div class="bento-card text-center py-3 px-2 border-lime-500/10">
+            <div class="w-6 h-6 rounded bg-lime-500/20 text-lime-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">C</div>
+            <div class="text-white/70 text-xs font-medium">CI3</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-amber-500/10">
+            <div class="w-6 h-6 rounded bg-amber-500/20 text-amber-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">D</div>
+            <div class="text-white/70 text-xs font-medium">Design</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-red-500/10">
+            <div class="w-6 h-6 rounded bg-red-500/20 text-red-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">R</div>
+            <div class="text-white/70 text-xs font-medium">Review</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-cyan-500/10">
+            <div class="w-6 h-6 rounded bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">D</div>
+            <div class="text-white/70 text-xs font-medium">DB</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-indigo-500/10">
+            <div class="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">O</div>
+            <div class="text-white/70 text-xs font-medium">DevOps</div>
+          </div>
+          <div class="bento-card text-center py-3 px-2 border-lime-500/10">
+            <div class="w-6 h-6 rounded bg-lime-500/20 text-lime-400 text-xs font-bold flex items-center justify-center mx-auto mb-1">S</div>
+            <div class="text-white/70 text-xs font-medium">SEO</div>
+          </div>
+        </div>
+
+        <!-- Output Arrow -->
+        <div class="flex justify-center mt-8 fade-in">
+          <div class="flex items-center gap-3 text-white/30 text-sm font-mono">
+            <span class="h-px w-12 bg-white/10"></span>
+            <span>Integration Report</span>
+            <span class="h-px w-12 bg-white/10"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== AGENTS ======== -->
+  <section id="agents" class="py-20 lg:py-28 bg-grid-lighter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-violet-400 font-mono text-sm tracking-widest uppercase">The Team</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">12 Specialized Agents</h2>
+        <p class="text-white/50 max-w-2xl mx-auto">Each agent brings deep expertise in its stack &mdash; color-coded and ready for action.</p>
+      </div>
+
+      <!-- Agent Cards Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- IT Leader -->
+        <div class="agent-card bento-card border-violet-500/30 fade-in" style="border-color: rgba(139,92,246,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm">TL</div>
+            <div>
+              <div class="text-white font-semibold">IT Leader</div>
+              <div class="text-white/40 text-xs font-mono">@leader &middot; primary</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Orchestrates development from requirements to delivery. Analyzes, plans, delegates, and unifies outputs.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-white/40 text-xs font-mono">plan</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-white/40 text-xs font-mono">delegate</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-white/40 text-xs font-mono">integrate</span>
+          </div>
+        </div>
+
+        <!-- Frontend Nuxt -->
+        <div class="agent-card bento-card border-blue-500/30 fade-in" style="border-color: rgba(59,130,246,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm">V</div>
+            <div>
+              <div class="text-white font-semibold">Nuxt Frontend</div>
+              <div class="text-white/40 text-xs font-mono">@frontend-nuxt</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Vue 3 &bull; Nuxt 4 &bull; Nuxt UI &bull; TypeScript &bull; Composables &bull; E2E with Playwright</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 text-xs font-mono">Nuxt 4</span>
+            <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 text-xs font-mono">Vue 3</span>
+            <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 text-xs font-mono">Nuxt UI</span>
+          </div>
+        </div>
+
+        <!-- Frontend React -->
+        <div class="agent-card bento-card border-cyan-500/30 fade-in" style="border-color: rgba(6,182,212,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-cyan-600 flex items-center justify-center text-white font-bold text-sm">R</div>
+            <div>
+              <div class="text-white font-semibold">React Frontend</div>
+              <div class="text-white/40 text-xs font-mono">@frontend-react</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">React 19 &bull; Next.js 15 &bull; shadcn/ui &bull; TanStack Query &bull; Server Components &bull; E2E</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">React 19</span>
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">Next.js 15</span>
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">shadcn/ui</span>
+          </div>
+        </div>
+
+        <!-- Backend Node -->
+        <div class="agent-card bento-card border-emerald-500/30 fade-in" style="border-color: rgba(16,185,129,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-sm">N</div>
+            <div>
+              <div class="text-white font-semibold">Node Backend</div>
+              <div class="text-white/40 text-xs font-mono">@backend</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Express 5 &bull; Prisma &bull; PostgreSQL &bull; DTO validation &bull; JWT auth &bull; Middleware</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-300 text-xs font-mono">Express 5</span>
+            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-300 text-xs font-mono">Prisma</span>
+            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-300 text-xs font-mono">PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- Laravel -->
+        <div class="agent-card bento-card border-orange-500/30 fade-in" style="border-color: rgba(249,115,22,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-600 flex items-center justify-center text-white font-bold text-sm">L</div>
+            <div>
+              <div class="text-white font-semibold">Laravel Backend</div>
+              <div class="text-white/40 text-xs font-mono">@laravel</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Laravel 10+ &bull; Service/Repository &bull; JWT &bull; Eloquent &bull; REST API &bull; Blade/Livewire</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 text-xs font-mono">Laravel 10+</span>
+            <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 text-xs font-mono">JWT</span>
+            <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 text-xs font-mono">Eloquent</span>
+          </div>
+        </div>
+
+        <!-- CI3 -->
+        <div class="agent-card bento-card border-lime-500/30 fade-in" style="border-color: rgba(132,204,22,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-lime-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+            <div>
+              <div class="text-white font-semibold">CodeIgniter 3</div>
+              <div class="text-white/40 text-xs font-mono">@ci3</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">CI3 MVC &bull; REST API &bull; JWT &bull; MySQL/PostgreSQL &bull; Fullstack monolith</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-300 text-xs font-mono">CI3</span>
+            <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-300 text-xs font-mono">MVC</span>
+            <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-300 text-xs font-mono">REST API</span>
+          </div>
+        </div>
+
+        <!-- Designer -->
+        <div class="agent-card bento-card border-amber-500/30 fade-in" style="border-color: rgba(245,158,11,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-600 flex items-center justify-center text-white font-bold text-sm">D</div>
+            <div>
+              <div class="text-white font-semibold">UI/UX Designer</div>
+              <div class="text-white/40 text-xs font-mono">@designer</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Impeccable design &bull; Figma &bull; Stitch &bull; Accessibility &bull; Design tokens &bull; DESIGN.md</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 text-xs font-mono">Impeccable</span>
+            <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 text-xs font-mono">WCAG 2.1</span>
+            <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 text-xs font-mono">Stitch</span>
+          </div>
+        </div>
+
+        <!-- Reviewer -->
+        <div class="agent-card bento-card border-red-500/30 fade-in" style="border-color: rgba(239,68,68,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-red-600 flex items-center justify-center text-white font-bold text-sm">R</div>
+            <div>
+              <div class="text-white font-semibold">Code Reviewer / QA</div>
+              <div class="text-white/40 text-xs font-mono">@reviewer</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Code quality &bull; Security audit &bull; Testing strategy &bull; Accessibility &bull; Performance</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-red-500/10 text-red-300 text-xs font-mono">Security</span>
+            <span class="px-2.5 py-1 rounded-md bg-red-500/10 text-red-300 text-xs font-mono">QA</span>
+            <span class="px-2.5 py-1 rounded-md bg-red-500/10 text-red-300 text-xs font-mono">E2E</span>
+          </div>
+        </div>
+
+        <!-- Database -->
+        <div class="agent-card bento-card border-cyan-500/30 fade-in" style="border-color: rgba(6,182,212,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-cyan-600 flex items-center justify-center text-white font-bold text-sm">D</div>
+            <div>
+              <div class="text-white font-semibold">Database Specialist</div>
+              <div class="text-white/40 text-xs font-mono">@database</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">PostgreSQL &bull; Prisma ORM &bull; Migrations &bull; Query optimization &bull; Indexing</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">Prisma</span>
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">SQL</span>
+          </div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="agent-card bento-card border-indigo-500/30 fade-in" style="border-color: rgba(99,102,241,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">O</div>
+            <div>
+              <div class="text-white font-semibold">DevOps Engineer</div>
+              <div class="text-white/40 text-xs font-mono">@devops</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">CI/CD &bull; Docker &bull; Vercel/Cloudflare &bull; GitHub Actions &bull; Monitoring &bull; Secrets</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 text-xs font-mono">CI/CD</span>
+            <span class="px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 text-xs font-mono">Docker</span>
+            <span class="px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 text-xs font-mono">Vercel</span>
+          </div>
+        </div>
+
+        <!-- SEO -->
+        <div class="agent-card bento-card border-lime-500/30 fade-in" style="border-color: rgba(132,204,22,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-lime-600 flex items-center justify-center text-white font-bold text-sm">S</div>
+            <div>
+              <div class="text-white font-semibold">SEO Specialist</div>
+              <div class="text-white/40 text-xs font-mono">@seo</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Meta tags &bull; JSON-LD &bull; Core Web Vitals &bull; Sitemaps &bull; Content optimization</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-300 text-xs font-mono">SEO</span>
+            <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-300 text-xs font-mono">JSON-LD</span>
+            <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-300 text-xs font-mono">CWV</span>
+          </div>
+        </div>
+
+        <!-- Android -->
+        <div class="agent-card bento-card border-green-500/30 fade-in" style="border-color: rgba(34,197,94,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center text-white font-bold text-sm">A</div>
+            <div>
+              <div class="text-white font-semibold">Android Developer</div>
+              <div class="text-white/40 text-xs font-mono">@android</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Kotlin &bull; Jetpack Compose &bull; Material 3 &bull; Hilt &bull; Room &bull; Google Play (GPC)</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-green-500/10 text-green-300 text-xs font-mono">Kotlin</span>
+            <span class="px-2.5 py-1 rounded-md bg-green-500/10 text-green-300 text-xs font-mono">Compose</span>
+            <span class="px-2.5 py-1 rounded-md bg-green-500/10 text-green-300 text-xs font-mono">GPC</span>
+          </div>
+        </div>
+
+        <!-- Flutter -->
+        <div class="agent-card bento-card border-sky-500/30 fade-in" style="border-color: rgba(2,132,199,0.25);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-sky-600 flex items-center justify-center text-white font-bold text-sm">F</div>
+            <div>
+              <div class="text-white font-semibold">Flutter Developer</div>
+              <div class="text-white/40 text-xs font-mono">@flutter</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">Dart &bull; Flutter SDK &bull; Material 3 &bull; Bloc/Riverpod &bull; GoRouter &bull; Firebase</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-300 text-xs font-mono">Dart</span>
+            <span class="px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-300 text-xs font-mono">Flutter</span>
+            <span class="px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-300 text-xs font-mono">Firebase</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== MCP SERVERS ======== -->
+  <section id="mcp" class="py-20 lg:py-28 bg-[#0d0d16] border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-violet-400 font-mono text-sm tracking-widest uppercase">Infrastructure</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">MCP Servers</h2>
+        <p class="text-white/50 max-w-2xl mx-auto">Model Context Protocol servers provide real-time documentation, browser automation, and API management.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Nuxt MCP -->
+        <div class="bento-card fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-sm">N</div>
+              <div>
+                <div class="text-white font-semibold">Nuxt</div>
+                <div class="text-white/30 text-xs font-mono">remote</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono">enabled</span>
+          </div>
+          <p class="text-white/40 text-sm">Nuxt documentation, blog posts, changelogs, and deployment guides directly in-context.</p>
+        </div>
+
+        <!-- Nuxt UI MCP -->
+        <div class="bento-card fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm">U</div>
+              <div>
+                <div class="text-white font-semibold">Nuxt UI</div>
+                <div class="text-white/30 text-xs font-mono">remote</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono">enabled</span>
+          </div>
+          <p class="text-white/40 text-sm">Component documentation, examples, API references, and theme customization for Nuxt UI v4.</p>
+        </div>
+
+        <!-- Playwright MCP -->
+        <div class="bento-card fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-sm">P</div>
+              <div>
+                <div class="text-white font-semibold">Playwright</div>
+                <div class="text-white/30 text-xs font-mono">stdio</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono">enabled</span>
+          </div>
+          <p class="text-white/40 text-sm">Browser automation and E2E testing. Navigate, interact, screenshot, and generate test scripts.</p>
+        </div>
+
+        <!-- Postman MCP -->
+        <div class="bento-card fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-400 to-amber-600 flex items-center justify-center text-white font-bold text-sm">P</div>
+              <div>
+                <div class="text-white font-semibold">Postman</div>
+                <div class="text-white/30 text-xs font-mono">remote</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono">enabled</span>
+          </div>
+          <p class="text-white/40 text-sm">API management: collections, requests, environments, mocks, monitors, and documentation sync.</p>
+        </div>
+
+        <!-- Figma MCP -->
+        <div class="bento-card fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-bold text-sm">F</div>
+              <div>
+                <div class="text-white font-semibold">Figma</div>
+                <div class="text-white/30 text-xs font-mono">stdio</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-white/5 text-white/30 text-xs font-mono">disabled</span>
+          </div>
+          <p class="text-white/40 text-sm">Direct Figma design file access. Requires <span class="text-white/60 font-mono text-xs">FIGMA_ACCESS_TOKEN</span>.</p>
+        </div>
+
+        <!-- Stitch MCP -->
+        <div class="bento-card fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">S</div>
+              <div>
+                <div class="text-white font-semibold">Google Stitch</div>
+                <div class="text-white/30 text-xs font-mono">remote</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-white/5 text-white/30 text-xs font-mono">disabled</span>
+          </div>
+          <p class="text-white/40 text-sm">AI design generation. Requires <span class="text-white/60 font-mono text-xs">STITCH_API_KEY</span> from stitch.withgoogle.com.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SKILLS ======== -->
+  <section id="skills" class="py-20 lg:py-28 bg-grid-lighter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-violet-400 font-mono text-sm tracking-widest uppercase">Knowledge Base</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">62 Skill Playbooks</h2>
+        <p class="text-white/50 max-w-2xl mx-auto">Domain-specific skills that give agents deep expertise in every stack.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-violet-400"></div>
+            <h3 class="text-white font-semibold text-sm">Core</h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">coding-standards</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">frontend-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">frontend-design</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">backend-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">security-review</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">tdd-workflow</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">nuxt-ui</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">shadcn-ui</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">impeccable</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">eval-harness</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+            <h3 class="text-white font-semibold text-sm">Flutter (11)</h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">flutter</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">add-widget-test</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">add-integration-test</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">responsive-layout</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">declarative-routing</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">localization</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">+5 more</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-green-400"></div>
+            <h3 class="text-white font-semibold text-sm">Dart (9)</h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">add-unit-test</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">build-cli-app</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">collect-coverage</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">fix-runtime-errors</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">run-static-analysis</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">+4 more</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-red-400"></div>
+            <h3 class="text-white font-semibold text-sm">Android (9)</h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">jetpack-compose</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">edge-to-edge</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">navigation-3</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">firebase-basics</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">play-billing</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">+4 more</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+            <h3 class="text-white font-semibold text-sm">Backend &amp; Database</h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">postgres-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">clickhouse-io</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">springboot-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">springboot-security</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">jpa-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">django-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">+7 more</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+            <h3 class="text-white font-semibold text-sm">Go &bull; Python &bull; Other</h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">golang-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">golang-testing</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">python-patterns</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">python-testing</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">nutrient-doc</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">api-documentation</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 text-white/40 text-xs">+6 more</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== COMMANDS ======== -->
+  <section id="commands" class="py-20 lg:py-28 bg-[#0d0d16] border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-violet-400 font-mono text-sm tracking-widest uppercase">Tooling</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">36 Slash Commands</h2>
+        <p class="text-white/50 max-w-2xl mx-auto">Ready-to-use commands for planning, testing, building, reviewing, and deploying.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-violet-400"></div>
+            <h3 class="text-white font-semibold text-sm">Planning &amp; Architecture</h3>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/plan</code>
+              <span class="text-white/30 text-xs">Implementation plan</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/orchestrate</code>
+              <span class="text-white/30 text-xs">Multi-agent workflow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-red-400"></div>
+            <h3 class="text-white font-semibold text-sm">Review &amp; Quality</h3>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/code-review</code>
+              <span class="text-white/30 text-xs">Quality &amp; security</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/security</code>
+              <span class="text-white/30 text-xs">Vulnerability audit</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/refactor-clean</code>
+              <span class="text-white/30 text-xs">Dead code removal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+            <h3 class="text-white font-semibold text-sm">Testing</h3>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/tdd</code>
+              <span class="text-white/30 text-xs">TDD workflow</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/e2e</code>
+              <span class="text-white/30 text-xs">E2E test generation</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/test-coverage</code>
+              <span class="text-white/30 text-xs">Coverage analysis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-orange-400"></div>
+            <h3 class="text-white font-semibold text-sm">Build &amp; Fix</h3>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/build-fix</code>
+              <span class="text-white/30 text-xs">Fix build/TS errors</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/go-build</code>
+              <span class="text-white/30 text-xs">Go build fix</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-green-400"></div>
+            <h3 class="text-white font-semibold text-sm">Mobile (Android)</h3>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/android-build</code>
+              <span class="text-white/30 text-xs">Build APK/AAB</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/android-test</code>
+              <span class="text-white/30 text-xs">Run Android tests</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/gpc-release</code>
+              <span class="text-white/30 text-xs">Play Store publish</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-2 h-2 rounded-full bg-sky-400"></div>
+            <h3 class="text-white font-semibold text-sm">Mobile (Flutter)</h3>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/flutter-build</code>
+              <span class="text-white/30 text-xs">Build APK/iOS/Web</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/flutter-test</code>
+              <span class="text-white/30 text-xs">Run Flutter tests</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5">
+              <code class="text-white/70 text-sm font-mono">/go-review</code>
+              <span class="text-white/30 text-xs">Go code review</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== QUICK START ======== -->
+  <section id="quickstart" class="py-20 lg:py-28 bg-grid-lighter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-violet-400 font-mono text-sm tracking-widest uppercase">Get Started</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">Use in Any Project</h2>
+        <p class="text-white/50 max-w-2xl mx-auto">Copy the <span class="text-white/70 font-mono text-sm">.opencode/</span> folder into your project and instantly unlock 12 agents.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <!-- Step 1 -->
+        <div class="bento-card fade-in flex items-start gap-5">
+          <div class="w-10 h-10 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm shrink-0">1</div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Clone or Copy</h3>
+            <div class="bg-black/40 rounded-lg p-4 overflow-x-auto">
+              <code class="text-sm text-white/70 font-mono whitespace-nowrap">cp -R .opencode/ /path/to/your-project/</code>
+            </div>
+            <p class="text-white/40 text-sm mt-2">Or copy individual parts: config, agents, skills, commands, rules.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bento-card fade-in flex items-start gap-5">
+          <div class="w-10 h-10 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm shrink-0">2</div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Set Your OpenAI API Key</h3>
+            <div class="bg-black/40 rounded-lg p-4 overflow-x-auto">
+              <code class="text-sm text-white/70 font-mono">export OPENAI_API_KEY="sk-..."</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bento-card fade-in flex items-start gap-5">
+          <div class="w-10 h-10 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm shrink-0">3</div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Run OpenCode</h3>
+            <div class="bg-black/40 rounded-lg p-4 overflow-x-auto">
+              <code class="text-sm text-white/70 font-mono">opencode</code>
+            </div>
+            <p class="text-white/40 text-sm mt-2">The IT Leader agent activates automatically. Just describe what you need.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bento-card fade-in flex items-start gap-5">
+          <div class="w-10 h-10 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm shrink-0">4</div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Or Call Agents Directly</h3>
+            <div class="bg-black/40 rounded-lg p-4 overflow-x-auto">
+              <code class="text-sm text-white/70 font-mono">@frontend-nuxt Buat halaman login dengan Nuxt UI.<br/>@backend Add endpoint POST /api/auth/login.<br/>@android Buat login screen dengan Jetpack Compose.</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Global Install -->
+      <div class="max-w-3xl mx-auto mt-12 fade-in">
+        <div class="bento-card border-violet-500/20 text-center">
+          <h3 class="text-white font-semibold text-lg mb-2">Install Globally</h3>
+          <p class="text-white/50 text-sm mb-5">Make all agents, skills, and commands available in every project.</p>
+          <div class="bg-black/40 rounded-lg p-4 overflow-x-auto text-left">
+            <code class="text-sm text-white/70 font-mono">
+              mkdir -p ~/.opencode/skills ~/.opencode/commands ~/.opencode/rules ~/.opencode/contexts<br/>
+              cp -R .opencode/config.json ~/.opencode/opencode.json<br/>
+              cp -R .opencode/skills/* ~/.opencode/skills/<br/>
+              cp -R .opencode/commands/* ~/.opencode/commands/
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== MODEL TIERS ======== -->
+  <section class="py-20 lg:py-28 bg-[#0d0d16] border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-violet-400 font-mono text-sm tracking-widest uppercase">Optimization</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">Model Tier Strategy</h2>
+        <p class="text-white/50 max-w-2xl mx-auto">Each agent uses the optimal model for its role &mdash; balancing cost, speed, and reasoning depth.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bento-card fade-in text-center">
+          <div class="text-2xl font-bold text-violet-400 mb-1">Tier 1</div>
+          <div class="text-white/50 text-sm mb-3">Premium</div>
+          <div class="font-mono text-xs text-white/30">claude-opus-4.7</div>
+          <div class="mt-3 text-white/40 text-xs">Orchestration, deep analysis, security</div>
+          <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded bg-violet-500/10 text-violet-300 text-xs">Leader</span>
+            <span class="px-2 py-0.5 rounded bg-violet-500/10 text-violet-300 text-xs">Reviewer</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in text-center">
+          <div class="text-2xl font-bold text-blue-400 mb-1">Tier 2</div>
+          <div class="text-white/50 text-sm mb-3">Balanced</div>
+          <div class="font-mono text-xs text-white/30">claude-sonnet-4.5</div>
+          <div class="mt-3 text-white/40 text-xs">Implementation, design, database</div>
+          <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 text-xs">Frontend</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 text-xs">Backend</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 text-xs">Mobile</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in text-center">
+          <div class="text-2xl font-bold text-emerald-400 mb-1">Tier 3</div>
+          <div class="text-white/50 text-sm mb-3">Efficient</div>
+          <div class="font-mono text-xs text-white/30">claude-haiku-4.5</div>
+          <div class="mt-3 text-white/40 text-xs">Straightforward tasks, scripts</div>
+          <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 text-xs">DevOps</span>
+          </div>
+        </div>
+
+        <div class="bento-card fade-in text-center">
+          <div class="text-2xl font-bold text-amber-400 mb-1">Tier 4</div>
+          <div class="text-white/50 text-sm mb-3">Fast</div>
+          <div class="font-mono text-xs text-white/30">gpt-5-codex-mini</div>
+          <div class="mt-3 text-white/40 text-xs">Research, content, cost optimization</div>
+          <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 text-xs">SEO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="border-t border-white/5 py-12 bg-[#07070c]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm">T</div>
+          <div>
+            <div class="text-white/70 text-sm font-semibold">IT Team Agent</div>
+            <div class="text-white/30 text-xs">Multi-Stack OpenCode Agent System</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-6 text-sm">
+          <a href="https://github.com/defuj/frontend-developer-nuxt" target="_blank" rel="noopener" class="text-white/40 hover:text-white/70 transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <span class="text-white/20">|</span>
+          <span class="text-white/30 text-xs">v1.3.0</span>
+          <span class="text-white/20">|</span>
+          <span class="text-white/30 text-xs">MIT License</span>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-white/5 text-center text-white/20 text-xs">
+        Built with OpenCode &bull; Designed for AI-native development teams
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
