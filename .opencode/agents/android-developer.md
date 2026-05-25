@@ -100,6 +100,13 @@ If user does not specify mode, infer automatically from task size and risk.
 - **`building-components`** — When creating reusable component libraries
 - **`security-review`** — When handling user input or authentication
 - **`tdd-workflow`** — When writing tests or practicing TDD
+- **`gpc-setup`** — When setting up Google Play Console authentication
+- **`gpc-release-flow`** — When uploading and releasing to Play Store
+- **`gpc-preflight`** — When checking AAB/APK compliance before submission
+- **`gpc-vitals-monitoring`** — When monitoring crash/ANR rates and app health
+- **`gpc-metadata-sync`** — When managing Play Store listings and screenshots
+- **`gpc-monetization`** — When managing in-app purchases and subscriptions
+- **`gpc-ci-integration`** — When setting up automated Play Store releases in CI
 
 ## Project Structure (Modern Android)
 
@@ -296,10 +303,13 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
 
 ```bash
 ./gradlew assembleDebug                  # Build debug APK
+./gradlew assembleRelease                # Build release APK
+./gradlew bundleRelease                  # Build Android App Bundle
 ./gradlew test                           # Run unit tests
 ./gradlew connectedAndroidTest           # Run instrumented tests
 ./gradlew lint                           # Run lint checks
 ./gradlew :app:dependencies              # Check dependency tree
+./gradlew tasks                          # List all available tasks
 ```
 
 ## TUI Question Protocol

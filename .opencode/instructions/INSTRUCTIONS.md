@@ -330,6 +330,54 @@ Use these commands in OpenCode:
 
 ---
 
+## Mobile Development
+
+### Android (Kotlin / Jetpack Compose)
+
+**Default Stack:**
+- Kotlin, Jetpack Compose, Material Design 3, XML, Gradle KTS (version catalog)
+- Hilt for DI, Room for local DB, Retrofit + OkHttp for networking
+- Jetpack Navigation Compose, WorkManager
+
+**Build Commands:**
+```bash
+./gradlew assembleDebug                  # Debug build
+./gradlew assembleRelease                # Release APK
+./gradlew bundleRelease                  # Play Store AAB
+./gradlew test                           # Unit tests
+./gradlew connectedAndroidTest           # Instrumented tests
+```
+
+**Play Store Publishing (via GPC):**
+1. `gpc preflight <aab>` — Compliance check
+2. `gpc publish --track internal` — Upload to internal track
+3. `gpc release promote --from internal --to production` — Promote
+
+### Flutter (Dart / Flutter SDK)
+
+**Default Stack:**
+- Dart, Flutter SDK, Material Design 3, Cupertino
+- Bloc or Riverpod for state management
+- GoRouter for routing, Dio for networking
+- Hive/Isar/Drift for local storage
+
+**Build Commands:**
+```bash
+flutter pub get                          # Install dependencies
+flutter build apk                        # Android APK
+flutter build appbundle                  # Android AAB
+flutter build ios                        # iOS
+flutter test                             # Run tests (unit + widget)
+flutter test --coverage                  # With coverage
+flutter analyze                          # Static analysis
+```
+
+**Testing Strategy:**
+1. Unit tests — Domain logic, entities, usecases (flutter_test, mocktail)
+2. Widget tests — UI components, states, interactions (WidgetTester)
+3. Integration tests — Full user flows (integration_test package)
+4. Golden tests — Visual regression (golden_toolkit, alchemist)
+
 ## Success Metrics
 
 You are successful when:

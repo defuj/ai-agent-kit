@@ -87,13 +87,33 @@ If user does not specify mode, infer automatically from task size and risk.
 ### Required Skills (Auto-load on session start)
 
 1. **`coding-standards`** — Universal coding standards and best practices
-2. **`frontend-patterns`** — Mobile UI patterns and component architecture
-3. **`frontend-design`** — Design thinking and aesthetic implementation
-4. **`web-design-guidelines`** — UI/UX compliance and accessibility
+2. **`flutter`** — Comprehensive Flutter patterns, architecture, state management, and testing
+3. **`frontend-patterns`** — Mobile UI patterns and component architecture
+4. **`frontend-design`** — Design thinking and aesthetic implementation
+5. **`web-design-guidelines`** — UI/UX compliance and accessibility
 
 ### Contextual Skills (Load when needed)
 
 - **`firebase-basics`** — When integrating Firebase services
+- **`flutter-add-integration-test`** — When setting up integration testing with Flutter Driver
+- **`flutter-add-widget-preview`** — When using @Preview annotation for widget previews
+- **`flutter-add-widget-test`** — When writing widget tests with WidgetTester
+- **`flutter-apply-architecture-best-practices`** — When structuring app architecture (MVVM, Clean)
+- **`flutter-build-responsive-layout`** — When building responsive layouts for phone/tablet/desktop
+- **`flutter-fix-layout-issues`** — When diagnosing overflow or layout constraint issues
+- **`flutter-implement-json-serialization`** — When implementing fromJson/toJson serialization
+- **`flutter-setup-declarative-routing`** — When configuring GoRouter with deep linking
+- **`flutter-setup-localization`** — When adding multi-language support with ARB files
+- **`flutter-use-http-package`** — When making HTTP requests with the http package
+- **`dart-add-unit-test`** — When writing unit tests with package:test
+- **`dart-build-cli-app`** — When building Dart command-line tools
+- **`dart-collect-coverage`** — When collecting test coverage reports
+- **`dart-fix-runtime-errors`** — When resolving Dart runtime exceptions
+- **`dart-generate-test-mocks`** — When generating mocks with mockito/build_runner
+- **`dart-migrate-to-checks-package`** — When migrating from matcher to package:checks
+- **`dart-resolve-package-conflicts`** — When resolving pub dependency version conflicts
+- **`dart-run-static-analysis`** — When configuring analysis_options.yaml and linter rules
+- **`dart-use-pattern-matching`** — When using Dart 3 pattern matching features
 - **`building-components`** — When creating reusable widget libraries
 - **`security-review`** — When handling user input or authentication
 - **`tdd-workflow`** — When writing tests or practicing TDD
@@ -139,46 +159,57 @@ dependencies:
   flutter:
     sdk: flutter
   # State Management
-  flutter_bloc: ^8.1.0
-  bloc: ^8.1.0
+  flutter_bloc: ^9.0.0
+  bloc: ^9.0.0
   # or
-  riverpod: ^2.5.0
-  flutter_riverpod: ^2.5.0
+  riverpod: ^2.6.0
+  flutter_riverpod: ^2.6.0
+  riverpod_annotation: ^2.6.0
   
   # Navigation
-  go_router: ^14.0.0
+  go_router: ^14.8.0
   
   # Networking
-  dio: ^5.4.0
+  dio: ^5.7.0
+  http: ^1.3.0
   
   # Local Storage
   hive_flutter: ^1.1.0
-  flutter_secure_storage: ^9.0.0
+  isar: ^3.1.0
+  drift: ^2.24.0
+  flutter_secure_storage: ^9.2.0
   
   # Firebase
-  firebase_core: ^3.0.0
-  firebase_auth: ^5.0.0
-  cloud_firestore: ^5.0.0
+  firebase_core: ^3.12.0
+  firebase_auth: ^5.5.0
+  cloud_firestore: ^5.6.0
   
   # UI
-  google_fonts: ^6.1.0
+  google_fonts: ^6.2.0
   flutter_svg: ^2.0.0
-  cached_network_image: ^3.3.0
+  cached_network_image: ^3.4.0
+  shimmer: ^3.0.0
   
   # Utilities
-  intl: ^0.19.0
-  permission_handler: ^11.0.0
-  equatable: ^2.0.0
-  freezed_annotation: ^2.4.0
+  intl: ^0.20.0
+  permission_handler: ^11.3.0
+  equatable: ^2.0.7
+  freezed_annotation: ^2.4.4
+  connectivity_plus: ^6.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  bloc_test: ^9.1.0
-  mocktail: ^1.0.0
-  build_runner: ^2.4.0
-  freezed: ^2.5.0
-  flutter_lints: ^4.0.0
+  integration_test:
+    sdk: flutter
+  bloc_test: ^9.1.7
+  mocktail: ^1.0.4
+  build_runner: ^2.4.14
+  freezed: ^2.5.8
+  riverpod_generator: ^2.6.3
+  flutter_lints: ^5.0.0
+  golden_toolkit: ^0.15.0
+  alchemist: ^0.10.0
 ```
 
 ### Material 3 Theme Setup
@@ -407,11 +438,17 @@ class ProductRepositoryImpl implements ProductRepository {
 ```bash
 flutter pub get                          # Install dependencies
 flutter run                              # Run on device/emulator
-flutter build apk                        # Build APK
+flutter build apk                        # Build APK (Android)
+flutter build appbundle                  # Build AAB (Play Store)
 flutter build ios                        # Build iOS
-flutter test                             # Run tests
+flutter build web                        # Build web
+flutter test                             # Run all tests
+flutter test --coverage                  # Run tests with coverage
+flutter test test/widget/                # Widget tests only
 flutter analyze                          # Static analysis
 dart run build_runner build              # Code generation
+dart analyze                             # Dart static analysis
+dart fix --dry-run                       # Show lint fixes
 ```
 
 ## TUI Question Protocol
