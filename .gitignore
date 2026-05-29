@@ -8,6 +8,5 @@ yarn.lock
 bin
 template
 .npmignore
-AGENTS.md
 .opencode/config.json
 .opencode/config.*.json
