@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opencode Agent KIT — Multi-Stack Software Developer Agent System</title>
-  <meta name="description" content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
-  <meta name="keywords" content="opencode, ai agents, software development, nuxt, react, flutter, android, laravel, devops, seo" />
-  <meta name="author" content="defuj" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://github.com/defuj/software-developer-team-agent" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f5f5f5'/><text x='16' y='22' text-anchor='middle' fill='%230a0a0a' font-size='18' font-weight='700' font-family='system-ui'>K</text></svg>" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opencode Agent KIT — Multi-Stack Software Developer Agent
+      System</title>
+    <meta name="description"
+      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
+    <meta name="keywords"
+      content="opencode, ai agents, software development, nuxt, react, flutter, android, laravel, devops, seo" />
+    <meta name="author" content="defuj" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical"
+      href="https://github.com/defuj/software-developer-team-agent" />
+    <link rel="icon" type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f5f5f5'/><text x='16' y='22' text-anchor='middle' fill='%230a0a0a' font-size='18' font-weight='700' font-family='system-ui'>K</text></svg>" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
-  <meta property="og:description" content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/defuj/software-developer-team-agent/main/assets/og-image.webp" />
-  <meta property="og:url" content="https://github.com/defuj/software-developer-team-agent" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Opencode Agent KIT" />
-  <meta property="og:locale" content="en_US" />
+    <!-- Open Graph -->
+    <meta property="og:title"
+      content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
+    <meta property="og:description"
+      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
+    <meta property="og:image"
+      content="https://raw.githubusercontent.com/defuj/software-developer-team-agent/main/assets/og-image.webp" />
+    <meta property="og:url"
+      content="https://github.com/defuj/software-developer-team-agent" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Opencode Agent KIT" />
+    <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
-  <meta name="twitter:description" content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/defuj/software-developer-team-agent/main/assets/og-image.webp" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title"
+      content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
+    <meta name="twitter:description"
+      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
+    <meta name="twitter:image"
+      content="https://raw.githubusercontent.com/defuj/software-developer-team-agent/main/assets/og-image.webp" />
 
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -46,11 +58,13 @@
     }
   }
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
+    <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -142,690 +156,904 @@
       background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
 
-  <!-- ===== NAV ===== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.04] bg-[#0a0a0a]/90 backdrop-blur-lg">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 h-14 flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <span class="inline-flex items-center justify-center w-7 h-7 rounded bg-white text-black text-xs font-bold font-mono">K</span>
-        <span class="text-sm font-medium text-white/70">Opencode Agent KIT</span>
-      </div>
-      <div class="flex items-center gap-5 text-sm">
-        <a href="#agents" class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Agents</a>
-        <a href="#capabilities" class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Capabilities</a>
-        <a href="#install" class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Install</a>
-        <a href="#start" class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Docs</a>
-        <a href="https://github.com/defuj/software-developer-team-agent" target="_blank" rel="noopener" class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/[0.06] hover:bg-white/[0.1] text-white/60 hover:text-white/80 transition-all text-xs">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          <span class="hidden sm:inline">GitHub</span>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section class="min-h-screen flex flex-col justify-center pt-14">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28 w-full">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-        <!-- Left: Text -->
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-white/30 text-xs font-mono tracking-tight mb-8">
-            <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-            v1.3.0 &mdash; 13 agents &middot; 62 skills &middot; 36 commands
-          </div>
-
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-5">
-            <span class="text-white/30 font-normal">Software Developer</span><br />
-            <span class="text-white">Agent KIT</span><br />
-            <span class="text-white/30 font-normal">for</span>
-            <span class="text-teal-400">OpenCode</span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-white/35 leading-relaxed max-w-lg mb-10">
-            A <strong class="text-white/60 font-medium">Leader &rarr; Subagent</strong> orchestration toolkit
-            with <strong class="text-white/60 font-medium">13 specialized agents</strong>.
-            Install into any project with one command &mdash; then equip your AI agents
-            with deep expertise across frontend, backend, mobile, design, review,
-            database, devops, and seo.
-          </p>
-
-          <div class="flex flex-wrap gap-3">
-            <a href="#install" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white/90 transition-all font-mono tracking-tight">
-              npx opencode-agent-kit init
-            </a>
-            <a href="#agents" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/[0.06] text-white/60 text-sm font-medium hover:bg-white/[0.1] hover:text-white/80 transition-all border border-white/[0.06]">
-              Meet the team
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: Stats -->
-        <div class="grid grid-cols-2 gap-3">
-          <div class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
-            <div class="text-3xl font-bold text-white font-['Sora']">13</div>
-            <div class="text-sm text-white/25 mt-0.5">Specialized agents</div>
-          </div>
-          <div class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
-            <div class="text-3xl font-bold text-white font-['Sora']">62</div>
-            <div class="text-sm text-white/25 mt-0.5">Skill playbooks</div>
-          </div>
-          <div class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
-            <div class="text-3xl font-bold text-white font-['Sora']">36</div>
-            <div class="text-sm text-white/25 mt-0.5">Slash commands</div>
-          </div>
-          <div class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
-            <div class="text-3xl font-bold text-white font-['Sora']">6</div>
-            <div class="text-sm text-white/25 mt-0.5">MCP servers</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider max-w-6xl mx-auto"></div>
-
-  <!-- ===== BANNER ===== -->
-  <section class="py-14 lg:py-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="rounded-xl overflow-hidden border border-white/[0.05] banner-placeholder aspect-[2.8/1] flex items-center justify-center">
-        <picture>
-          <img src="assets/banner.png" alt="Opencode Agent KIT Banner" class="w-full h-full object-cover" />
-        </picture>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider max-w-6xl mx-auto"></div>
-
-  <!-- ===== AGENTS ===== -->
-  <section id="agents" class="py-14 lg:py-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="max-w-sm mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Thirteen agents, one leader</h2>
-        <p class="text-white/30 text-sm leading-relaxed">
-          Each agent is specialised in its stack. The IT Leader orchestrates them &mdash;
-          breaking down requirements, delegating work, and integrating results.
-        </p>
-      </div>
-
-      <!-- Agent rows -->
-      <div class="divide-y divide-white/[0.04] border-y border-white/[0.04]">
-        <!-- IT Leader (special row) -->
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-white shrink-0 flex items-center justify-center">
-            <span class="text-black text-xs font-bold font-mono">TL</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="flex items-center gap-2">
-              <span class="text-white font-medium text-sm">IT Leader</span>
-              <span class="text-[10px] uppercase tracking-wider text-white/20 font-mono">primary</span>
-            </div>
-            <div class="text-white/25 text-xs mt-0.5">Orchestration &bull; Planning &bull; Integration</div>
-          </div>
-          <code class="text-xs text-white/20 font-mono hidden sm:block">@leader</code>
-        </div>
-
-        <!-- Subagents -->
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-blue-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-blue-400 text-xs font-bold font-mono">V</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">Nuxt Frontend</div>
-            <div class="text-white/25 text-xs mt-0.5">Vue 3 &bull; Nuxt 4 &bull; Nuxt UI &bull; TypeScript &bull; Playwright</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-blue">Nuxt 4</span>
-            <code class="text-xs text-white/20 font-mono">@frontend-nuxt</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-cyan-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-cyan-400 text-xs font-bold font-mono">R</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">React Frontend</div>
-            <div class="text-white/25 text-xs mt-0.5">React 19 &bull; Next.js 15 &bull; shadcn/ui &bull; TanStack Query &bull; E2E</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-cyan">React 19</span>
-            <code class="text-xs text-white/20 font-mono">@frontend-react</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-emerald-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-emerald-400 text-xs font-bold font-mono">N</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">Node Backend</div>
-            <div class="text-white/25 text-xs mt-0.5">Express 5 &bull; Prisma &bull; PostgreSQL &bull; DTO &bull; JWT</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-emerald">Express 5</span>
-            <code class="text-xs text-white/20 font-mono">@backend</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-orange-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-orange-400 text-xs font-bold font-mono">L</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">Laravel Backend</div>
-            <div class="text-white/25 text-xs mt-0.5">Laravel 10+ &bull; Service/Repository &bull; Eloquent &bull; JWT</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-orange">Laravel</span>
-            <code class="text-xs text-white/20 font-mono">@laravel</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-lime-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-lime-400 text-xs font-bold font-mono">C</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">CodeIgniter 3</div>
-            <div class="text-white/25 text-xs mt-0.5">CI3 MVC &bull; REST API &bull; JWT &bull; MySQL/PostgreSQL</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-lime">CI3</span>
-            <code class="text-xs text-white/20 font-mono">@ci3</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-amber-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-amber-400 text-xs font-bold font-mono">D</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">UI/UX Designer</div>
-            <div class="text-white/25 text-xs mt-0.5">Impeccable design &bull; Figma &bull; Stitch &bull; WCAG 2.1</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-amber">Design</span>
-            <code class="text-xs text-white/20 font-mono">@designer</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-red-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-red-400 text-xs font-bold font-mono">R</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">Code Reviewer / QA</div>
-            <div class="text-white/25 text-xs mt-0.5">Quality audit &bull; Security &bull; Testing strategy &bull; E2E</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-red">QA</span>
-            <code class="text-xs text-white/20 font-mono">@reviewer</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-cyan-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-cyan-400 text-xs font-bold font-mono">D</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">Database Specialist</div>
-            <div class="text-white/25 text-xs mt-0.5">PostgreSQL &bull; Prisma &bull; Migrations &bull; Query optimization</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-cyan">SQL</span>
-            <code class="text-xs text-white/20 font-mono">@database</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-indigo-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-indigo-400 text-xs font-bold font-mono">O</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">DevOps Engineer</div>
-            <div class="text-white/25 text-xs mt-0.5">CI/CD &bull; Docker &bull; Vercel/Cloudflare &bull; GitHub Actions</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-indigo">CI/CD</span>
-            <code class="text-xs text-white/20 font-mono">@devops</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-lime-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-lime-400 text-xs font-bold font-mono">S</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">SEO Specialist</div>
-            <div class="text-white/25 text-xs mt-0.5">Meta tags &bull; JSON-LD &bull; Core Web Vitals &bull; Sitemaps</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-lime">SEO</span>
-            <code class="text-xs text-white/20 font-mono">@seo</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-green-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-green-400 text-xs font-bold font-mono">A</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">Android Developer</div>
-            <div class="text-white/25 text-xs mt-0.5">Kotlin &bull; Jetpack Compose &bull; Material 3 &bull; Google Play (GPC)</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-green">Kotlin</span>
-            <code class="text-xs text-white/20 font-mono">@android</code>
-          </div>
-        </div>
-
-        <div class="py-4 flex items-center gap-4">
-          <div class="w-8 h-8 rounded-md bg-sky-500/15 shrink-0 flex items-center justify-center">
-            <span class="text-sky-400 text-xs font-bold font-mono">F</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="text-white font-medium text-sm">Flutter Developer</div>
-            <div class="text-white/25 text-xs mt-0.5">Dart &bull; Flutter SDK &bull; Material 3 &bull; Bloc/Riverpod &bull; Firebase</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-sky">Flutter</span>
-            <code class="text-xs text-white/20 font-mono">@flutter</code>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider max-w-6xl mx-auto"></div>
-
-  <!-- ===== CAPABILITIES ===== -->
-  <section id="capabilities" class="py-14 lg:py-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
-
-        <!-- Left: TOC-like nav -->
-        <div class="lg:col-span-4">
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Capabilities</h2>
-          <p class="text-white/30 text-sm leading-relaxed mb-6">
-            Everything your AI team needs out of the box.
-          </p>
-          <div class="space-y-2 text-sm">
-            <a href="#cap-mcp" class="block text-white/30 hover:text-white/60 transition-colors">MCP Servers</a>
-            <a href="#cap-skills" class="block text-white/30 hover:text-white/60 transition-colors">Skill Playbooks</a>
-            <a href="#cap-commands" class="block text-white/30 hover:text-white/60 transition-colors">Slash Commands</a>
-          </div>
-        </div>
-
-        <!-- Right: Content -->
-        <div class="lg:col-span-8 space-y-14">
-
-          <!-- MCP Servers -->
-          <div id="cap-mcp">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="w-1 h-5 bg-teal-400/50 rounded-full"></span>
-              <h3 class="text-lg font-semibold text-white">MCP Servers</h3>
-            </div>
-            <div class="divide-y divide-white/[0.04] border-t border-b border-white/[0.04]">
-              <div class="py-3.5 flex items-center justify-between gap-4">
-                <div>
-                  <span class="text-white text-sm font-medium">Nuxt</span>
-                  <span class="text-white/20 ml-2 text-xs">remote</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-white/35 text-xs hidden sm:block">Docs, blog, deployment</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-                </div>
-              </div>
-              <div class="py-3.5 flex items-center justify-between gap-4">
-                <div>
-                  <span class="text-white text-sm font-medium">Nuxt UI</span>
-                  <span class="text-white/20 ml-2 text-xs">remote</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-white/35 text-xs hidden sm:block">Component docs &bull; Examples</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-                </div>
-              </div>
-              <div class="py-3.5 flex items-center justify-between gap-4">
-                <div>
-                  <span class="text-white text-sm font-medium">Playwright</span>
-                  <span class="text-white/20 ml-2 text-xs">stdio</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-white/35 text-xs hidden sm:block">Browser automation &bull; E2E</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-                </div>
-              </div>
-              <div class="py-3.5 flex items-center justify-between gap-4">
-                <div>
-                  <span class="text-white text-sm font-medium">Postman</span>
-                  <span class="text-white/20 ml-2 text-xs">remote</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-white/35 text-xs hidden sm:block">API management &bull; Collections</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-                </div>
-              </div>
-              <div class="py-3.5 flex items-center justify-between gap-4">
-                <div>
-                  <span class="text-white text-sm font-medium">Figma</span>
-                  <span class="text-white/20 ml-2 text-xs">stdio</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-white/35 text-xs hidden sm:block">Design file access</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-white/10"></span>
-                </div>
-              </div>
-              <div class="py-3.5 flex items-center justify-between gap-4">
-                <div>
-                  <span class="text-white text-sm font-medium">Google Stitch</span>
-                  <span class="text-white/20 ml-2 text-xs">remote</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-white/35 text-xs hidden sm:block">AI design generation</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-white/10"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Skills -->
-          <div id="cap-skills">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="w-1 h-5 bg-teal-400/50 rounded-full"></span>
-              <h3 class="text-lg font-semibold text-white">62 Skill Playbooks</h3>
-            </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              <div class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
-                <div class="text-white/60 text-xs font-medium mb-1">Core</div>
-                <div class="text-white/25 text-[10px]">coding-standards, security-review, tdd-workflow, impeccable, nuxt-ui, shadcn-ui &bull; 16 skills</div>
-              </div>
-              <div class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
-                <div class="text-white/60 text-xs font-medium mb-1">Flutter</div>
-                <div class="text-white/25 text-[10px]">flutter, add-widget-test, responsive-layout, routing, localization &bull; 11 skills</div>
-              </div>
-              <div class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
-                <div class="text-white/60 text-xs font-medium mb-1">Dart</div>
-                <div class="text-white/25 text-[10px]">unit-test, cli-app, coverage, static-analysis, pattern-matching &bull; 9 skills</div>
-              </div>
-              <div class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
-                <div class="text-white/60 text-xs font-medium mb-1">Android</div>
-                <div class="text-white/25 text-[10px]">jetpack-compose, navigation-3, firebase, edge-to-edge, billing &bull; 9 skills</div>
-              </div>
-              <div class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
-                <div class="text-white/60 text-xs font-medium mb-1">Backend &amp; DB</div>
-                <div class="text-white/25 text-[10px]">postgres-patterns, springboot* (7), django* (4), jpa-patterns &bull; 14 skills</div>
-              </div>
-              <div class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
-                <div class="text-white/60 text-xs font-medium mb-1">Go &bull; Python</div>
-                <div class="text-white/25 text-[10px]">golang-patterns, golang-testing, python-patterns, python-testing &bull; 4 skills</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Commands -->
-          <div id="cap-commands">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="w-1 h-5 bg-teal-400/50 rounded-full"></span>
-              <h3 class="text-lg font-semibold text-white">36 Slash Commands</h3>
-            </div>
-            <div class="grid sm:grid-cols-2 gap-2">
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/plan</code>
-                <span class="text-white/25 text-[10px]">Implementation plan</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/orchestrate</code>
-                <span class="text-white/25 text-[10px]">Multi-agent workflow</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/code-review</code>
-                <span class="text-white/25 text-[10px]">Quality &amp; security</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/security</code>
-                <span class="text-white/25 text-[10px]">Vulnerability audit</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/tdd</code>
-                <span class="text-white/25 text-[10px]">TDD workflow</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/e2e</code>
-                <span class="text-white/25 text-[10px]">E2E test generation</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/build-fix</code>
-                <span class="text-white/25 text-[10px]">Fix build errors</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/refactor-clean</code>
-                <span class="text-white/25 text-[10px]">Dead code removal</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/android-build</code>
-                <span class="text-white/25 text-[10px]">Build APK/AAB</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/flutter-build</code>
-                <span class="text-white/25 text-[10px]">Build Flutter</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/gpc-release</code>
-                <span class="text-white/25 text-[10px]">Play Store publish</span>
-              </div>
-              <div class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
-                <code class="text-white/70 text-xs font-mono">/update-docs</code>
-                <span class="text-white/25 text-[10px]">Documentation</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider max-w-6xl mx-auto"></div>
-
-  <!-- ===== MODEL TIERS ===== -->
-  <section class="py-14 lg:py-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="max-w-sm mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Model tiers</h2>
-        <p class="text-white/30 text-sm leading-relaxed">
-          Each agent uses the optimal model for its role &mdash; balancing reasoning depth, speed, and cost.
-        </p>
-      </div>
-      <div class="grid sm:grid-cols-4 gap-px bg-white/[0.04] rounded-lg overflow-hidden border border-white/[0.04]">
-        <div class="bg-[#0a0a0a] p-5">
-          <div class="text-xs font-mono text-white/20 mb-1">Tier 1</div>
-          <div class="text-white font-semibold text-sm">Premium</div>
-          <div class="font-mono text-[10px] text-white/20 mt-1">claude-opus-4.7</div>
-          <div class="text-white/30 text-[11px] mt-2">Deep analysis, security, orchestration</div>
-          <div class="flex flex-wrap gap-1 mt-3">
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Leader</span>
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Reviewer</span>
-          </div>
-        </div>
-        <div class="bg-[#0a0a0a] p-5">
-          <div class="text-xs font-mono text-white/20 mb-1">Tier 2</div>
-          <div class="text-white font-semibold text-sm">Balanced</div>
-          <div class="font-mono text-[10px] text-white/20 mt-1">claude-sonnet-4.5</div>
-          <div class="text-white/30 text-[11px] mt-2">Implementation, design, database</div>
-          <div class="flex flex-wrap gap-1 mt-3">
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Frontend</span>
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Backend</span>
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Mobile</span>
-          </div>
-        </div>
-        <div class="bg-[#0a0a0a] p-5">
-          <div class="text-xs font-mono text-white/20 mb-1">Tier 3</div>
-          <div class="text-white font-semibold text-sm">Efficient</div>
-          <div class="font-mono text-[10px] text-white/20 mt-1">claude-haiku-4.5</div>
-          <div class="text-white/30 text-[11px] mt-2">Scripts, config, straightforward tasks</div>
-          <div class="flex flex-wrap gap-1 mt-3">
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">DevOps</span>
-          </div>
-        </div>
-        <div class="bg-[#0a0a0a] p-5">
-          <div class="text-xs font-mono text-white/20 mb-1">Tier 4</div>
-          <div class="text-white font-semibold text-sm">Fast</div>
-          <div class="font-mono text-[10px] text-white/20 mt-1">gpt-5-codex-mini</div>
-          <div class="text-white/30 text-[11px] mt-2">Research, content, cost optimization</div>
-          <div class="flex flex-wrap gap-1 mt-3">
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">SEO</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider max-w-6xl mx-auto"></div>
-
-  <!-- ===== INSTALL ===== -->
-  <section id="install" class="py-14 lg:py-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="max-w-sm mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Install</h2>
-        <p class="text-white/30 text-sm leading-relaxed">
-          One command, zero config. Works in any project directory.
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-6">
-        <!-- NPM (recommended) -->
-        <div class="p-6 rounded-lg border border-white/[0.05] bg-white/[0.015]">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-teal-400/10 text-teal-400">recommended</span>
-            <h3 class="text-white font-semibold text-sm">Quick install</h3>
-          </div>
-          <div class="bg-black/40 rounded-md p-3.5 overflow-x-auto border border-white/[0.03] mb-3">
-            <code class="text-xs text-white/60 font-mono leading-loose">
-              <span class="text-white/30"># In your project directory</span><br/>
-              npx opencode-agent-kit init
-            </code>
-          </div>
-          <ul class="text-white/25 text-xs space-y-1 marker-teal list-disc list-inside">
-            <li>Copies <span class="font-mono text-white/40">opencode.json</span>, <span class="font-mono text-white/40">.opencode/</span>, <span class="font-mono text-white/40">AGENTS.md</span></li>
-            <li>Merges with existing config (no overwrite)</li>
-            <li>Installs <span class="font-mono text-white/40">@opencode-ai/plugin</span> dependency</li>
-            <li>Pass <span class="font-mono text-white/40">--force</span> to overwrite</li>
-          </ul>
-        </div>
-
-        <!-- Global install -->
-        <div class="p-6 rounded-lg border border-white/[0.05] bg-white/[0.015]">
-          <h3 class="text-white font-semibold text-sm mb-4">Global install</h3>
-          <div class="bg-black/40 rounded-md p-3.5 overflow-x-auto border border-white/[0.03] mb-3">
-            <code class="text-xs text-white/60 font-mono leading-loose">
-              <span class="text-white/30"># Install once, use everywhere</span><br/>
-              npm install -g opencode-agent-kit<br/><br/>
-              <span class="text-white/30"># Then init any project</span><br/>
-              cd my-project && opencode-agent-kit init
-            </code>
-          </div>
-          <ul class="text-white/25 text-xs space-y-1 marker-teal list-disc list-inside">
-            <li>All 13 agents available project-wide</li>
-            <li>Commands, skills, rules included</li>
-            <li>MCP servers: Nuxt, Nuxt UI, Playwright, Postman</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider max-w-6xl mx-auto"></div>
-
-  <!-- ===== USAGE ===== -->
-  <section id="start" class="py-14 lg:py-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-
-        <!-- Left: text -->
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Usage</h2>
-          <p class="text-white/30 text-sm leading-relaxed mb-6">
-            After install, just run <span class="font-mono text-white/50">opencode</span>.
-            The <strong class="text-white/60 font-medium">IT Leader</strong> primary agent activates automatically.
-          </p>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <span class="text-teal-400/50 font-mono text-xs mt-0.5">01</span>
-              <div>
-                <div class="text-white/60 text-sm font-medium">IT Leader orchestrates</div>
-                <div class="text-white/25 text-xs">Give it a feature request &mdash; it plans, delegates, and integrates.</div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-teal-400/50 font-mono text-xs mt-0.5">02</span>
-              <div>
-                <div class="text-white/60 text-sm font-medium">Or call subagents directly</div>
-                <div class="text-white/25 text-xs">Use <span class="font-mono text-white/40">@mention</span> for specific tasks.</div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-teal-400/50 font-mono text-xs mt-0.5">03</span>
-              <div>
-                <div class="text-white/60 text-sm font-medium">Use slash commands</div>
-                <div class="text-white/25 text-xs"><span class="font-mono text-white/40">/plan</span>, <span class="font-mono text-white/40">/tdd</span>, <span class="font-mono text-white/40">/code-review</span>, <span class="font-mono text-white/40">/build-fix</span>, and 30+ more.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: code -->
-        <div class="bg-black/40 rounded-lg p-4 border border-white/[0.03] overflow-x-auto">
-          <code class="text-xs text-white/50 font-mono leading-loose">
-            <span class="text-white/30"># Let the IT Leader handle complex features</span><br/>
-            Buat fitur marketplace dengan halaman listing, detail,<br/>
-            dan form create. Backend API untuk CRUD markets.<br/>
-            Setup CI/CD pipeline dan optimasi SEO.<br/><br/>
-            <span class="text-white/30"># Or call subagents directly for specific tasks</span><br/>
-            @frontend-nuxt Buat halaman login dengan Nuxt UI.<br/>
-            @backend Add endpoint POST /api/auth/login.<br/>
-            @android Buat login screen dengan Jetpack Compose.<br/>
-            @flutter Buat screen product list dengan Bloc pattern.<br/>
-            @designer Review UX flow halaman checkout.<br/>
-            @reviewer Audit security untuk authentication module.
-          </code>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider max-w-6xl mx-auto"></div>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="py-10">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <!-- ===== NAV ===== -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.04] bg-[#0a0a0a]/90 backdrop-blur-lg">
+      <div
+        class="max-w-6xl mx-auto px-6 lg:px-8 h-14 flex items-center justify-between">
         <div class="flex items-center gap-2.5">
-          <span class="inline-flex items-center justify-center w-7 h-7 rounded bg-white text-black text-xs font-bold font-mono">K</span>
+          <span
+            class="inline-flex items-center justify-center w-7 h-7 rounded bg-white text-black text-xs font-bold font-mono">K</span>
+          <span class="text-sm font-medium text-white/70">Opencode Agent
+            KIT</span>
+        </div>
+        <div class="flex items-center gap-5 text-sm">
+          <a href="#agents"
+            class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Agents</a>
+          <a href="#capabilities"
+            class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Capabilities</a>
+          <a href="#install"
+            class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Install</a>
+          <a href="#start"
+            class="text-white/35 hover:text-white/70 transition-colors hidden sm:block">Docs</a>
+          <a href="https://github.com/defuj/software-developer-team-agent"
+            target="_blank" rel="noopener"
+            class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/[0.06] hover:bg-white/[0.1] text-white/60 hover:text-white/80 transition-all text-xs">
+            <svg class="w-3.5 h-3.5" fill="currentColor"
+              viewBox="0 0 24 24"><path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+            <span class="hidden sm:inline">GitHub</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="min-h-screen flex flex-col justify-center pt-14">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- Left: Text -->
           <div>
-            <div class="text-white/60 text-xs font-medium">Opencode Agent KIT</div>
-            <div class="text-white/20 text-[10px]">Software Developer Agent System</div>
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-white/30 text-xs font-mono tracking-tight mb-8">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+              v1.3.0 &mdash; 13 agents &middot; 62 skills &middot; 36 commands
+            </div>
+
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-5">
+              <span class="text-white/30 font-normal">Software
+                Developer</span><br />
+              <span class="text-white">Agent KIT</span><br />
+              <span class="text-white/30 font-normal">for</span>
+              <span class="text-teal-400">OpenCode</span>
+            </h1>
+
+            <p
+              class="text-base sm:text-lg text-white/35 leading-relaxed max-w-lg mb-10">
+              A <strong class="text-white/60 font-medium">Leader &rarr;
+                Subagent</strong> orchestration toolkit
+              with <strong class="text-white/60 font-medium">13 specialized
+                agents</strong>.
+              Install into any project with one command &mdash; then equip your
+              AI agents
+              with deep expertise across frontend, backend, mobile, design,
+              review,
+              database, devops, and seo.
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+              <a href="#install"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white/90 transition-all font-mono tracking-tight">
+                npx opencode-agent-kit init
+              </a>
+              <a href="#agents"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/[0.06] text-white/60 text-sm font-medium hover:bg-white/[0.1] hover:text-white/80 transition-all border border-white/[0.06]">
+                Meet the team
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Stats -->
+          <div class="grid grid-cols-2 gap-3">
+            <div
+              class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
+              <div class="text-3xl font-bold text-white font-['Sora']">13</div>
+              <div class="text-sm text-white/25 mt-0.5">Specialized agents</div>
+            </div>
+            <div
+              class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
+              <div class="text-3xl font-bold text-white font-['Sora']">62</div>
+              <div class="text-sm text-white/25 mt-0.5">Skill playbooks</div>
+            </div>
+            <div
+              class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
+              <div class="text-3xl font-bold text-white font-['Sora']">36</div>
+              <div class="text-sm text-white/25 mt-0.5">Slash commands</div>
+            </div>
+            <div
+              class="p-5 rounded-lg border border-white/[0.05] bg-white/[0.015]">
+              <div class="text-3xl font-bold text-white font-['Sora']">6</div>
+              <div class="text-sm text-white/25 mt-0.5">MCP servers</div>
+            </div>
           </div>
         </div>
-        <div class="flex items-center gap-4 text-xs text-white/25">
-          <a href="https://github.com/defuj/software-developer-team-agent" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:text-white/50 transition-colors">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <span>v1.3.0</span>
-          <span>MIT</span>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== BANNER ===== -->
+    <section class="py-14 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div
+          class="rounded-xl overflow-hidden border border-white/[0.05] banner-placeholder flex items-center justify-center">
+          <picture>
+            <img src="assets/banner.png" alt="Opencode Agent KIT Banner"
+              class="w-full h-full object-cover" />
+          </picture>
         </div>
       </div>
-      <div class="mt-6 pt-4 border-t border-white/[0.04] text-white/15 text-[10px] text-center sm:text-left">
-        Built with OpenCode. Designed for AI-native development teams.
-      </div>
-    </div>
-  </footer>
+    </section>
 
-</body>
+    <div class="section-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== AGENTS ===== -->
+    <section id="agents" class="py-14 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-sm mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Thirteen
+            agents, one leader</h2>
+          <p class="text-white/30 text-sm leading-relaxed">
+            Each agent is specialised in its stack. The IT Leader orchestrates
+            them &mdash;
+            breaking down requirements, delegating work, and integrating
+            results.
+          </p>
+        </div>
+
+        <!-- Agent rows -->
+        <div class="divide-y divide-white/[0.04] border-y border-white/[0.04]">
+          <!-- IT Leader (special row) -->
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-white shrink-0 flex items-center justify-center">
+              <span class="text-black text-xs font-bold font-mono">TL</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="text-white font-medium text-sm">IT Leader</span>
+                <span
+                  class="text-[10px] uppercase tracking-wider text-white/20 font-mono">primary</span>
+              </div>
+              <div class="text-white/25 text-xs mt-0.5">Orchestration &bull;
+                Planning &bull; Integration</div>
+            </div>
+            <code
+              class="text-xs text-white/20 font-mono hidden sm:block">@leader</code>
+          </div>
+
+          <!-- Subagents -->
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-blue-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-blue-400 text-xs font-bold font-mono">V</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">Nuxt Frontend</div>
+              <div class="text-white/25 text-xs mt-0.5">Vue 3 &bull; Nuxt 4
+                &bull; Nuxt UI &bull; TypeScript &bull; Playwright</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-blue">Nuxt
+                4</span>
+              <code
+                class="text-xs text-white/20 font-mono">@frontend-nuxt</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-cyan-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-cyan-400 text-xs font-bold font-mono">R</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">React Frontend</div>
+              <div class="text-white/25 text-xs mt-0.5">React 19 &bull; Next.js
+                15 &bull; shadcn/ui &bull; TanStack Query &bull; E2E</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-cyan">React
+                19</span>
+              <code
+                class="text-xs text-white/20 font-mono">@frontend-react</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-emerald-500/15 shrink-0 flex items-center justify-center">
+              <span
+                class="text-emerald-400 text-xs font-bold font-mono">N</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">Node Backend</div>
+              <div class="text-white/25 text-xs mt-0.5">Express 5 &bull; Prisma
+                &bull; PostgreSQL &bull; DTO &bull; JWT</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-emerald">Express
+                5</span>
+              <code class="text-xs text-white/20 font-mono">@backend</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-orange-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-orange-400 text-xs font-bold font-mono">L</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">Laravel Backend</div>
+              <div class="text-white/25 text-xs mt-0.5">Laravel 10+ &bull;
+                Service/Repository &bull; Eloquent &bull; JWT</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-orange">Laravel</span>
+              <code class="text-xs text-white/20 font-mono">@laravel</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-lime-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-lime-400 text-xs font-bold font-mono">C</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">CodeIgniter 3</div>
+              <div class="text-white/25 text-xs mt-0.5">CI3 MVC &bull; REST API
+                &bull; JWT &bull; MySQL/PostgreSQL</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-lime">CI3</span>
+              <code class="text-xs text-white/20 font-mono">@ci3</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-amber-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-amber-400 text-xs font-bold font-mono">D</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">UI/UX Designer</div>
+              <div class="text-white/25 text-xs mt-0.5">Impeccable design &bull;
+                Figma &bull; Stitch &bull; WCAG 2.1</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-amber">Design</span>
+              <code class="text-xs text-white/20 font-mono">@designer</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-red-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-red-400 text-xs font-bold font-mono">R</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">Code Reviewer /
+                QA</div>
+              <div class="text-white/25 text-xs mt-0.5">Quality audit &bull;
+                Security &bull; Testing strategy &bull; E2E</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-red">QA</span>
+              <code class="text-xs text-white/20 font-mono">@reviewer</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-cyan-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-cyan-400 text-xs font-bold font-mono">D</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">Database
+                Specialist</div>
+              <div class="text-white/25 text-xs mt-0.5">PostgreSQL &bull; Prisma
+                &bull; Migrations &bull; Query optimization</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-cyan">SQL</span>
+              <code class="text-xs text-white/20 font-mono">@database</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-indigo-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-indigo-400 text-xs font-bold font-mono">O</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">DevOps Engineer</div>
+              <div class="text-white/25 text-xs mt-0.5">CI/CD &bull; Docker
+                &bull; Vercel/Cloudflare &bull; GitHub Actions</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-indigo">CI/CD</span>
+              <code class="text-xs text-white/20 font-mono">@devops</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-lime-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-lime-400 text-xs font-bold font-mono">S</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">SEO Specialist</div>
+              <div class="text-white/25 text-xs mt-0.5">Meta tags &bull; JSON-LD
+                &bull; Core Web Vitals &bull; Sitemaps</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-lime">SEO</span>
+              <code class="text-xs text-white/20 font-mono">@seo</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-green-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-green-400 text-xs font-bold font-mono">A</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">Android
+                Developer</div>
+              <div class="text-white/25 text-xs mt-0.5">Kotlin &bull; Jetpack
+                Compose &bull; Material 3 &bull; Google Play (GPC)</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-green">Kotlin</span>
+              <code class="text-xs text-white/20 font-mono">@android</code>
+            </div>
+          </div>
+
+          <div class="py-4 flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-md bg-sky-500/15 shrink-0 flex items-center justify-center">
+              <span class="text-sky-400 text-xs font-bold font-mono">F</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-white font-medium text-sm">Flutter
+                Developer</div>
+              <div class="text-white/25 text-xs mt-0.5">Dart &bull; Flutter SDK
+                &bull; Material 3 &bull; Bloc/Riverpod &bull; Firebase</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono pill-sky">Flutter</span>
+              <code class="text-xs text-white/20 font-mono">@flutter</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== CAPABILITIES ===== -->
+    <section id="capabilities" class="py-14 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+
+          <!-- Left: TOC-like nav -->
+          <div class="lg:col-span-4">
+            <h2
+              class="text-2xl sm:text-3xl font-bold text-white mb-3">Capabilities</h2>
+            <p class="text-white/30 text-sm leading-relaxed mb-6">
+              Everything your AI team needs out of the box.
+            </p>
+            <div class="space-y-2 text-sm">
+              <a href="#cap-mcp"
+                class="block text-white/30 hover:text-white/60 transition-colors">MCP
+                Servers</a>
+              <a href="#cap-skills"
+                class="block text-white/30 hover:text-white/60 transition-colors">Skill
+                Playbooks</a>
+              <a href="#cap-commands"
+                class="block text-white/30 hover:text-white/60 transition-colors">Slash
+                Commands</a>
+            </div>
+          </div>
+
+          <!-- Right: Content -->
+          <div class="lg:col-span-8 space-y-14">
+
+            <!-- MCP Servers -->
+            <div id="cap-mcp">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="w-1 h-5 bg-teal-400/50 rounded-full"></span>
+                <h3 class="text-lg font-semibold text-white">MCP Servers</h3>
+              </div>
+              <div
+                class="divide-y divide-white/[0.04] border-t border-b border-white/[0.04]">
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <span class="text-white text-sm font-medium">Nuxt</span>
+                    <span class="text-white/20 ml-2 text-xs">remote</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-white/35 text-xs hidden sm:block">Docs,
+                      blog, deployment</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <span class="text-white text-sm font-medium">Nuxt UI</span>
+                    <span class="text-white/20 ml-2 text-xs">remote</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="text-white/35 text-xs hidden sm:block">Component
+                      docs &bull; Examples</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <span
+                      class="text-white text-sm font-medium">Playwright</span>
+                    <span class="text-white/20 ml-2 text-xs">stdio</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-white/35 text-xs hidden sm:block">Browser
+                      automation &bull; E2E</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <span class="text-white text-sm font-medium">Postman</span>
+                    <span class="text-white/20 ml-2 text-xs">remote</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-white/35 text-xs hidden sm:block">API
+                      management &bull; Collections</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <span class="text-white text-sm font-medium">Figma</span>
+                    <span class="text-white/20 ml-2 text-xs">stdio</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-white/35 text-xs hidden sm:block">Design
+                      file access</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-white/10"></span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <span class="text-white text-sm font-medium">Google
+                      Stitch</span>
+                    <span class="text-white/20 ml-2 text-xs">remote</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-white/35 text-xs hidden sm:block">AI
+                      design generation</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-white/10"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skills -->
+            <div id="cap-skills">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="w-1 h-5 bg-teal-400/50 rounded-full"></span>
+                <h3 class="text-lg font-semibold text-white">62 Skill
+                  Playbooks</h3>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                <div
+                  class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
+                  <div class="text-white/60 text-xs font-medium mb-1">Core</div>
+                  <div class="text-white/25 text-[10px]">coding-standards,
+                    security-review, tdd-workflow, impeccable, nuxt-ui,
+                    shadcn-ui &bull; 16 skills</div>
+                </div>
+                <div
+                  class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
+                  <div
+                    class="text-white/60 text-xs font-medium mb-1">Flutter</div>
+                  <div class="text-white/25 text-[10px]">flutter,
+                    add-widget-test, responsive-layout, routing, localization
+                    &bull; 11 skills</div>
+                </div>
+                <div
+                  class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
+                  <div class="text-white/60 text-xs font-medium mb-1">Dart</div>
+                  <div class="text-white/25 text-[10px]">unit-test, cli-app,
+                    coverage, static-analysis, pattern-matching &bull; 9
+                    skills</div>
+                </div>
+                <div
+                  class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
+                  <div
+                    class="text-white/60 text-xs font-medium mb-1">Android</div>
+                  <div class="text-white/25 text-[10px]">jetpack-compose,
+                    navigation-3, firebase, edge-to-edge, billing &bull; 9
+                    skills</div>
+                </div>
+                <div
+                  class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
+                  <div class="text-white/60 text-xs font-medium mb-1">Backend
+                    &amp; DB</div>
+                  <div class="text-white/25 text-[10px]">postgres-patterns,
+                    springboot* (7), django* (4), jpa-patterns &bull; 14
+                    skills</div>
+                </div>
+                <div
+                  class="px-3 py-2 rounded border border-white/[0.04] bg-white/[0.015]">
+                  <div class="text-white/60 text-xs font-medium mb-1">Go &bull;
+                    Python</div>
+                  <div class="text-white/25 text-[10px]">golang-patterns,
+                    golang-testing, python-patterns, python-testing &bull; 4
+                    skills</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Commands -->
+            <div id="cap-commands">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="w-1 h-5 bg-teal-400/50 rounded-full"></span>
+                <h3 class="text-lg font-semibold text-white">36 Slash
+                  Commands</h3>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-2">
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code class="text-white/70 text-xs font-mono">/plan</code>
+                  <span class="text-white/25 text-[10px]">Implementation
+                    plan</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/orchestrate</code>
+                  <span class="text-white/25 text-[10px]">Multi-agent
+                    workflow</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/code-review</code>
+                  <span class="text-white/25 text-[10px]">Quality &amp;
+                    security</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code class="text-white/70 text-xs font-mono">/security</code>
+                  <span class="text-white/25 text-[10px]">Vulnerability
+                    audit</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code class="text-white/70 text-xs font-mono">/tdd</code>
+                  <span class="text-white/25 text-[10px]">TDD workflow</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code class="text-white/70 text-xs font-mono">/e2e</code>
+                  <span class="text-white/25 text-[10px]">E2E test
+                    generation</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/build-fix</code>
+                  <span class="text-white/25 text-[10px]">Fix build
+                    errors</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/refactor-clean</code>
+                  <span class="text-white/25 text-[10px]">Dead code
+                    removal</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/android-build</code>
+                  <span class="text-white/25 text-[10px]">Build APK/AAB</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/flutter-build</code>
+                  <span class="text-white/25 text-[10px]">Build Flutter</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/gpc-release</code>
+                  <span class="text-white/25 text-[10px]">Play Store
+                    publish</span>
+                </div>
+                <div
+                  class="px-3 py-2.5 rounded border border-white/[0.04] bg-white/[0.015] flex items-center justify-between">
+                  <code
+                    class="text-white/70 text-xs font-mono">/update-docs</code>
+                  <span class="text-white/25 text-[10px]">Documentation</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== MODEL TIERS ===== -->
+    <section class="py-14 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-sm mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Model
+            tiers</h2>
+          <p class="text-white/30 text-sm leading-relaxed">
+            Each agent uses the optimal model for its role &mdash; balancing
+            reasoning depth, speed, and cost.
+          </p>
+        </div>
+        <div
+          class="grid sm:grid-cols-4 gap-px bg-white/[0.04] rounded-lg overflow-hidden border border-white/[0.04]">
+          <div class="bg-[#0a0a0a] p-5">
+            <div class="text-xs font-mono text-white/20 mb-1">Tier 1</div>
+            <div class="text-white font-semibold text-sm">Premium</div>
+            <div
+              class="font-mono text-[10px] text-white/20 mt-1">claude-opus-4.7</div>
+            <div class="text-white/30 text-[11px] mt-2">Deep analysis, security,
+              orchestration</div>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Leader</span>
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Reviewer</span>
+            </div>
+          </div>
+          <div class="bg-[#0a0a0a] p-5">
+            <div class="text-xs font-mono text-white/20 mb-1">Tier 2</div>
+            <div class="text-white font-semibold text-sm">Balanced</div>
+            <div
+              class="font-mono text-[10px] text-white/20 mt-1">claude-sonnet-4.5</div>
+            <div class="text-white/30 text-[11px] mt-2">Implementation, design,
+              database</div>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Frontend</span>
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Backend</span>
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">Mobile</span>
+            </div>
+          </div>
+          <div class="bg-[#0a0a0a] p-5">
+            <div class="text-xs font-mono text-white/20 mb-1">Tier 3</div>
+            <div class="text-white font-semibold text-sm">Efficient</div>
+            <div
+              class="font-mono text-[10px] text-white/20 mt-1">claude-haiku-4.5</div>
+            <div class="text-white/30 text-[11px] mt-2">Scripts, config,
+              straightforward tasks</div>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">DevOps</span>
+            </div>
+          </div>
+          <div class="bg-[#0a0a0a] p-5">
+            <div class="text-xs font-mono text-white/20 mb-1">Tier 4</div>
+            <div class="text-white font-semibold text-sm">Fast</div>
+            <div
+              class="font-mono text-[10px] text-white/20 mt-1">gpt-5-codex-mini</div>
+            <div class="text-white/30 text-[11px] mt-2">Research, content, cost
+              optimization</div>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.04] text-white/40">SEO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== INSTALL ===== -->
+    <section id="install" class="py-14 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-sm mb-10">
+          <h2
+            class="text-2xl sm:text-3xl font-bold text-white mb-3">Install</h2>
+          <p class="text-white/30 text-sm leading-relaxed">
+            One command, zero config. Works in any project directory.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <!-- NPM (recommended) -->
+          <div
+            class="p-6 rounded-lg border border-white/[0.05] bg-white/[0.015]">
+            <div class="flex items-center gap-2 mb-4">
+              <span
+                class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-teal-400/10 text-teal-400">recommended</span>
+              <h3 class="text-white font-semibold text-sm">Quick install</h3>
+            </div>
+            <div
+              class="bg-black/40 rounded-md p-3.5 overflow-x-auto border border-white/[0.03] mb-3">
+              <code class="text-xs text-white/60 font-mono leading-loose">
+                <span class="text-white/30"># In your project
+                  directory</span><br />
+                npx opencode-agent-kit init
+              </code>
+            </div>
+            <ul
+              class="text-white/25 text-xs space-y-1 marker-teal list-disc list-inside">
+              <li>Copies <span
+                  class="font-mono text-white/40">opencode.json</span>, <span
+                  class="font-mono text-white/40">.opencode/</span>, <span
+                  class="font-mono text-white/40">AGENTS.md</span></li>
+              <li>Merges with existing config (no overwrite)</li>
+              <li>Installs <span
+                  class="font-mono text-white/40">@opencode-ai/plugin</span>
+                dependency</li>
+              <li>Pass <span class="font-mono text-white/40">--force</span> to
+                overwrite</li>
+            </ul>
+          </div>
+
+          <!-- Global install -->
+          <div
+            class="p-6 rounded-lg border border-white/[0.05] bg-white/[0.015]">
+            <h3 class="text-white font-semibold text-sm mb-4">Global
+              install</h3>
+            <div
+              class="bg-black/40 rounded-md p-3.5 overflow-x-auto border border-white/[0.03] mb-3">
+              <code class="text-xs text-white/60 font-mono leading-loose">
+                <span class="text-white/30"># Install once, use
+                  everywhere</span><br />
+                npm install -g opencode-agent-kit<br /><br />
+                <span class="text-white/30"># Then init any project</span><br />
+                cd my-project && opencode-agent-kit init
+              </code>
+            </div>
+            <ul
+              class="text-white/25 text-xs space-y-1 marker-teal list-disc list-inside">
+              <li>All 13 agents available project-wide</li>
+              <li>Commands, skills, rules included</li>
+              <li>MCP servers: Nuxt, Nuxt UI, Playwright, Postman</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== USAGE ===== -->
+    <section id="start" class="py-14 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+          <!-- Left: text -->
+          <div>
+            <h2
+              class="text-2xl sm:text-3xl font-bold text-white mb-3">Usage</h2>
+            <p class="text-white/30 text-sm leading-relaxed mb-6">
+              After install, just run <span
+                class="font-mono text-white/50">opencode</span>.
+              The <strong class="text-white/60 font-medium">IT Leader</strong>
+              primary agent activates automatically.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <span
+                  class="text-teal-400/50 font-mono text-xs mt-0.5">01</span>
+                <div>
+                  <div class="text-white/60 text-sm font-medium">IT Leader
+                    orchestrates</div>
+                  <div class="text-white/25 text-xs">Give it a feature request
+                    &mdash; it plans, delegates, and integrates.</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span
+                  class="text-teal-400/50 font-mono text-xs mt-0.5">02</span>
+                <div>
+                  <div class="text-white/60 text-sm font-medium">Or call
+                    subagents directly</div>
+                  <div class="text-white/25 text-xs">Use <span
+                      class="font-mono text-white/40">@mention</span> for
+                    specific tasks.</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span
+                  class="text-teal-400/50 font-mono text-xs mt-0.5">03</span>
+                <div>
+                  <div class="text-white/60 text-sm font-medium">Use slash
+                    commands</div>
+                  <div class="text-white/25 text-xs"><span
+                      class="font-mono text-white/40">/plan</span>, <span
+                      class="font-mono text-white/40">/tdd</span>, <span
+                      class="font-mono text-white/40">/code-review</span>, <span
+                      class="font-mono text-white/40">/build-fix</span>, and 30+
+                    more.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: code -->
+          <div
+            class="bg-black/40 rounded-lg p-4 border border-white/[0.03] overflow-x-auto">
+            <code class="text-xs text-white/50 font-mono leading-loose">
+              <span class="text-white/30"># Let the IT Leader handle complex
+                features</span><br />
+              Buat fitur marketplace dengan halaman listing, detail,<br />
+              dan form create. Backend API untuk CRUD markets.<br />
+              Setup CI/CD pipeline dan optimasi SEO.<br /><br />
+              <span class="text-white/30"># Or call subagents directly for
+                specific tasks</span><br />
+              @frontend-nuxt Buat halaman login dengan Nuxt UI.<br />
+              @backend Add endpoint POST /api/auth/login.<br />
+              @android Buat login screen dengan Jetpack Compose.<br />
+              @flutter Buat screen product list dengan Bloc pattern.<br />
+              @designer Review UX flow halaman checkout.<br />
+              @reviewer Audit security untuk authentication module.
+            </code>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-10">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-2.5">
+            <span
+              class="inline-flex items-center justify-center w-7 h-7 rounded bg-white text-black text-xs font-bold font-mono">K</span>
+            <div>
+              <div class="text-white/60 text-xs font-medium">Opencode Agent
+                KIT</div>
+              <div class="text-white/20 text-[10px]">Software Developer Agent
+                System</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-white/25">
+            <a href="https://github.com/defuj/software-developer-team-agent"
+              target="_blank" rel="noopener"
+              class="flex items-center gap-1.5 hover:text-white/50 transition-colors">
+              <svg class="w-3.5 h-3.5" fill="currentColor"
+                viewBox="0 0 24 24"><path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+              GitHub
+            </a>
+            <span>v1.3.0</span>
+            <span>MIT</span>
+          </div>
+        </div>
+        <div
+          class="mt-6 pt-4 border-t border-white/[0.04] text-white/15 text-[10px] text-center sm:text-left">
+          Built with OpenCode. Designed for AI-native development teams.
+        </div>
+      </div>
+    </footer>
+
+  </body>
 </html>
