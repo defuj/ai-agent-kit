@@ -8,14 +8,6 @@
       "*.env.*": "deny",
       "*.env.example": "allow"
     },
-    "edit": "allow",
-    "bash": {
-      "*": "ask",
-      "git status": "allow",
-      "git diff": "allow",
-      "git log*": "allow",
-      "grep *": "allow"
-    },
     "webfetch": "allow",
     "skill": {
       "*": "allow"
@@ -88,7 +80,6 @@
       "temperature": 0.4,
       "color": "#8b5cf6",
       "permission": {
-        "edit": "allow",
         "webfetch": "allow",
         "skill": { "*": "allow" },
         "bash": {

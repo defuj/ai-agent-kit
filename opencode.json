@@ -1,6 +1,22 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "formatter": true,
+  "permission": {
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "webfetch": "allow",
+    "skill": {
+      "*": "allow"
+    },
+    "todowrite": "allow",
+    "question": "allow",
+    "doom_loop": "ask",
+    "external_directory": "ask"
+  },
   "instructions": [
     ".opencode/instructions/INSTRUCTIONS.md",
     ".opencode/skills/coding-standards/SKILL.md",
@@ -57,7 +73,6 @@
       "temperature": 0.4,
       "color": "#8b5cf6",
       "permission": {
-        "edit": "allow",
         "webfetch": "allow",
         "skill": { "*": "allow" },
         "bash": {
