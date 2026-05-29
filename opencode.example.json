@@ -1,5 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "description": "IT Team Agent Configuration Example - Copy ke opencode.json dan sesuaikan model sesuai kebutuhan",
+  "note": "Opsional: Jika tidak set model per agent, subagent akan inherit dari primary (IT Leader). Untuk customize, uncomment model line per agent.",
   "formatter": true,
   "permission": {
     "read": {
@@ -77,6 +79,7 @@
       "description": "IT Leader & Technical Project Manager — analyzes requirements, designs architecture, decomposes tasks, delegates to subagents, and unifies outputs",
       "mode": "primary",
       "prompt": "{file:.opencode/agents/it-leader.md}",
+      "model": "opencode/claude-opus-4.7",
       "temperature": 0.4,
       "color": "#8b5cf6",
       "permission": {
@@ -102,6 +105,8 @@
       "description": "Expert Vue/Nuxt frontend developer for Nuxt.js, Vue 3, Nuxt UI, and modern web technologies with MCP integration (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/nuxt-frontend-developer.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#3b82f6",
       "permission": {
         "edit": "allow",
@@ -125,6 +130,8 @@
       "description": "Expert React/Next.js frontend developer for React 19, Next.js 15, Vite, shadcn/ui, and modern web technologies (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/react-frontend-developer.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#06b6d4",
       "permission": {
         "edit": "allow",
@@ -146,6 +153,8 @@
       "description": "Expert backend developer for Node.js, Express, Prisma, and PostgreSQL (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/node-backend-developer.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#10b981",
       "permission": {
         "edit": "allow",
@@ -165,6 +174,8 @@
       "description": "CodeIgniter 3 MVC fullstack developer for REST API, JWT, MySQL/PostgreSQL (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/code-igniter-3-fullstack.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#84cc16",
       "permission": {
         "edit": "allow",
@@ -183,6 +194,8 @@
       "description": "Laravel backend engineer for REST API, Service/Repository, JWT, MySQL/PostgreSQL (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/laravel-advanced.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#f97316",
       "permission": {
         "edit": "allow",
@@ -201,6 +214,8 @@
       "description": "UI/UX Designer specializing in design systems, Google Stitch, Figma, accessibility, and design-to-code handoff (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/ui-ux-designer.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.5,
       "color": "#f59e0b",
       "permission": {
         "edit": "allow",
@@ -221,6 +236,8 @@
       "description": "Code Reviewer & QA Engineer specializing in code quality, security audit, testing strategy, and verification (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/code-reviewer.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#ef4444",
       "permission": {
         "edit": "allow",
@@ -241,6 +258,8 @@
       "description": "Database Specialist specializing in PostgreSQL schema design, query optimization, Prisma ORM, and migrations (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/database-specialist.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#06b6d4",
       "permission": {
         "edit": "allow",
@@ -259,6 +278,8 @@
       "description": "DevOps Engineer specializing in CI/CD, deployment, Docker, monitoring, and infrastructure (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/devops-specialist.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#6366f1",
       "permission": {
         "edit": "allow",
@@ -278,6 +299,8 @@
       "description": "SEO Specialist specializing in meta tags, structured data, Core Web Vitals, and content optimization (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/seo-specialist.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#84cc16",
       "permission": {
         "edit": "allow",
@@ -296,6 +319,8 @@
       "description": "Expert Android developer for Kotlin, Jetpack Compose, XML, Material Design 3, and Google Play (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/android-developer.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#22c55e",
       "permission": {
         "edit": "allow",
@@ -314,6 +339,8 @@
       "description": "Expert Flutter developer for Dart, Flutter SDK, Material Design 3, Firebase, and cross-platform mobile apps (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/flutter-developer.md}",
+      "model": "opencode/claude-sonnet-4.5",
+      "temperature": 0.4,
       "color": "#0284c7",
       "permission": {
         "edit": "allow",
