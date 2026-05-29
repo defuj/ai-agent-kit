@@ -517,6 +517,149 @@
         background: linear-gradient(90deg, transparent, var(--accent, #d4a04a), transparent);
         border-radius: 2px;
       }
+
+      /* ===== HERO CREATIVE ELEMENTS ===== */
+      @keyframes beam-sweep {
+        0%, 100% { transform: translateX(-100%) rotate(15deg); }
+        50% { transform: translateX(200%) rotate(15deg); }
+      }
+      .hero-beam {
+        position: absolute;
+        width: 200px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent, #d4a04a), transparent);
+        opacity: 0.15;
+        animation: beam-sweep 8s ease-in-out infinite;
+      }
+      .hero-beam-1 { top: 20%; left: -100px; animation-delay: 0s; }
+      .hero-beam-2 { top: 60%; left: -100px; animation-delay: 3s; }
+      .hero-beam-3 { top: 80%; left: -100px; animation-delay: 5s; }
+
+      @keyframes cross-rotate {
+        0%, 100% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(180deg) scale(1.1); }
+      }
+      .hero-cross {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        opacity: 0.1;
+        animation: cross-rotate 20s linear infinite;
+      }
+      .hero-cross::before,
+      .hero-cross::after {
+        content: '';
+        position: absolute;
+        background: var(--accent, #d4a04a);
+      }
+      .hero-cross::before {
+        top: 50%; left: 0;
+        width: 100%; height: 1px;
+        transform: translateY(-50%);
+      }
+      .hero-cross::after {
+        top: 0; left: 50%;
+        width: 1px; height: 100%;
+        transform: translateX(-50%);
+      }
+      .hero-cross-1 { top: 15%; right: 15%; animation-duration: 25s; }
+      .hero-cross-2 { bottom: 25%; right: 25%; animation-duration: 30s; animation-direction: reverse; }
+      .hero-cross-3 { top: 45%; right: 5%; animation-duration: 20s; }
+
+      @keyframes square-float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        33% { transform: translateY(-15px) rotate(120deg); }
+        66% { transform: translateY(10px) rotate(240deg); }
+      }
+      .hero-square {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 1px solid oklch(1 0 0 / 0.08);
+        animation: square-float 12s ease-in-out infinite;
+      }
+      .hero-square-1 { top: 25%; right: 20%; animation-delay: 0s; }
+      .hero-square-2 { bottom: 35%; right: 10%; animation-delay: 4s; width: 8px; height: 8px; }
+      .hero-square-3 { top: 60%; right: 30%; animation-delay: 8s; width: 16px; height: 16px; }
+
+      /* Terminal preview */
+      .terminal-preview {
+        background: oklch(0.06 0.002 260);
+        border: 1px solid oklch(1 0 0 / 0.06);
+        border-radius: 12px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+      }
+      .terminal-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 14px;
+        background: oklch(1 0 0 / 0.02);
+        border-bottom: 1px solid oklch(1 0 0 / 0.04);
+      }
+      .terminal-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      .terminal-body {
+        padding: 14px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        line-height: 1.8;
+        color: oklch(0.5 0.01 260);
+      }
+      .terminal-line {
+        opacity: 0;
+        animation: terminal-type 0.3s ease-out forwards;
+      }
+      .terminal-line:nth-child(1) { animation-delay: 1s; }
+      .terminal-line:nth-child(2) { animation-delay: 1.8s; }
+      .terminal-line:nth-child(3) { animation-delay: 2.6s; }
+      .terminal-line:nth-child(4) { animation-delay: 3.4s; }
+      .terminal-line:nth-child(5) { animation-delay: 4.2s; }
+      .terminal-line:nth-child(6) { animation-delay: 5s; }
+
+      @keyframes terminal-type {
+        from { opacity: 0; transform: translateX(-8px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      .terminal-prompt { color: var(--accent, #d4a04a); }
+      .terminal-success { color: oklch(0.65 0.15 145); }
+      .terminal-info { color: oklch(0.6 0.1 200); }
+      .terminal-dim { color: oklch(0.35 0.005 260); }
+
+      /* Title underline accent */
+      .title-underline {
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent, #d4a04a), transparent);
+        border-radius: 2px;
+        margin-top: 16px;
+        opacity: 0;
+        animation: line-expand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+      }
+      @keyframes line-expand {
+        from { opacity: 0; width: 0; }
+        to { opacity: 1; width: 80px; }
+      }
+
+      /* Agent badges */
+      .agent-badge {
+        opacity: 0;
+        animation: badge-fade-in 0.5s ease-out forwards;
+      }
+      .agent-badge:nth-child(1) { animation-delay: 2s; }
+      .agent-badge:nth-child(2) { animation-delay: 2.5s; }
+      .agent-badge:nth-child(3) { animation-delay: 3s; }
+
+      @keyframes badge-fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
     </style>
   </head>
   <body>
@@ -558,136 +701,137 @@
     </nav>
 
     <!-- ===== HERO ===== -->
-    <section class="relative min-h-screen flex flex-col justify-center pt-14">
-      <div
-        class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-24 lg:py-36 w-full">
+    <section class="relative min-h-screen flex flex-col justify-center pt-14 overflow-hidden">
+      <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-24 lg:py-0 w-full">
 
-        <!-- Floating decorative shapes -->
-        <div
-          class="absolute top-20 right-[10%] w-3 h-3 rounded-full bg-accent/20 float-slow hidden lg:block"></div>
-        <div
-          class="absolute top-40 right-[25%] w-2 h-2 rounded-full bg-violet/20 float-medium hidden lg:block"></div>
-        <div
-          class="absolute bottom-32 right-[15%] w-4 h-4 rounded-full border border-accent/10 float-fast hidden lg:block"></div>
+        <!-- Creative background elements -->
+        <div class="hero-beam hero-beam-1 hidden lg:block"></div>
+        <div class="hero-beam hero-beam-2 hidden lg:block"></div>
+        <div class="hero-beam hero-beam-3 hidden lg:block"></div>
+        <div class="hero-cross hero-cross-1 hidden lg:block"></div>
+        <div class="hero-cross hero-cross-2 hidden lg:block"></div>
+        <div class="hero-cross hero-cross-3 hidden lg:block"></div>
+        <div class="hero-square hero-square-1 hidden lg:block"></div>
+        <div class="hero-square hero-square-2 hidden lg:block"></div>
+        <div class="hero-square hero-square-3 hidden lg:block"></div>
 
-        <div
-          class="hero-badge inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-accent/8 border border-accent/20 text-accent/85 text-xs font-mono mb-8 tracking-tight">
-          <span
-            class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_6px_rgba(212,160,74,0.6)]"></span>
-          v1.0.9 &mdash; 13 agents &middot; 62 skills &middot; 36 commands
-        </div>
+        <!-- Two-column layout -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        <div class="relative -top-2 -left-4 lg:-top-4 lg:-left-8">
-          <div
-            class="absolute inset-0 bg-accent/[0.03] blur-[120px] rounded-full pointer-events-none"
-            style="transform: scale(1.5);"></div>
-        </div>
-        <h1
-          class="relative text-5xl sm:text-[3.5rem] lg:text-[5.5rem] xl:text-[6rem] font-bold leading-[0.92] tracking-tight mb-8 max-w-4xl">
-          <span
-            class="hero-title-line block text-white/45 font-normal text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem]">Multi-Stack
-            AI</span>
-          <span class="hero-title-line block">Agent Orchestrator</span>
-          <span class="hero-title-line block">
-            <span class="text-white/45 font-normal">for </span>
-            <span class="text-accent">OpenCode</span>
-          </span>
-        </h1>
+          <!-- LEFT: Content -->
+          <div class="relative">
+            <div class="absolute -top-20 -left-10 w-64 h-64 bg-accent/[0.04] blur-[120px] rounded-full pointer-events-none"></div>
 
-        <p
-          class="text-sm sm:text-base text-white/35 leading-relaxed max-w-xl mb-10">
-          An <strong class="text-white/60 font-medium">IT-Leader</strong> that
-          plans, delegates to <strong class="text-white/60 font-medium">12
-            specialized subagents</strong>, and integrates results. One command
-          installs an entire AI development team.
-        </p>
-
-        <div class="hero-cta flex flex-wrap gap-3 mb-20">
-          <a href="#install"
-            class="install-cta rounded-xl px-6 py-3 text-sm font-bold font-mono text-black tracking-tight">
-            <span>npx opencode-agent-kit init</span>
-          </a>
-          <a href="#leader"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/[0.03] text-white/55 text-sm font-medium hover:bg-white/[0.06] hover:text-white/75 transition-all border border-white/[0.06] hover:border-accent/15">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24"><path stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-            See how it works
-          </a>
-        </div>
-
-        <!-- Stats row -->
-        <div class="reveal stats-row grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div
-            class="stat-card stat-featured group relative overflow-hidden rounded-2xl p-5 sm:p-6 border border-accent/20 bg-accent/[0.03] hover:bg-accent/[0.06] transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
-            <div
-              class="absolute -right-4 -top-4 w-20 h-20 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors"></div>
-            <div class="relative">
-              <div class="flex items-baseline gap-1.5 mb-1">
-                <span
-                  class="text-4xl sm:text-5xl font-black text-accent font-display stat-number"
-                  data-count="13">0</span>
-                <span class="text-xs text-accent/50 font-mono">+</span>
-              </div>
-              <div
-                class="text-[11px] text-white/30 uppercase tracking-[0.15em] font-medium">Agents</div>
-              <div
-                class="mt-3 h-px w-0 group-hover:w-full bg-gradient-to-r from-accent/40 to-transparent transition-all duration-500 ease-out"></div>
+            <div class="hero-badge inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-accent/8 border border-accent/20 text-accent/85 text-xs font-mono mb-8 tracking-tight">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_6px_rgba(212,160,74,0.6)]"></span>
+              v1.0.9 &mdash; 13 agents &middot; 62 skills &middot; 36 commands
             </div>
-          </div>
-          <div
-            class="stat-card group relative overflow-hidden rounded-2xl p-5 sm:p-6 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
-            <div class="relative">
-              <div class="flex items-baseline gap-1.5 mb-1">
-                <span
-                  class="text-4xl sm:text-5xl font-black text-white/80 font-display stat-number"
-                  data-count="62">0</span>
-                <span class="text-xs text-white/20 font-mono">+</span>
+
+            <h1 class="relative text-4xl sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[0.92] tracking-tight mb-6">
+              <span class="hero-title-line block text-white/45 font-normal text-2xl sm:text-3xl lg:text-4xl">Multi-Stack AI</span>
+              <span class="hero-title-line block">Agent Orchestrator</span>
+              <span class="hero-title-line block">
+                <span class="text-white/45 font-normal">for </span>
+                <span class="text-accent">OpenCode</span>
+              </span>
+              <span class="title-underline"></span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-white/35 leading-relaxed mb-10 max-w-md">
+              An <strong class="text-white/60 font-medium">IT-Leader</strong> that plans, delegates to <strong class="text-white/60 font-medium">12 specialized subagents</strong>, and integrates results. One command installs an entire AI development team.
+            </p>
+
+            <div class="hero-cta flex flex-wrap gap-3 mb-12">
+              <a href="#install" class="install-cta rounded-xl px-6 py-3 text-sm font-bold font-mono text-black tracking-tight">
+                <span>npx opencode-agent-kit init</span>
+              </a>
+              <a href="#leader" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/[0.03] text-white/55 text-sm font-medium hover:bg-white/[0.06] hover:text-white/75 transition-all border border-white/[0.06] hover:border-accent/15">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                See how it works
+              </a>
+            </div>
+
+            <!-- Stats row (compact) -->
+            <div class="stats-row grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="stat-card stat-featured group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-accent/20 bg-accent/[0.03] hover:bg-accent/[0.06] transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+                <div class="absolute -right-4 -top-4 w-20 h-20 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors"></div>
+                <div class="relative">
+                  <div class="flex items-baseline gap-1 mb-1">
+                    <span class="text-3xl sm:text-4xl font-black text-accent font-display stat-number" data-count="13">0</span>
+                    <span class="text-xs text-accent/50 font-mono">+</span>
+                  </div>
+                  <div class="text-[10px] text-white/30 uppercase tracking-[0.15em] font-medium">Agents</div>
+                </div>
               </div>
-              <div
-                class="text-[11px] text-white/25 uppercase tracking-[0.15em] font-medium">Skills</div>
-              <div class="mt-3 flex gap-1">
-                <span class="w-1 h-1 rounded-full bg-blue-400/40"></span>
-                <span class="w-1 h-1 rounded-full bg-emerald-400/40"></span>
-                <span class="w-1 h-1 rounded-full bg-amber-400/40"></span>
+              <div class="stat-card group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
+                <div class="relative">
+                  <div class="flex items-baseline gap-1 mb-1">
+                    <span class="text-3xl sm:text-4xl font-black text-white/80 font-display stat-number" data-count="62">0</span>
+                    <span class="text-xs text-white/20 font-mono">+</span>
+                  </div>
+                  <div class="text-[10px] text-white/25 uppercase tracking-[0.15em] font-medium">Skills</div>
+                </div>
+              </div>
+              <div class="stat-card group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
+                <div class="relative">
+                  <div class="flex items-baseline gap-1 mb-1">
+                    <span class="text-3xl sm:text-4xl font-black text-white/80 font-display stat-number" data-count="36">0</span>
+                    <span class="text-xs text-white/20 font-mono">+</span>
+                  </div>
+                  <div class="text-[10px] text-white/25 uppercase tracking-[0.15em] font-medium">Commands</div>
+                </div>
+              </div>
+              <div class="stat-card group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
+                <div class="relative">
+                  <div class="flex items-baseline gap-1 mb-1">
+                    <span class="text-3xl sm:text-4xl font-black text-white/80 font-display stat-number" data-count="6">0</span>
+                  </div>
+                  <div class="text-[10px] text-white/25 uppercase tracking-[0.15em] font-medium">MCP</div>
+                </div>
               </div>
             </div>
           </div>
-          <div
-            class="stat-card group relative overflow-hidden rounded-2xl p-5 sm:p-6 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
-            <div class="relative">
-              <div class="flex items-baseline gap-1.5 mb-1">
-                <span
-                  class="text-4xl sm:text-5xl font-black text-white/80 font-display stat-number"
-                  data-count="36">0</span>
-                <span class="text-xs text-white/20 font-mono">+</span>
+
+          <!-- RIGHT: Terminal + Visual -->
+          <div class="relative hidden lg:block">
+            <!-- Ambient glow behind terminal -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/[0.03] blur-[100px] rounded-full pointer-events-none"></div>
+
+            <!-- Terminal Preview -->
+            <div class="terminal-preview relative">
+              <div class="terminal-header">
+                <span class="terminal-dot bg-red-400/60"></span>
+                <span class="terminal-dot bg-yellow-400/60"></span>
+                <span class="terminal-dot bg-green-400/60"></span>
+                <span class="terminal-dim text-[10px] font-mono ml-2">agent-kit — installation</span>
               </div>
-              <div
-                class="text-[11px] text-white/25 uppercase tracking-[0.15em] font-medium">Commands</div>
-              <div class="mt-3 flex gap-1">
-                <span class="w-1 h-1 rounded-full bg-violet-400/40"></span>
-                <span class="w-1 h-1 rounded-full bg-rose-400/40"></span>
-                <span class="w-1 h-1 rounded-full bg-cyan-400/40"></span>
+              <div class="terminal-body">
+                <div class="terminal-line"><span class="terminal-prompt">$</span> npx opencode-agent-kit init</div>
+                <div class="terminal-line"><span class="terminal-dim">⠋ Resolving agent configurations...</span></div>
+                <div class="terminal-line"><span class="terminal-success">✓</span> <span class="terminal-info">IT Leader</span> <span class="terminal-dim">orchestrator ready</span></div>
+                <div class="terminal-line"><span class="terminal-success">✓</span> <span class="terminal-info">12 subagents</span> <span class="terminal-dim">loaded</span></div>
+                <div class="terminal-line"><span class="terminal-success">✓</span> <span class="terminal-info">62 skills</span> <span class="terminal-dim">+ 36 commands</span></div>
+                <div class="terminal-line"><span class="terminal-prompt">▶</span> <span class="terminal-success">AI team ready. What shall we build?</span></div>
               </div>
             </div>
-          </div>
-          <div
-            class="stat-card group relative overflow-hidden rounded-2xl p-5 sm:p-6 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
-            <div class="relative">
-              <div class="flex items-baseline gap-1.5 mb-1">
-                <span
-                  class="text-4xl sm:text-5xl font-black text-white/80 font-display stat-number"
-                  data-count="6">0</span>
-                <span class="text-xs text-white/20 font-mono"></span>
+
+            <!-- Floating agent badges around terminal -->
+            <div class="absolute -top-6 -right-6 agent-badge float-slow">
+              <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400/60"></span>
+                <span class="text-[10px] text-white/40 font-mono">frontend-nuxt</span>
               </div>
-              <div
-                class="text-[11px] text-white/25 uppercase tracking-[0.15em] font-medium">MCP
-                Servers</div>
-              <div class="mt-3 flex gap-1">
-                <span class="w-1 h-1 rounded-full bg-lime-400/40"></span>
-                <span class="w-1 h-1 rounded-full bg-orange-400/40"></span>
-                <span class="w-1 h-1 rounded-full bg-sky-400/40"></span>
+            </div>
+            <div class="absolute -bottom-4 -left-6 agent-badge float-medium">
+              <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+                <span class="text-[10px] text-white/40 font-mono">backend</span>
+              </div>
+            </div>
+            <div class="absolute top-1/2 -right-8 agent-badge float-fast">
+              <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-purple-400/60"></span>
+                <span class="text-[10px] text-white/40 font-mono">designer</span>
               </div>
             </div>
           </div>
