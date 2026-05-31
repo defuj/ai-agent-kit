@@ -51,7 +51,6 @@ function mergeJson(target, source, strategy = {}) {
     const rule = strategy[key] || "default";
 
     if (rule === "keep-target") {
-      // Keep user's existing value
       continue;
     }
 
@@ -66,7 +65,6 @@ function mergeJson(target, source, strategy = {}) {
         if (!(agentKey in merged[key])) {
           merged[key][agentKey] = JSON.parse(JSON.stringify(agentVal));
         }
-        // else: keep user's existing agent (unless --force)
       }
       continue;
     }
@@ -103,7 +101,6 @@ function mergeJson(target, source, strategy = {}) {
       continue;
     }
 
-    // default: source wins for top-level, but merge nested objects
     if (
       typeof value === "object" &&
       value !== null &&
@@ -141,52 +138,47 @@ function mergeOencodeConfig(templateConfigPath, userConfigPath, force) {
   return merged;
 }
 
-export async function init(options) {
-  const targetDir = options.dir;
-  const force = options.force;
-  const skipInstall = options.skipInstall;
+async function selectPlatform() {
+  const rl = await import("readline/promises");
+  const readline = rl.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
 
-  console.log(`\n  opencode-agent-kit init`);
+  console.log(`\n  ? Select platform to install:`);
+  console.log(`    1) OpenCode (.opencode/)`);
+  console.log(`    2) GitHub Copilot (.github/agents/)`);
+  console.log(`    3) Both`);
 
-  // 1. Validate target
-  if (!existsSync(targetDir)) {
-    console.error(`  ✗ Target directory does not exist: ${targetDir}`);
-    process.exit(1);
+  let answer;
+  while (true) {
+    answer = (await readline.question(`  ? Enter choice (1-3): `)).trim();
+    if (["1", "2", "3"].includes(answer)) break;
+    console.log(`  ✗ Invalid choice. Enter 1, 2, or 3.`);
   }
 
-  // 2. Check if .opencode already exists
+  readline.close();
+
+  const choices = {
+    1: "opencode",
+    2: "copilot",
+    3: "both",
+  };
+  return choices[answer];
+}
+
+function installOpencode(targetDir, force) {
   const opencodeDir = join(targetDir, ".opencode");
   const userConfigPath = join(targetDir, "opencode.json");
 
-  if (existsSync(opencodeDir) && !force) {
-    console.log(`  \n  ⚠  .opencode/ already exists in ${targetDir}`);
-    const rl = await import("readline/promises");
-    const readline = rl.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-    const answer = await readline.question(
-      `  ? Overwrite existing files? [y/N] `,
-    );
-    readline.close();
-    if (answer.toLowerCase() !== "y") {
-      console.log(`  ✗ Aborted.`);
-      process.exit(0);
-    }
+  if (existsSync(opencodeDir)) {
+    console.log(`  ℹ  .opencode/ already exists (skipping)`);
+    return;
   }
 
-  // 3. Validate template exists
-  if (!existsSync(TEMPLATE_DIR)) {
-    console.error(`  ✗ Template directory not found at ${TEMPLATE_DIR}`);
-    console.error(`    This is a bug. Please reinstall the package.`);
-    process.exit(1);
-  }
-
-  // 4. Copy .opencode/ from template
   console.log(`  \n  📁 Copying .opencode/ configuration...`);
   copyRecursive(join(TEMPLATE_DIR, ".opencode"), opencodeDir);
 
-  // 5. Merge opencode.json
   const templateConfigPath = join(TEMPLATE_DIR, "opencode.json");
   if (existsSync(templateConfigPath)) {
     console.log(`  📝 Merging opencode.json...`);
@@ -202,7 +194,6 @@ export async function init(options) {
     );
   }
 
-  // 6. Copy opencode.example.json
   const exampleSrc = join(TEMPLATE_DIR, "opencode.example.json");
   const exampleDest = join(targetDir, "opencode.example.json");
   if (existsSync(exampleSrc)) {
@@ -210,19 +201,70 @@ export async function init(options) {
     copyFileSync(exampleSrc, exampleDest);
   }
 
-  // 7. Install dependencies
-  if (!skipInstall) {
-    const pm = detectPackageManager(opencodeDir);
-    console.log(`  📦 Installing .opencode/ dependencies with ${pm}...`);
-    try {
-      execSync(`${pm} install`, { cwd: opencodeDir, stdio: "pipe" });
-    } catch (err) {
-      console.error(`  ⚠  Dependency install failed: ${err.message}`);
-      console.error(`    You can run "${pm} install" manually in .opencode/`);
-    }
+  const pm = detectPackageManager(opencodeDir);
+  console.log(`  📦 Installing .opencode/ dependencies with ${pm}...`);
+  try {
+    execSync(`${pm} install`, { cwd: opencodeDir, stdio: "pipe" });
+  } catch (err) {
+    console.error(`  ⚠  Dependency install failed: ${err.message}`);
+    console.error(`    You can run "${pm} install" manually in .opencode/`);
+  }
+}
+
+function installCopilot(targetDir) {
+  const copilotDir = join(targetDir, ".github");
+  const srcDir = join(TEMPLATE_DIR, ".github");
+
+  if (!existsSync(srcDir)) return;
+
+  if (existsSync(join(copilotDir, "agents"))) {
+    console.log(`  ℹ  .github/agents/ already exists (skipping)`);
+    return;
   }
 
-  // 8. Update .gitignore
+  console.log(`  \n  📁 Copying .github/agents/ configuration...`);
+  copyRecursive(join(srcDir, "agents"), join(copilotDir, "agents"));
+
+  const hooksSrc = join(srcDir, "hooks");
+  if (existsSync(hooksSrc)) {
+    console.log(`  🔗 Copying hooks...`);
+    copyRecursive(hooksSrc, join(copilotDir, "hooks"));
+  }
+
+  const workflowsSrc = join(srcDir, "workflows");
+  if (existsSync(workflowsSrc)) {
+    console.log(`  ⚙️  Copying setup workflow...`);
+    copyRecursive(workflowsSrc, join(copilotDir, "workflows"));
+  }
+}
+
+export async function init(options) {
+  const targetDir = options.dir;
+  const force = options.force;
+
+  console.log(`\n  AI Agent KIT — init\n`);
+
+  if (!existsSync(targetDir)) {
+    console.error(`  ✗ Target directory does not exist: ${targetDir}`);
+    process.exit(1);
+  }
+
+  if (!existsSync(TEMPLATE_DIR)) {
+    console.error(`  ✗ Template directory not found. Please reinstall.`);
+    process.exit(1);
+  }
+
+  const platform = options.platform || (await selectPlatform());
+
+  if (platform === "opencode" || platform === "both") {
+    installOpencode(targetDir, force);
+  }
+
+  if (platform === "copilot" || platform === "both") {
+    installCopilot(targetDir);
+  }
+
+  // Update .gitignore
   const gitignorePath = join(targetDir, ".gitignore");
   const gitignoreEntries = [
     ".opencode/*",
@@ -246,30 +288,52 @@ export async function init(options) {
     }
   }
 
-  // 9. Write .kit-version for agent update checking
+  // Write .kit-version
   const pkgJson = JSON.parse(
     readFileSync(join(PKG_ROOT, "package.json"), "utf-8"),
   );
-  const versionFile = join(opencodeDir, ".kit-version");
-  writeFileSync(versionFile, pkgJson.version + "\n", "utf-8");
+  const opencodeDir = join(targetDir, ".opencode");
+  if (existsSync(opencodeDir)) {
+    const versionFile = join(opencodeDir, ".kit-version");
+    writeFileSync(versionFile, pkgJson.version + "\n", "utf-8");
+  }
 
-  // 10. Done
-  console.log(`\n  ✅ opencode-agent-kit v${pkgJson.version} installed!\n`);
+  // Done
+  console.log(`\n  ✅ AI Agent KIT v${pkgJson.version} installed!\n`);
   console.log(`     Location: ${targetDir}`);
-  console.log(`     What you got:`);
-  console.log(
-    `       • opencode.json              — 13 agents config with MCP servers`,
-  );
-  console.log(
-    `       • opencode.example.json      — Example config for reference`,
-  );
-  console.log(`       • .opencode/agents    — 14 agent prompt files`);
-  console.log(`       • .opencode/skills/    — 60+ skill playbooks`);
-  console.log(`       • .opencode/commands/  — 35+ slash commands`);
-  console.log(`       • .opencode/rules/     — Scoped coding rules`);
-  console.log(`       • .opencode/contexts/  — Dev/review/research contexts`);
-  console.log(`       • .opencode/docs/— Agent documentation`);
-  console.log(`\n     Next steps:`);
-  console.log(`       cd ${targetDir}`);
-  console.log(`       opencode\n`);
+  console.log(`     Platform: ${platform}`);
+
+  if (platform === "opencode" || platform === "both") {
+    console.log(`     What you got (OpenCode):`);
+    console.log(
+      `       • opencode.json              — 13 agents config with MCP servers`,
+    );
+    console.log(`       • .opencode/agents           — 14 agent prompt files`);
+    console.log(`       • .opencode/skills/          — 60+ skill playbooks`);
+    console.log(`       • .opencode/commands/        — 35+ slash commands`);
+    console.log(`       • .opencode/rules/           — Scoped coding rules`);
+    console.log(
+      `       • .opencode/contexts/        — Dev/review/research contexts`,
+    );
+    console.log(`       • .opencode/docs/            — Agent documentation`);
+  }
+
+  if (platform === "copilot" || platform === "both") {
+    console.log(`     What you got (GitHub Copilot):`);
+    console.log(`       • .github/agents/            — 13 agent profiles`);
+    console.log(`       • .github/hooks/             — Session hooks`);
+    console.log(`       • .github/workflows/         — Copilot setup steps`);
+  }
+
+  if (platform === "opencode" || platform === "both") {
+    console.log(`\n     Next steps (OpenCode):`);
+    console.log(`       cd ${targetDir}`);
+    console.log(`       opencode`);
+  }
+
+  if (platform === "copilot" || platform === "both") {
+    console.log(`\n     Next steps (GitHub Copilot):`);
+    console.log(`       1. Open https://github.com/copilot/agents`);
+    console.log(`       2. Select your repository and use @mention agents`);
+  }
 }
