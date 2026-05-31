@@ -24,48 +24,6 @@
     ".opencode/skills/security-review/SKILL.md",
     ".opencode/skills/frontend-design/SKILL.md"
   ],
-  "mcp": {
-    "nuxt": {
-      "type": "remote",
-      "url": "https://nuxt.com/mcp",
-      "enabled": true,
-      "description": "Nuxt documentation, blog posts, and deployment guides"
-    },
-    "nuxt-ui": {
-      "type": "remote",
-      "url": "https://ui.nuxt.com/mcp",
-      "enabled": true,
-      "description": "Nuxt UI component documentation and examples"
-    },
-    "figma": {
-      "type": "remote",
-      "url": "https://mcp.figma.com/mcp"
-    },
-    "playwright": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-playwright"],
-      "enabled": true,
-      "description": "Browser automation and E2E testing with Playwright"
-    },
-    "stitch": {
-      "type": "remote",
-      "url": "https://stitch.googleapis.com/mcp",
-      "headers": {
-        "X-Goog-Api-Key": "${STITCH_API_KEY}"
-      },
-      "description": "Google Stitch AI design generation (requires STITCH_API_KEY)"
-    },
-    "postman": {
-      "type": "remote",
-      "url": "https://mcp.postman.com/mcp",
-      "headers": {
-        "Authorization": "Bearer ${POSTMAN_API_KEY}"
-      },
-      "enabled": true,
-      "description": "Postman API management for collections, requests, and documentation"
-    }
-  },
   "agent": {
     "leader": {
       "description": "IT Leader & Technical Project Manager — analyzes requirements, designs architecture, decomposes tasks, delegates to subagents, and unifies outputs",
