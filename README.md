@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/defuj/software-developer-team-agent/main/assets/og-image-2.webp" alt="Opencode Agent KIT Banner" width="100%">
+  <img src="https://raw.githubusercontent.com/defuj/opencode-agent-kit/main/assets/og-image-2.webp" alt="Opencode Agent KIT Banner" width="100%">
 </p>
 
 # Agent Kit — Setup Guide
