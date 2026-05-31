@@ -146,7 +146,7 @@ export async function init(options) {
   const force = options.force;
   const skipInstall = options.skipInstall;
 
-  console.log(`\n  opencode-agent-kit init`);
+  console.log(`\n  ai-agent-kit init`);
 
   // 1. Validate target
   if (!existsSync(targetDir)) {
@@ -247,7 +247,7 @@ export async function init(options) {
   }
 
   // 9. Done
-  console.log(`\n  ✅ opencode-agent-kit installed!\n`);
+  console.log(`\n  ✅ ai-agent-kit installed!\n`);
   console.log(`     Location: ${targetDir}`);
   console.log(`     What you got:`);
   console.log(`       • opencode.json              — 13 agents config with MCP servers`);

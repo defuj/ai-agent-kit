@@ -945,11 +945,11 @@ options: [
 
 ### Version Check (Session Start)
 
-Before starting work, check if `opencode-agent-kit` has an update:
+Before starting work, check if `ai-agent-kit` has an update:
 
 1. Read `.opencode/.kit-version` if it exists
-2. Run `npm view opencode-agent-kit version` to get the latest version
-3. If the latest version > installed version, notify the user to run `npx opencode-agent-kit init`
+2. Run `npm view ai-agent-kit version` to get the latest version
+3. If the latest version > installed version, notify the user to run `npx ai-agent-kit init`
 
 ### Starting a Session
 

@@ -6,7 +6,7 @@ import { init } from "./commands/init.mjs";
 const program = new Command();
 
 program
-  .name("opencode-agent-kit")
+  .name("ai-agent-kit")
   .description(
     "AI Agent KIT — multi-stack agent system for OpenCode & GitHub Copilot",
   )

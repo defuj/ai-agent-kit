@@ -380,13 +380,13 @@ flutter analyze                          # Static analysis
 
 ---
 
-## opencode-agent-kit Version Check
+## ai-agent-kit Version Check
 
 If `.opencode/.kit-version` exists, your agent toolkit has a recorded installed version.
 
 **At session start**, check for updates:
 1. Read `.opencode/.kit-version` to get the installed version
-2. Run `npm view opencode-agent-kit version` to get the latest
+2. Run `npm view ai-agent-kit version` to get the latest
 3. If latest > installed, notify the user with the update command
 
 This applies to IT-Leader (primary) and frontend/backend subagents when called directly.

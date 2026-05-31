@@ -6,8 +6,8 @@ import { init } from './commands/init.mjs';
 const program = new Command();
 
 program
-  .name('opencode-agent-kit')
-  .description('Install OpenCode multi-agent toolkit into your project')
+  .name('ai-agent-kit')
+  .description('AI Agent KIT — install agent system for OpenCode & GitHub Copilot')
   .version('1.0.0');
 
 program

@@ -46,24 +46,24 @@ This project has no application code. Build, lint, or test commands from `packag
 
 ## Installation as NPM Package
 
-This project is also available as `opencode-agent-kit` on npm for easy installation into any project:
+This project is also available as `ai-agent-kit` on npm for easy installation into any project:
 
 ### OpenCode
 
 ```bash
-npx opencode-agent-kit init --platform opencode
+npx ai-agent-kit init --platform opencode
 ```
 
 ### GitHub Copilot
 
 ```bash
-npx opencode-agent-kit init --platform copilot
+npx ai-agent-kit init --platform copilot
 ```
 
 ### Both
 
 ```bash
-npx opencode-agent-kit init --platform both
+npx ai-agent-kit init --platform both
 ```
 
 See `README.md` for full setup instructions.

@@ -886,19 +886,19 @@ When `multiple: true`, the user can select several options at once. The result r
 
 ### Version Check (Session Start)
 
-At the start of every session, check if `opencode-agent-kit` has an update:
+At the start of every session, check if `ai-agent-kit` has an update:
 
 1. Read `.opencode/.kit-version` — if found, this is the installed version
-2. Run `npm view opencode-agent-kit version` to get the latest version on npm
+2. Run `npm view ai-agent-kit version` to get the latest version on npm
 3. Compare versions (skip check if `.opencode/.kit-version` does not exist)
 4. If the latest version is greater than the installed version, notify the user:
    ```
    ╭─ Update Available ─────────────────────────────────────╮
    │                                                       │
-   │   A newer version of opencode-agent-kit is available: │
+   │   A newer version of ai-agent-kit is available: │
    │   Installed: v{installed}   Latest: v{latest}        │
    │                                                       │
-   │   Run `npx opencode-agent-kit init` to update.        │
+   │   Run `npx ai-agent-kit init` to update.        │
    │                                                       │
    ╰───────────────────────────────────────────────────────╯
    ```

@@ -7,10 +7,10 @@
 Complete setup guide for the **Agent Kit** — a portable multi-stack AI agent system for OpenCode. Includes 13 specialized agents, 62 skill playbooks, 36 slash commands, and 6 MCP servers.
 
 ```bash
-npx opencode-agent-kit init    # Prompts for platform (OpenCode / Copilot / Both)
-npx opencode-agent-kit init --platform opencode   # Skip prompt, install OpenCode
-npx opencode-agent-kit init --platform copilot    # Skip prompt, install Copilot
-npx opencode-agent-kit init --platform both       # Skip prompt, install both
+npx ai-agent-kit init    # Prompts for platform (OpenCode / Copilot / Both)
+npx ai-agent-kit init --platform opencode   # Skip prompt, install OpenCode
+npx ai-agent-kit init --platform copilot    # Skip prompt, install Copilot
+npx ai-agent-kit init --platform both       # Skip prompt, install both
 ```
 
 ---
@@ -18,7 +18,7 @@ npx opencode-agent-kit init --platform both       # Skip prompt, install both
 ## Quick Install
 
 ```bash
-npx opencode-agent-kit init
+npx ai-agent-kit init
 ```
 
 This copies the full agent configuration, skills, commands, and rules into your project. Smart merging preserves your existing setup.
@@ -26,9 +26,9 @@ This copies the full agent configuration, skills, commands, and rules into your 
 Global install:
 
 ```bash
-npm install -g opencode-agent-kit
+npm install -g ai-agent-kit
 cd /path/to/your-project
-opencode-agent-kit init
+ai-agent-kit init
 ```
 
 ---
@@ -197,7 +197,7 @@ After installing `.opencode/`, the following slash commands are available:
 
 ```bash
 cd /path/to/your-project
-npx opencode-agent-kit init
+npx ai-agent-kit init
 ```
 
 This automatically copies `opencode.json`, `.opencode/`, and `AGENTS.md` with smart merging.
@@ -779,10 +779,10 @@ Task tiny. Minimal diff. Change 1 file only. Brief answer.
 AI Agent KIT also supports **GitHub Copilot custom agents**. Install with the same command — you'll be prompted to choose your platform.
 
 ```bash
-npx opencode-agent-kit init
+npx ai-agent-kit init
 # or skip the prompt:
-npx opencode-agent-kit init --platform copilot
-npx opencode-agent-kit init --platform both
+npx ai-agent-kit init --platform copilot
+npx ai-agent-kit init --platform both
 ```
 
 ### What Gets Installed
@@ -838,7 +838,7 @@ For programmatic agent orchestration using the Copilot SDK:
 
 ```typescript
 import { CopilotClient } from "@github/copilot-sdk";
-import { createAIAgentKitSession } from "opencode-agent-kit/copilot/sdk/kit.js";
+import { createAIAgentKitSession } from "ai-agent-kit/copilot/sdk/kit.js";
 
 const client = new CopilotClient();
 await client.start();
