@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/defuj/agent-kit/main/assets/og-image-3.webp" alt="AI Agent KIT Banner" width="100%">
+  <img src="https://raw.githubusercontent.com/defuj/software-developer-team-agent/main/assets/og-image-2.webp" alt="Opencode Agent KIT Banner" width="100%">
 </p>
 
 # Agent Kit — Setup Guide
@@ -7,10 +7,7 @@
 Complete setup guide for the **Agent Kit** — a portable multi-stack AI agent system for OpenCode. Includes 13 specialized agents, 62 skill playbooks, 36 slash commands, and 6 MCP servers.
 
 ```bash
-npx agent-kit init    # Prompts for platform (OpenCode / Copilot / Both)
-npx agent-kit init --platform opencode   # Skip prompt, install OpenCode
-npx agent-kit init --platform copilot    # Skip prompt, install Copilot
-npx agent-kit init --platform both       # Skip prompt, install both
+npx opencode-agent-kit init    # One command. Full team.
 ```
 
 ---
@@ -18,7 +15,7 @@ npx agent-kit init --platform both       # Skip prompt, install both
 ## Quick Install
 
 ```bash
-npx agent-kit init
+npx opencode-agent-kit init
 ```
 
 This copies the full agent configuration, skills, commands, and rules into your project. Smart merging preserves your existing setup.
@@ -26,9 +23,9 @@ This copies the full agent configuration, skills, commands, and rules into your 
 Global install:
 
 ```bash
-npm install -g agent-kit
+npm install -g opencode-agent-kit
 cd /path/to/your-project
-agent-kit init
+opencode-agent-kit init
 ```
 
 ---
@@ -197,7 +194,7 @@ After installing `.opencode/`, the following slash commands are available:
 
 ```bash
 cd /path/to/your-project
-npx agent-kit init
+npx opencode-agent-kit init
 ```
 
 This automatically copies `opencode.json`, `.opencode/`, and `AGENTS.md` with smart merging.
@@ -771,90 +768,3 @@ Task tiny. Minimal diff. Change 1 file only. Brief answer.
 1. State conventions explicitly in the prompt (e.g., "use useApi", "don't change naming").
 2. Reference example files to follow.
 3. Ask the agent to revise with a narrow scope on related files.
-
----
-
-## GitHub Copilot Setup
-
-AI Agent KIT also supports **GitHub Copilot custom agents**. Install with the same command — you'll be prompted to choose your platform.
-
-```bash
-npx agent-kit init
-# or skip the prompt:
-npx agent-kit init --platform copilot
-npx agent-kit init --platform both
-```
-
-### What Gets Installed
-
-| File/Folder          | Content                               |
-| -------------------- | ------------------------------------- |
-| `.github/agents/`    | 13 agent profiles (`.agent.md` files) |
-| `.github/hooks/`     | Session hooks for audit logging       |
-| `.github/workflows/` | Copilot setup steps workflow          |
-
-### MCP Configuration
-
-For Playwright MCP, add this to your repo **Settings > Copilot > Cloud agent > MCP configuration**:
-
-```json
-{
-  "mcpServers": {
-    "playwright": {
-      "type": "local",
-      "command": "npx",
-      "args": ["@playwright/mcp"],
-      "tools": ["*"]
-    }
-  }
-}
-```
-
-### Available Agents
-
-| Agent               | Command           |
-| ------------------- | ----------------- |
-| IT Leader           | `@it-leader`      |
-| Nuxt Frontend       | `@frontend-nuxt`  |
-| React Frontend      | `@frontend-react` |
-| Node Backend        | `@backend`        |
-| Laravel Backend     | `@laravel`        |
-| CodeIgniter 3       | `@ci3`            |
-| UI/UX Designer      | `@designer`       |
-| Code Reviewer       | `@reviewer`       |
-| Database Specialist | `@database`       |
-| DevOps Engineer     | `@devops`         |
-| SEO Specialist      | `@seo`            |
-| Android Developer   | `@android`        |
-| Flutter Developer   | `@flutter`        |
-
-### Using Agents
-
-After installing, go to [github.com/copilot/agents](https://github.com/copilot/agents) and select your repository. Click the agent selector to choose from 13 specialized agents.
-
-### Copilot SDK Integration
-
-For programmatic agent orchestration using the Copilot SDK:
-
-```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-import { createAIAgentKitSession } from "agent-kit/copilot/sdk/kit.js";
-
-const client = new CopilotClient();
-await client.start();
-
-const session = await createAIAgentKitSession(client);
-// 13 agents auto-configured with sub-agent orchestration
-```
-
-### Skills
-
-AI Agent KIT skills work with both OpenCode and Copilot. To install for Copilot:
-
-```bash
-# Personal skills (all projects)
-gh skill install github/defuj/agent-kit coding-standards
-
-# Or copy manually
-cp -R copilot/.github/skills/* ~/.copilot/skills/
-```

@@ -6,19 +6,13 @@ import { init } from "./commands/init.mjs";
 const program = new Command();
 
 program
-  .name("agent-kit")
-  .description(
-    "AI Agent KIT — multi-stack agent system for OpenCode & GitHub Copilot",
-  )
+  .name("opencode-agent-kit")
+  .description("Install OpenCode multi-agent toolkit into your project")
   .version("1.0.0");
 
 program
   .command("init")
-  .description("Install AI Agent KIT into your project")
-  .option(
-    "-p, --platform <platform>",
-    "Platform to install: opencode, copilot, or both",
-  )
+  .description("Initialize .opencode/ configuration in current project")
   .option("-f, --force", "Overwrite existing files without prompt")
   .option("-d, --dir <path>", "Target project directory", process.cwd())
   .option("--skip-install", "Skip npm/bun install step in .opencode/")
