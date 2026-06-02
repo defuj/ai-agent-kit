@@ -6,9 +6,9 @@
     <title>Opencode Agent KIT — Multi-Stack Software Developer Agent
       System</title>
     <meta name="description"
-      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
+      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 37 commands." />
     <meta name="keywords"
-      content="opencode, ai agents, software development, nuxt, react, flutter, android, laravel, devops, seo" />
+      content="opencode, ai agents, software development, nuxt, react, flutter, android, laravel, devops, seo, sonarqube" />
     <meta name="author" content="defuj" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical"
@@ -20,7 +20,7 @@
     <meta property="og:title"
       content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
     <meta property="og:description"
-      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
+      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 37 commands." />
     <meta property="og:image"
       content="https://raw.githubusercontent.com/defuj/opencode-agent-kit/main/assets/og-image-2.webp" />
     <meta property="og:url"
@@ -34,7 +34,7 @@
     <meta name="twitter:title"
       content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
     <meta name="twitter:description"
-      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands." />
+      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 37 commands." />
     <meta name="twitter:image"
       content="https://raw.githubusercontent.com/defuj/opencode-agent-kit/main/assets/og-image-2.webp" />
 
@@ -44,7 +44,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Opencode Agent KIT",
-    "description": "A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 36 commands.",
+      "description": "A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, and 37 commands.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "macOS, Linux, Windows",
     "author": {
@@ -729,7 +729,7 @@
               class="hero-badge inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-accent/8 border border-accent/20 text-accent/85 text-xs font-mono mb-8 tracking-tight">
               <span
                 class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_6px_rgba(212,160,74,0.6)]"></span>
-              v1.0.15 &mdash; 13 agents &middot; 62 skills &middot; 36 commands
+              v1.0.17 &mdash; 13 agents &middot; 62 skills &middot; 37 commands
             </div>
 
             <h1
@@ -749,7 +749,7 @@
               class="text-sm sm:text-base text-white/35 leading-relaxed mb-10 max-w-md">
               An <strong class="text-white/60 font-medium">IT-Leader</strong>
               that plans, delegates to <strong
-                class="text-white/60 font-medium">12 specialized
+                class="text-white/60 font-medium">13 specialized
                 subagents</strong>, and integrates results. One command installs
               an entire AI development team.
             </p>
@@ -805,7 +805,7 @@
                   <div class="flex items-baseline gap-1 mb-1">
                     <span
                       class="text-3xl sm:text-4xl font-black text-white/80 font-display stat-number"
-                      data-count="36">0</span>
+                      data-count="37">0</span>
                     <span class="text-xs text-white/20 font-mono">+</span>
                   </div>
                   <div
@@ -854,12 +854,12 @@
                     class="terminal-dim">orchestrator ready</span></div>
                 <div class="terminal-line"><span
                     class="terminal-success">✓</span> <span
-                    class="terminal-info">12 subagents</span> <span
+                    class="terminal-info">13 subagents</span> <span
                     class="terminal-dim">loaded</span></div>
                 <div class="terminal-line"><span
                     class="terminal-success">✓</span> <span
                     class="terminal-info">62 skills</span> <span
-                    class="terminal-dim">+ 36 commands</span></div>
+                    class="terminal-dim">+ 37 commands</span></div>
                 <div class="terminal-line"><span
                     class="terminal-prompt">▶</span> <span
                     class="terminal-success">AI team ready. What shall we
@@ -955,6 +955,8 @@
               <!-- Ring 3: Specialists -->
               <div class="orbital-node"
                 style="top: 0; left: 28%; background: oklch(0.65 0.12 190 / 0.12); color: oklch(0.75 0.1 190); border: 1px solid oklch(0.65 0.12 190 / 0.2);">DB</div>
+              <div class="orbital-node"
+                style="top: 18%; right: 2%; background: oklch(0.7 0.15 45 / 0.12); color: oklch(0.8 0.14 45); border: 1px solid oklch(0.7 0.15 45 / 0.2);">SQ</div>
               <div class="orbital-node"
                 style="top: 28%; right: 0; background: oklch(0.6 0.1 270 / 0.12); color: oklch(0.75 0.08 270); border: 1px solid oklch(0.6 0.1 270 / 0.2);">DV</div>
               <div class="orbital-node"
@@ -1142,6 +1144,11 @@
             class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
             <span class="w-1.5 h-1.5 rounded-full bg-lime-400/60"></span>SEO
           </span>
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-yellow-400/60"></span>SonarQube
+          </span>
           <!-- Duplicate for seamless loop -->
           <span
             class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
@@ -1201,6 +1208,11 @@
           <span
             class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
             <span class="w-1.5 h-1.5 rounded-full bg-lime-400/60"></span>SEO
+          </span>
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-yellow-400/60"></span>SonarQube
           </span>
         </div>
       </div>
@@ -1538,6 +1550,30 @@
             </div>
           </div>
 
+          <!-- @sonarqube -->
+          <div
+            class="reveal agent-card bento-card p-5 agent-card--accent">
+            <div class="flex items-start gap-3">
+              <div
+                class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-500/15">
+                <span
+                  class="text-yellow-400 text-[11px] font-bold font-mono">SQ</span>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="font-medium text-sm mb-1">SonarQube Quality</div>
+                <p class="text-white/20 text-xs leading-relaxed">Code quality
+                  scans &middot; Security hotspots &middot; Duplication &middot;
+                  Coverage</p>
+                <div class="flex items-center gap-2 mt-3">
+                  <span
+                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-yellow-500/10 text-yellow-400">Quality</span>
+                  <code
+                    class="text-[10px] text-white/20 font-mono ml-auto">@sonarqube</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1584,7 +1620,7 @@
                       d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
                 </div>
                 <div>
-                  <h3 class="text-lg font-semibold">6 MCP Servers</h3>
+                  <h3 class="text-lg font-semibold">7 MCP Servers</h3>
                   <span class="text-white/20 text-xs font-mono">Model Context
                     Protocol</span>
                 </div>
@@ -1629,6 +1665,16 @@
                   </div>
                   <span class="text-white/20 text-xs hidden sm:block">API
                     management &middot; Collections</span>
+                </div>
+                <div
+                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <span class="status-dot status-active"></span>
+                    <span class="text-sm font-medium">SonarQube</span>
+                    <span class="text-white/20 text-xs font-mono">remote</span>
+                  </div>
+                  <span class="text-white/20 text-xs hidden sm:block">Code
+                    quality &middot; Security &middot; Coverage</span>
                 </div>
                 <div
                   class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
@@ -2060,7 +2106,7 @@
                   d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
               GitHub
             </a>
-            <span>v1.0.15</span>
+            <span>v1.0.17</span>
             <span>MIT</span>
           </div>
         </div>

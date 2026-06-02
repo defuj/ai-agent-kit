@@ -4,7 +4,7 @@
 
 # Agent Kit — Setup Guide
 
-Complete setup guide for the **Agent Kit** — a portable multi-stack AI agent system for OpenCode. Includes 13 specialized agents, 62 skill playbooks, 36 slash commands, and 6 MCP servers.
+Complete setup guide for the **Agent Kit** — a portable multi-stack AI agent system for OpenCode. Includes 13 specialized agents, 62 skill playbooks, 37 slash commands, and 7 MCP servers.
 
 ```bash
 npx opencode-agent-kit init    # One command. Full team.
@@ -32,7 +32,7 @@ opencode-agent-kit init
 
 ## Overview
 
-Think of Agent Kit as an AI development team you install into any OpenCode project. An **IT Leader** orchestrates 12 specialized subagents — each one an expert in their stack. You describe what to build; the team handles the rest.
+Think of Agent Kit as an AI development team you install into any OpenCode project. An **IT Leader** orchestrates 13 specialized subagents — each one an expert in their stack. You describe what to build; the team handles the rest.
 
 This repository contains a complete OpenCode agent configuration with **Leader → Subagent** architecture for software development teams.
 
@@ -53,6 +53,7 @@ This repository contains a complete OpenCode agent configuration with **Leader �
   - `seo-specialist.md` — SEO Specialist — `@seo`
   - `android-developer.md` — Android Developer (Kotlin/Compose) — `@android`
   - `flutter-developer.md` — Flutter Developer (Dart) — `@flutter`
+  - `sonarqube-quality.md` — SonarQube Quality Scanner — `@sonarqube`
   - `nuxt-frontend-developer-mentor.md` — Nuxt mentor (standalone)
 - Internal documentation: `.opencode/docs/`
   - Frontend Nuxt: `.opencode/docs/frontend/nuxt/`
@@ -112,6 +113,7 @@ Specialized agents **not available** in built-in OpenCode:
 | **SEO**               | `seo-specialist.md`           | Meta tags, structured data, Core Web Vitals    | SEO optimization             |
 | **Android**           | `android-developer.md`        | Kotlin, Jetpack Compose, Gradle, Play Store    | Android native development   |
 | **Flutter**           | `flutter-developer.md`        | Dart, Flutter SDK, Material 3, Firebase        | Cross-platform mobile        |
+| **SonarQube**         | `sonarqube-quality.md`        | Code quality scans, security, coverage         | Quality assurance            |
 
 ### Workflow
 
@@ -186,6 +188,9 @@ After installing `.opencode/`, the following slash commands are available:
 /flutter-build [target]               # Build Flutter (apk/appbundle/ios/web)
 /flutter-test [type]                  # Run Flutter tests with coverage
 /gpc-release [track]                  # Publish to Google Play
+
+# Quality
+/sonarqube-scan [options]             # SonarQube quality scan (issues, security, coverage)
 ```
 
 ## Using the `.opencode/` Folder
