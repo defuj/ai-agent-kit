@@ -4,24 +4,25 @@ This is the Agent Kit: a portable meta-project containing OpenCode agent configu
 
 ## Project Structure
 
-- `.opencode/config.json` — Main OpenCode configuration with MCP servers and 12 agent definitions
+- `.opencode/config.json` — Main OpenCode configuration with MCP servers and 13 agent definitions
 - `.opencode/agents/` — Custom agent prompts:
   - **Primary**: `it-leader` (orchestrator)
   - **Web Frontend**: `nuxt-frontend-developer`, `react-frontend-developer`
   - **Backend**: `node-backend-developer`, `code-igniter-3-fullstack`, `laravel-advanced`
   - **Mobile**: `android-developer`, `flutter-developer`
   - **Support**: `ui-ux-designer`, `code-reviewer`, `database-specialist`, `devops-specialist`, `seo-specialist`
+  - **Quality**: `sonarqube-quality`
 - `.opencode/instructions/INSTRUCTIONS.md` — Core instructions loaded into all agents
 - `.opencode/skills/` — 61 skill playbooks (coding-standards, flutter, android-jetpack-compose, 10 flutter skills, 9 dart skills, firebase-basics, nuxt-ui, frontend-design, security-review, etc.)
 - `.opencode/rules/` — Scoped rules (common/, typescript/, python/, android/, flutter/, mobile/)
-- `.opencode/commands/` — Custom slash commands (plan, tdd, code-review, security, android-build, flutter-build, flutter-test, gpc-release, etc.)
+- `.opencode/commands/` — Custom slash commands (plan, tdd, code-review, security, sonarqube-scan, android-build, flutter-build, flutter-test, gpc-release, etc.)
 - `.opencode/contexts/` — Context files (dev, review, research modes)
 
 ## Key Architecture
 
 - **Primary Agent**: `leader` (IT Leader) orchestrates via Task tool to subagents
-- **Subagents** (12 total): `frontend-nuxt`, `frontend-react`, `backend`, `ci3`, `laravel`, `android`, `flutter`, `designer`, `reviewer`, `database`, `devops`, `seo`
-- **MCP Servers**: Nuxt docs, Nuxt UI docs, Playwright, Postman (enabled); Figma, Stitch (disabled)
+- **Subagents** (13 total): `frontend-nuxt`, `frontend-react`, `backend`, `ci3`, `laravel`, `android`, `flutter`, `designer`, `reviewer`, `database`, `devops`, `seo`, `sonarqube`
+- **MCP Servers**: Nuxt docs, Nuxt UI docs, Playwright, Postman, SonarQube (enabled); Figma, Stitch (disabled)
 - **Built-in Agents Available**: `@planner`, `@explore`, `@scout`, `@general`, `@code-reviewer`, `@security-reviewer`, `@e2e-runner`, `@build-error-resolver`, `@refactor-cleaner`
 
 ## Mobile Development

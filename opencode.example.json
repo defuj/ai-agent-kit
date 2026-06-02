@@ -65,6 +65,14 @@
       },
       "enabled": true,
       "description": "Postman API management for collections, requests, and documentation"
+    },
+    "sonarqube": {
+      "type": "remote",
+      "url": "https://sonarqube-mcp.sadigit.co.id/mcp",
+      "headers": {
+        "Authorization": "Bearer ${SONARQUBE_TOKEN}",
+        "SONARQUBE_TOOLSETS": "analysis,issues,security-hotspots,quality-gates,rules,duplications,measures,dependency-risks,coverage,sources,languages,portfolios,system,webhooks"
+      }
     }
   },
   "agent": {
