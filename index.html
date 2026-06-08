@@ -620,6 +620,7 @@
       .terminal-line:nth-child(4) { animation-delay: 3.4s; }
       .terminal-line:nth-child(5) { animation-delay: 4.2s; }
       .terminal-line:nth-child(6) { animation-delay: 5s; }
+.terminal-line:nth-child(7) { animation-delay: 5.8s; }
 
       @keyframes terminal-type {
         from { opacity: 0; transform: translateX(-8px); }
@@ -860,6 +861,10 @@
                     class="terminal-success">✓</span> <span
                     class="terminal-info">63 skills</span> <span
                     class="terminal-dim">+ 39 commands</span></div>
+                <div class="terminal-line"><span
+                    class="terminal-success">✓</span> <span
+                    class="terminal-info">agentmemory</span> <span
+                    class="terminal-dim">persistent memory ready</span></div>
                 <div class="terminal-line"><span
                     class="terminal-prompt">▶</span> <span
                     class="terminal-success">AI team ready. What shall we
@@ -1967,15 +1972,22 @@
                   class="font-mono text-white/35">@opencode-ai/plugin</span>
                 dependency
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                    stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                Pass <span class="font-mono text-white/35">--force</span> to
-                overwrite
-              </li>
-            </ul>
+                <li class="flex items-start gap-2">
+                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
+                      stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  Pass <span class="font-mono text-white/35">--force</span> to
+                  overwrite
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
+                      stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  Installs <span class="font-mono text-white/35">agentmemory</span> global &mdash; auto-starts with OpenCode
+                </li>
+              </ul>
           </div>
 
           <!-- Global install -->
