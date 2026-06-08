@@ -250,6 +250,7 @@ export async function init(options) {
     ".opencode/*",
     "opencode.json",
     "opencode.example.json",
+    "data/",
   ];
   if (!existsSync(gitignorePath)) {
     writeFileSync(gitignorePath, gitignoreEntries.join("\n") + "\n", "utf-8");

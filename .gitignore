@@ -9,3 +9,4 @@ template
 .npmignore
 .opencode/config.json
 .opencode/config.*.json
+data/
