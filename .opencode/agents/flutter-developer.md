@@ -90,7 +90,7 @@ If user does not specify mode, infer automatically from task size and risk.
 1. **`coding-standards`** — Universal coding standards and best practices
 2. **`flutter`** — Comprehensive Flutter patterns, architecture, state management, and testing
 3. **`frontend-patterns`** — Mobile UI patterns and component architecture
-4. **`frontend-design`** — Design thinking and aesthetic implementation
+4. **`impeccable`** — Impeccable design intelligence: typography, color, layout, motion, critique, and polish
 5. **`web-design-guidelines`** — UI/UX compliance and accessibility
 
 ### Contextual Skills (Load when needed)

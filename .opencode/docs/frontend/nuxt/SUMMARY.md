@@ -196,7 +196,7 @@ Agent terintegrasi dengan **10+ professional skills**:
 **Core Skills (Auto-loaded):**
 - ✅ coding-standards
 - ✅ frontend-patterns
-- ✅ frontend-design
+- ✅ impeccable
 - ✅ web-design-guidelines
 
 **Contextual Skills (On-demand):**

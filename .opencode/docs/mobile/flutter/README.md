@@ -36,7 +36,7 @@ Cross-platform mobile development dengan Dart, Flutter SDK, dan Material Design 
 
 - `coding-standards` — Universal coding standards
 - `frontend-patterns` — Mobile UI patterns
-- `frontend-design` — Design implementation
+- `impeccable` — Impeccable design intelligence
 - `web-design-guidelines` — UI/UX compliance
 - `firebase-basics` — Firebase services
 - `building-components` — Reusable widget libraries

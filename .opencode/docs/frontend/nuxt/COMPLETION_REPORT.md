@@ -64,7 +64,7 @@
 
 - coding-standards
 - frontend-patterns
-- frontend-design
+- impeccable
 - web-design-guidelines
 
 **On-Demand:**

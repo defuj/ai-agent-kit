@@ -13,7 +13,7 @@ This is the Agent Kit: a portable meta-project containing OpenCode agent configu
   - **Support**: `ui-ux-designer`, `code-reviewer`, `database-specialist`, `devops-specialist`, `seo-specialist`
   - **Quality**: `sonarqube-quality`
 - `.opencode/instructions/INSTRUCTIONS.md` — Core instructions loaded into all agents
-- `.opencode/skills/` — 61 skill playbooks (coding-standards, flutter, android-jetpack-compose, 10 flutter skills, 9 dart skills, firebase-basics, nuxt-ui, frontend-design, security-review, etc.)
+- `.opencode/skills/` — 61 skill playbooks (coding-standards, flutter, android-jetpack-compose, 10 flutter skills, 9 dart skills, firebase-basics, nuxt-ui, impeccable (design), security-review, etc.)
 - `.opencode/rules/` — Scoped rules (common/, typescript/, python/, android/, flutter/, mobile/)
 - `.opencode/commands/` — Custom slash commands (plan, tdd, code-review, security, sonarqube-scan, android-build, flutter-build, flutter-test, gpc-release, etc.)
 - `.opencode/contexts/` — Context files (dev, review, research modes)

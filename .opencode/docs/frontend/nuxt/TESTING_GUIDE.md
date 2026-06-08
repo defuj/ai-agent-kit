@@ -68,7 +68,7 @@ ls ~/.agents/skills/ 2>/dev/null || echo "No additional skills"
 # Expected core skills:
 # - coding-standards
 # - frontend-patterns
-# - frontend-design
+# - impeccable
 # - nuxt-ui
 # - web-design-guidelines
 ```

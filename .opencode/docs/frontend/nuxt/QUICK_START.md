@@ -40,7 +40,7 @@ Agent otomatis akan load skills yang dibutuhkan:
 ```
 ✓ coding-standards
 ✓ frontend-patterns
-✓ frontend-design
+✓ impeccable
 ✓ web-design-guidelines
 ```
 
@@ -179,7 +179,7 @@ Agent punya akses ke 10+ skills dari repository Anda:
 
 - **coding-standards** - Universal best practices
 - **frontend-patterns** - Vue/Nuxt patterns
-- **frontend-design** - Design thinking & aesthetics
+- **impeccable** - Design intelligence (typography, color, layout, motion, critique)
 - **web-design-guidelines** - UI/UX compliance
 
 ### Contextual Skills (On-demand)

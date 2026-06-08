@@ -77,7 +77,7 @@
 |-------|-------------|
 | `coding-standards` | Universal coding standards |
 | `frontend-patterns` | React/Next.js patterns |
-| `frontend-design` | Design implementation |
+| `impeccable` | Impeccable design intelligence |
 | `web-design-guidelines` | UI/UX compliance |
 | `shadcn-ui` | shadcn/ui components |
 | `vercel-react-best-practices` | React performance |

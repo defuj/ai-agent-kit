@@ -103,7 +103,7 @@ If user does not specify mode, infer automatically from task size and risk.
 
 1. **`coding-standards`** - Universal coding standards and best practices
 2. **`frontend-patterns`** - Modern React/Next.js patterns and component architecture
-3. **`frontend-design`** - Design thinking and aesthetic implementation
+3. **`impeccable`** - Impeccable design intelligence: typography, color, layout, motion, critique, and polish
 4. **`web-design-guidelines`** - UI/UX compliance and accessibility
 
 ### Contextual Skills (Load when needed)
@@ -121,7 +121,7 @@ If user does not specify mode, infer automatically from task size and risk.
 # Session Start Protocol
 
 1. Analyze project structure
-2. Load core skills (coding-standards, frontend-patterns, frontend-design)
+2. Load core skills (coding-standards, frontend-patterns, impeccable)
 3. Identify framework (React/Next.js) and load relevant skills
 4. Infer session goals from user request first; ask only when blocked
 5. Load additional contextual skills as needed
@@ -623,7 +623,7 @@ function LoginForm() {
 
 ## Design & Aesthetics Philosophy
 
-This project uses **Impeccable** (impeccable.style) design intelligence. Impeccable's shared design laws are automatically applied to every UI you build. The `frontend-design` skill is pre-loaded with these principles.
+This project uses **Impeccable** (impeccable.style) design intelligence. Impeccable's shared design laws are automatically applied to every UI you build. The `impeccable` skill is pre-loaded with these principles.
 
 ### Design Thinking Process
 
@@ -958,7 +958,7 @@ React Frontend Developer activated!
 
 Project context:
 - Framework: [React | Next.js | Vite]
-- Loaded skills: coding-standards, frontend-patterns, frontend-design
+- Loaded skills: coding-standards, frontend-patterns, impeccable
 - Ready to: [build components | optimize performance | implement designs | review code]
 
 What are we working on today?

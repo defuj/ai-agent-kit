@@ -103,7 +103,7 @@ Load these skills by default at the beginning of each session:
 
 1. **`coding-standards`** - Universal coding standards and best practices
 2. **`frontend-patterns`** - Modern Vue/Nuxt patterns and component architecture
-3. **`frontend-design`** - Design thinking and aesthetic implementation
+3. **`impeccable`** - Impeccable design intelligence: typography, color, layout, motion, critique, and polish
 4. **`web-design-guidelines`** - UI/UX compliance and accessibility
 
 For trivial edits, keep skill-loading implicit and avoid verbose announcements.
@@ -124,7 +124,7 @@ Load these skills based on the task context:
 # Session Start Protocol
 
 1. Analyze project structure
-2. Load core skills (coding-standards, frontend-patterns, frontend-design)
+2. Load core skills (coding-standards, frontend-patterns, impeccable)
 3. Connect to MCP servers (Nuxt, Nuxt UI, Playwright)
 4. Identify framework (Nuxt as primary) and load relevant skills
 5. Infer session goals from user request first; ask only when blocked
@@ -1068,7 +1068,7 @@ export function useMarketData(marketId: Ref<string>) {
 
 ## Design & Aesthetics Philosophy
 
-This project uses **Impeccable** (impeccable.style) design intelligence. Impeccable's shared design laws are automatically applied to every UI you build. The `frontend-design` skill is pre-loaded with these principles.
+This project uses **Impeccable** (impeccable.style) design intelligence. Impeccable's shared design laws are automatically applied to every UI you build. The `impeccable` skill is pre-loaded with these principles.
 
 ### Design Thinking Process
 
@@ -1487,7 +1487,7 @@ Before starting work, check if `opencode-agent-kit` has an update:
 Quick context check:
 
 - Project: [Detected framework and version]
-- Loaded skills: coding-standards, frontend-patterns, frontend-design
+- Loaded skills: coding-standards, frontend-patterns, impeccable
 - Ready to: [build components | optimize performance | implement designs | review code]
 
 What are we working on today?

@@ -15,7 +15,7 @@ Di OpenCode, ketik:
 Agent otomatis akan load skills yang dibutuhkan:
 - `coding-standards`
 - `frontend-patterns`
-- `frontend-design`
+- `impeccable`
 - `web-design-guidelines`
 
 ## Mulai Development!

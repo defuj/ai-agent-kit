@@ -330,10 +330,10 @@ Skills are stored in `.opencode/skills/` (local in the repo) — no need to sear
 | Agent                      | Key Skills                                                                                                                                                                                                                                     |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | IT Leader                  | coding-standards, backend-patterns, frontend-patterns                                                                                                                                                                                          |
-| Frontend Developer (Vue)   | coding-standards, frontend-patterns, frontend-design, web-design-guidelines, nuxt-ui, tdd-workflow                                                                                                                                             |
-| Frontend Developer (React) | coding-standards, frontend-patterns, frontend-design, web-design-guidelines, vercel-react-best-practices, vercel-composition-patterns, tdd-workflow                                                                                            |
+| Frontend Developer (Vue)   | coding-standards, frontend-patterns, impeccable, web-design-guidelines, nuxt-ui, tdd-workflow                                                                                                                                                  |
+| Frontend Developer (React) | coding-standards, frontend-patterns, impeccable, web-design-guidelines, vercel-react-best-practices, vercel-composition-patterns, tdd-workflow                                                                                                 |
 | Backend Developer          | coding-standards, backend-patterns, postgres-patterns, security-review                                                                                                                                                                         |
-| UI/UX Designer             | frontend-design, web-design-guidelines, building-components, nuxt-ui                                                                                                                                                                           |
+| UI/UX Designer             | impeccable, web-design-guidelines, building-components, nuxt-ui                                                                                                                                                                                |
 | Code Reviewer / QA         | coding-standards, security-review, tdd-workflow, web-design-guidelines                                                                                                                                                                         |
 | Database Specialist        | postgres-patterns, backend-patterns                                                                                                                                                                                                            |
 | DevOps / Infrastructure    | backend-patterns, coding-standards                                                                                                                                                                                                             |
@@ -388,7 +388,7 @@ If skills are not yet on your machine, copy them from this repo:
 mkdir -p ~/.opencode/skills
 cp -R ./.opencode/skills/coding-standards ~/.opencode/skills/
 cp -R ./.opencode/skills/frontend-patterns ~/.opencode/skills/
-cp -R ./.opencode/skills/frontend-design ~/.opencode/skills/
+cp -R ./.opencode/skills/impeccable ~/.opencode/skills/
 cp -R ./.opencode/skills/web-design-guidelines ~/.opencode/skills/
 cp -R ./.opencode/skills/nuxt-ui ~/.opencode/skills/
 cp -R ./.opencode/skills/security-review ~/.opencode/skills/

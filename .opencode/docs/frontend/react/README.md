@@ -46,7 +46,7 @@ IT Leader akan otomatis mendelegasikan task ke `@frontend-react` ketika project 
 Setiap session, agent akan load:
 1. `coding-standards` — Universal coding standards
 2. `frontend-patterns` — React/Next.js patterns
-3. `frontend-design` — Design implementation
+3. `impeccable` — Impeccable design intelligence
 4. `web-design-guidelines` — UI/UX compliance
 
 ### Contextual Skills (load sesuai kebutuhan)

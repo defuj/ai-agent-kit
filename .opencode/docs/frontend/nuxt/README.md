@@ -73,12 +73,12 @@ Agent akan otomatis load skills ini saat session dimulai:
    - Performance optimization
    - Form handling
 
-3. **`frontend-design`**
-   - Design thinking process
-   - Aesthetic guidelines
-   - Typography standards
-   - Animation patterns
-   - Creative implementation
+3. **`impeccable`**
+   - Impeccable design intelligence
+   - Design critique, audit, and polish
+   - Typography and color systems
+   - Layout, motion, and interaction
+   - 23 sub-commands (craft, shape, critique, etc.)
 
 4. **`web-design-guidelines`**
    - UI/UX compliance
@@ -145,7 +145,7 @@ geometric patterns.
 
 Agent akan:
 
-1. Load skill `frontend-design`
+1. Load skill `impeccable`
 2. Choose distinctive fonts (bukan Inter/Roboto)
 3. Create cohesive color palette
 4. Implement purposeful animations
@@ -484,7 +484,7 @@ git commit -m "Update frontend agent: add new skill integration"
 │                                                              │
 │ LOADED SKILLS:                                               │
 │   ✓ coding-standards       ✓ frontend-patterns              │
-│   ✓ frontend-design        ✓ web-design-guidelines          │
+│   ✓ impeccable             ✓ web-design-guidelines          │
 │                                                              │
 │ CONTEXTUAL SKILLS:                                           │
 │   • nuxt-ui                • vercel-composition-patterns    │

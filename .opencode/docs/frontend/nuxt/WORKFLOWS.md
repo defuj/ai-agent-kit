@@ -198,7 +198,7 @@ Identify:
 - Animation opportunities
 - Responsive breakpoints
 
-Load skill `frontend-design` untuk aesthetic analysis.
+Load skill `impeccable` untuk design analysis.
 ```
 
 **Step 2: Setup Structure**
