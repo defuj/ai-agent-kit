@@ -58,7 +58,7 @@ describe('source opencode.json (project root)', () => {
   it('has valid permissions for all agents', () => {
     const config = JSON.parse(readFileSync(configPath, 'utf-8'));
     const validValues = ['allow', 'deny', 'ask'];
-    for (const [name, agent] of Object.entries(config.agent)) {
+    for (const [, agent] of Object.entries(config.agent)) {
       if (agent.permission?.edit) {
         expect(validValues).toContain(agent.permission.edit);
       }

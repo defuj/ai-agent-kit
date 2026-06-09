@@ -26,7 +26,6 @@ export async function doctor(options) {
   console.log(`  Target: ${targetDir}\n`);
 
   let allGood = true;
-  let fixesApplied = false;
 
   // 1. Check Node.js version
   const nodeVersion = process.version;

@@ -1,14 +1,12 @@
 import { execSync } from 'child_process';
-import { readFileSync, existsSync } from 'fs';
-import { join } from 'path';
-
+import { readFileSync } from 'fs';
 const PKG_NAME = 'opencode-agent-kit';
 
 /**
  * Get the currently installed version from package.json
  */
 function getCurrentVersion() {
-  const pkgPath = new URL('../../package.json', import.meta.url);
+  const pkgPath = new globalThis.URL('../../package.json', import.meta.url);
   const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'));
   return pkg.version;
 }

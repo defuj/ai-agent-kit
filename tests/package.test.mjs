@@ -28,7 +28,7 @@ describe('package structure', () => {
     'bin/commands/uninstall.mjs',
     '.editorconfig',
     '.prettierrc',
-    '.eslintrc.json',
+    'eslint.config.js',
     '.gitignore',
     'schema/opencode-config.schema.json',
   ];

@@ -15,6 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const PKG_ROOT = join(__dirname, '..', '..');
 const TEMPLATE_DIR = join(PKG_ROOT, 'template');
+const PKG_NAME = 'opencode-agent-kit';
 
 // ANSI colors
 const C = {
@@ -41,11 +42,6 @@ function warn(msg) {
 
 function error(msg) {
   console.log(`  ${C.red}✗${C.reset} ${msg}`);
-}
-
-function header(title) {
-  console.log(`\n  ${C.bold}${title}${C.reset}`);
-  console.log(`  ${C.dim}${'─'.repeat(50)}${C.reset}`);
 }
 
 function copyRecursive(src, dest) {
@@ -186,6 +182,7 @@ export async function init(options) {
     console.error(`  ✗ Target directory does not exist: ${targetDir}`);
     error(`Target directory does not exist: ${targetDir}`);
     process.exit(1);
+  }
 
   // 2. Check if .opencode already exists
   const opencodeDir = join(targetDir, '.opencode');
