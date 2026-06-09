@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://opencode-agent-kit.vercel.app/schema/opencode-config.schema.json",
+  "title": "OpenCode Agent Kit Configuration",
+  "description": "Schema for opencode.json — the main configuration for OpenCode multi-agent development system",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference URL"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of this configuration"
+    },
+    "formatter": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable automatic code formatting"
+    },
+    "permission": {
+      "type": "object",
+      "properties": {
+        "read": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["allow", "deny", "ask"]
+          },
+          "description": "Read permission patterns for file access"
+        },
+        "edit": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"],
+          "default": "allow"
+        },
+        "webfetch": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"],
+          "default": "allow"
+        },
+        "skill": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["allow", "deny", "ask"]
+          }
+        },
+        "todowrite": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"]
+        },
+        "question": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"]
+        },
+        "doom_loop": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"]
+        },
+        "external_directory": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"]
+        }
+      }
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Path to instruction/skill file, e.g. '.opencode/instructions/INSTRUCTIONS.md'"
+      },
+      "description": "Global instruction files loaded into every agent"
+    },
+    "mcp": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/McpServer"
+      },
+      "description": "MCP server configurations"
+    },
+    "plugin": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "OpenCode plugin file paths"
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/Agent"
+      },
+      "description": "Agent definitions (primary + subagents)"
+    }
+  },
+  "definitions": {
+    "AgentPermission": {
+      "type": "object",
+      "properties": {
+        "edit": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"]
+        },
+        "webfetch": {
+          "type": "string",
+          "enum": ["allow", "deny", "ask"]
+        },
+        "skill": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["allow", "deny", "ask"]
+          }
+        },
+        "bash": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["allow", "deny", "ask"]
+          }
+        },
+        "task": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["allow", "deny", "ask"]
+          }
+        }
+      },
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["allow", "deny", "ask"]
+      }
+    },
+    "McpServer": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["remote", "stdio", "local"],
+          "description": "MCP server transport type"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Remote MCP server URL (required for type=remote)"
+        },
+        "command": {
+          "type": ["string", "array"],
+          "description": "Command to run for stdio/local MCP servers"
+        },
+        "args": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Arguments for the stdio command"
+        },
+        "headers": {
+          "type": "object",
+          "description": "HTTP headers for remote MCP servers"
+        },
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this MCP server is enabled"
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description"
+        }
+      }
+    },
+    "Agent": {
+      "type": "object",
+      "required": ["mode", "prompt"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Agent description / role statement"
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["primary", "subagent"],
+          "description": "Agent mode: primary (orchestrator) or subagent (worker)"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Agent prompt file reference, e.g. '{file:.opencode/agents/agent-name.md}'"
+        },
+        "model": {
+          "type": "string",
+          "description": "Model override for this agent, e.g. 'opencode/claude-sonnet-4.5'"
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2,
+          "default": 0.4,
+          "description": "LLM temperature for this agent"
+        },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Accent color hex code for this agent in the UI"
+        },
+        "permission": {
+          "$ref": "#/definitions/AgentPermission"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

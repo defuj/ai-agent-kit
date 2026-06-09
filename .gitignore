@@ -1,12 +1,11 @@
 node_modules/
-package-lock.json
 bun.lock
 pnpm-lock.yaml
 *.tgz
-package.json
 yarn.lock
-template
 .npmignore
+.DS_Store
+template
 .opencode/config.json
 .opencode/config.*.json
 data/

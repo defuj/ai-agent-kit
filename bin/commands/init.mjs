@@ -6,15 +6,47 @@ import {
   writeFileSync,
   readdirSync,
   appendFileSync,
-} from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
-import { execSync } from "child_process";
+} from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const PKG_ROOT = join(__dirname, "..", "..");
-const TEMPLATE_DIR = join(PKG_ROOT, "template");
+const PKG_ROOT = join(__dirname, '..', '..');
+const TEMPLATE_DIR = join(PKG_ROOT, 'template');
+
+// ANSI colors
+const C = {
+  reset: '\x1b[0m',
+  dim: '\x1b[2m',
+  green: '\x1b[32m',
+  yellow: '\x1b[33m',
+  red: '\x1b[31m',
+  cyan: '\x1b[36m',
+  bold: '\x1b[1m',
+};
+
+function info(msg) {
+  console.log(`  ${C.cyan}→${C.reset} ${msg}`);
+}
+
+function success(msg) {
+  console.log(`  ${C.green}✓${C.reset} ${msg}`);
+}
+
+function warn(msg) {
+  console.log(`  ${C.yellow}⚠${C.reset} ${msg}`);
+}
+
+function error(msg) {
+  console.log(`  ${C.red}✗${C.reset} ${msg}`);
+}
+
+function header(title) {
+  console.log(`\n  ${C.bold}${title}${C.reset}`);
+  console.log(`  ${C.dim}${'─'.repeat(50)}${C.reset}`);
+}
 
 function copyRecursive(src, dest) {
   if (!existsSync(src)) return;
@@ -146,157 +178,129 @@ export async function init(options) {
   const force = options.force;
   const skipInstall = options.skipInstall;
 
-  console.log(`\n  opencode-agent-kit init`);
+  console.log(`\n  ${C.bold}${PKG_NAME} init${C.reset}`);
+  console.log(`  ${C.dim}${'─'.repeat(50)}${C.reset}`);
 
   // 1. Validate target
   if (!existsSync(targetDir)) {
     console.error(`  ✗ Target directory does not exist: ${targetDir}`);
+    error(`Target directory does not exist: ${targetDir}`);
     process.exit(1);
-  }
 
   // 2. Check if .opencode already exists
-  const opencodeDir = join(targetDir, ".opencode");
-  const userConfigPath = join(targetDir, "opencode.json");
+  const opencodeDir = join(targetDir, '.opencode');
+  const userConfigPath = join(targetDir, 'opencode.json');
 
   if (existsSync(opencodeDir) && !force) {
-    console.log(`  \n  ⚠  .opencode/ already exists in ${targetDir}`);
-    const rl = await import("readline/promises");
+    warn(`.opencode/ already exists in ${targetDir}`);
+    const rl = await import('readline/promises');
     const readline = rl.createInterface({
       input: process.stdin,
       output: process.stdout,
     });
-    const answer = await readline.question(
-      `  ? Overwrite existing files? [y/N] `,
-    );
+    const answer = await readline.question(`  ? Overwrite existing files? [y/N] `);
     readline.close();
-    if (answer.toLowerCase() !== "y") {
-      console.log(`  ✗ Aborted.`);
+    if (answer.toLowerCase() !== 'y') {
+      error('Aborted.');
       process.exit(0);
     }
   }
 
   // 3. Validate template exists
   if (!existsSync(TEMPLATE_DIR)) {
-    console.error(`  ✗ Template directory not found at ${TEMPLATE_DIR}`);
-    console.error(`    This is a bug. Please reinstall the package.`);
+    error(`Template directory not found at ${TEMPLATE_DIR}`);
+    error('This is a bug. Please reinstall the package.');
     process.exit(1);
   }
 
   // 4. Copy .opencode/ from template
-  console.log(`  \n  📁 Copying .opencode/ configuration...`);
-  copyRecursive(join(TEMPLATE_DIR, ".opencode"), opencodeDir);
+  info('Copying .opencode/ configuration...');
+  copyRecursive(join(TEMPLATE_DIR, '.opencode'), opencodeDir);
 
   // 5. Merge opencode.json
-  const templateConfigPath = join(TEMPLATE_DIR, "opencode.json");
+  const templateConfigPath = join(TEMPLATE_DIR, 'opencode.json');
   if (existsSync(templateConfigPath)) {
-    console.log(`  📝 Merging opencode.json...`);
-    const merged = mergeOencodeConfig(
-      templateConfigPath,
-      userConfigPath,
-      force,
-    );
-    writeFileSync(
-      userConfigPath,
-      JSON.stringify(merged, null, 2) + "\n",
-      "utf-8",
-    );
+    info('Merging opencode.json...');
+    const merged = mergeOencodeConfig(templateConfigPath, userConfigPath, force);
+    writeFileSync(userConfigPath, JSON.stringify(merged, null, 2) + '\n', 'utf-8');
   }
 
   // 6. Copy opencode.example.json
-  const exampleSrc = join(TEMPLATE_DIR, "opencode.example.json");
-  const exampleDest = join(targetDir, "opencode.example.json");
+  const exampleSrc = join(TEMPLATE_DIR, 'opencode.example.json');
+  const exampleDest = join(targetDir, 'opencode.example.json');
   if (existsSync(exampleSrc)) {
-    console.log(`  📄 Copying opencode.example.json...`);
+    info('Copying opencode.example.json...');
     copyFileSync(exampleSrc, exampleDest);
   }
 
   // 7. Install dependencies
   if (!skipInstall) {
     const pm = detectPackageManager(opencodeDir);
-    console.log(`  📦 Installing .opencode/ dependencies with ${pm}...`);
+    info(`Installing .opencode/ dependencies with ${pm}...`);
     try {
-      execSync(`${pm} install`, { cwd: opencodeDir, stdio: "pipe" });
+      execSync(`${pm} install`, { cwd: opencodeDir, stdio: 'pipe' });
+      success('.opencode/ dependencies installed');
     } catch (err) {
-      console.error(`  ⚠  Dependency install failed: ${err.message}`);
-      console.error(`    You can run "${pm} install" manually in .opencode/`);
+      warn(`Dependency install failed: ${err.message}`);
+      warn(`You can run "${pm} install" manually in .opencode/`);
     }
   }
 
-  // 7.6 Install agentmemory globally
+  // 8. Install agentmemory globally
   if (!skipInstall) {
-    console.log(`  🧠 Installing agentmemory (persistent memory)...`);
+    info('Setting up agentmemory (persistent memory)...');
     try {
-      execSync(`agentmemory --version`, { stdio: "pipe" });
-      console.log(`     ✓ agentmemory already installed`);
+      execSync('agentmemory --version', { stdio: 'pipe' });
+      success('agentmemory already installed');
     } catch {
       try {
-        execSync(`npm install -g @agentmemory/agentmemory`, {
-          stdio: "pipe",
+        execSync('npm install -g @agentmemory/agentmemory', {
+          stdio: 'pipe',
           timeout: 60000,
         });
-        console.log(`     ✓ agentmemory installed globally`);
+        success('agentmemory installed globally');
       } catch (err) {
-        console.error(`  ⚠  agentmemory global install failed: ${err.message}`);
-        console.error(
-          `    Run "npm install -g @agentmemory/agentmemory" manually`,
-        );
+        warn(`agentmemory global install failed: ${err.message}`);
+        warn('Run "npm install -g @agentmemory/agentmemory" manually');
       }
     }
   }
 
-  // 8. Update .gitignore
-  const gitignorePath = join(targetDir, ".gitignore");
-  const gitignoreEntries = [
-    ".opencode/*",
-    "opencode.json",
-    "opencode.example.json",
-    "data/",
-  ];
+  // 9. Update .gitignore
+  const gitignorePath = join(targetDir, '.gitignore');
+  const gitignoreEntries = ['.opencode/*', 'opencode.json', 'opencode.example.json', 'data/'];
   if (!existsSync(gitignorePath)) {
-    writeFileSync(gitignorePath, gitignoreEntries.join("\n") + "\n", "utf-8");
-    console.log(`  📄 Created .gitignore...`);
+    writeFileSync(gitignorePath, gitignoreEntries.join('\n') + '\n', 'utf-8');
+    success('Created .gitignore');
   } else {
-    const gitignoreContent = readFileSync(gitignorePath, "utf-8");
+    const gitignoreContent = readFileSync(gitignorePath, 'utf-8');
     let appended = false;
     for (const entry of gitignoreEntries) {
       if (!gitignoreContent.includes(entry)) {
-        appendFileSync(gitignorePath, entry + "\n", "utf-8");
+        appendFileSync(gitignorePath, entry + '\n', 'utf-8');
         appended = true;
       }
     }
-    if (appended) {
-      console.log(`  📄 Updated .gitignore...`);
-    }
+    if (appended) success('Updated .gitignore');
   }
 
-  // 9. Write .kit-version for agent update checking
-  const pkgJson = JSON.parse(
-    readFileSync(join(PKG_ROOT, "package.json"), "utf-8"),
-  );
-  const versionFile = join(opencodeDir, ".kit-version");
-  writeFileSync(versionFile, pkgJson.version + "\n", "utf-8");
+  // 10. Write .kit-version for agent update checking
+  const pkgJson = JSON.parse(readFileSync(join(PKG_ROOT, 'package.json'), 'utf-8'));
+  const versionFile = join(opencodeDir, '.kit-version');
+  writeFileSync(versionFile, pkgJson.version + '\n', 'utf-8');
 
-  // 10. Done
-  console.log(`\n  ✅ opencode-agent-kit v${pkgJson.version} installed!\n`);
-  console.log(`     Location: ${targetDir}`);
-  console.log(`     What you got:`);
-  console.log(
-    `       • opencode.json              — 13 agents config with MCP servers`,
-  );
-  console.log(
-    `       • opencode.example.json      — Example config for reference`,
-  );
-  console.log(`       • .opencode/agents    — 14 agent prompt files`);
-  console.log(`       • .opencode/skills/    — 60+ skill playbooks`);
-  console.log(`       • .opencode/commands/  — 35+ slash commands`);
-  console.log(`       • .opencode/rules/     — Scoped coding rules`);
-  console.log(`       • .opencode/contexts/  — Dev/review/research contexts`);
-  console.log(`       • .opencode/docs/     — Agent documentation`);
-  console.log(`       • .opencode/plugins/  — agentmemory capture plugin (22 hooks)`);
-  console.log(`       • .opencode/hooks/    — agentmemory auto-start wrapper`);
-  console.log(`       • agentmemory (global) — Persistent cross-session memory`);
-  console.log(`\n     Next steps:`);
-  console.log(`       cd ${targetDir}`);
-  console.log(`       opencode              # agentmemory auto-starts on first use`);
-  console.log(`       # Viewer: http://localhost:3113`);
+  // 11. Done — summary
+  console.log(`\n  ${C.bold}${C.green}✅ opencode-agent-kit v${pkgJson.version} installed!${C.reset}\n`);
+  console.log(`  ${C.dim}Location:${C.reset} ${targetDir}`);
+  console.log(`  ${C.dim}${'─'.repeat(30)}${C.reset}`);
+  console.log(`  ${C.bold}What you got:${C.reset}`);
+  console.log(`    • ${C.cyan}opencode.json${C.reset}          — 13 agents + MCP servers`);
+  console.log(`    • ${C.cyan}.opencode/agents/${C.reset}      — 14 agent prompt files`);
+  console.log(`    • ${C.cyan}.opencode/skills/${C.reset}      — 60+ skill playbooks`);
+  console.log(`    • ${C.cyan}.opencode/commands/${C.reset}    — 35+ slash commands`);
+  console.log(`    • ${C.cyan}.opencode/rules/${C.reset}       — Scoped coding rules`);
+  console.log(`    • ${C.cyan}.opencode/hooks/${C.reset}       — Automation hooks`);
+  console.log(`    • ${C.cyan}.opencode/docs/${C.reset}        — Agent documentation`);
+  console.log(`    • ${C.cyan}agentmemory${C.reset} (global)  — Persistent memory`);
+  console.log(`\n  ${C.bold}${C.green}→${C.reset} Next step: run ${C.cyan}opencode${C.reset} to start\n`);
 }
