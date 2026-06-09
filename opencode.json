@@ -68,6 +68,7 @@
     "sonarqube": {
       "type": "remote",
       "url": "https://sonarqube-mcp.sadigit.co.id/mcp",
+      "enabled": true,
       "headers": {
         "Authorization": "Bearer ${SONARQUBE_TOKEN}",
         "SONARQUBE_TOOLSETS": "analysis,issues,security-hotspots,quality-gates,rules,duplications,measures,dependency-risks,coverage,sources,languages,portfolios,system,webhooks"
@@ -106,6 +107,7 @@
         "playwright_*": "allow",
         "postman_*": "allow",
         "agentmemory_*": "allow",
+        "sonarqube_*": "allow",
         "task": { "*": "allow" }
       }
     },
@@ -348,6 +350,25 @@
         },
         "figma_*": "ask",
         "playwright_*": "allow",
+        "agentmemory_*": "allow"
+      }
+    },
+    "sonarqube": {
+      "description": "SonarQube Quality Auditor & Fix Orchestrator — scans codebases, categorizes findings, creates TODOs, and delegates fixes to domain subagents (subagent of IT Leader)",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/sonarqube-quality.md}",
+      "color": "#eab308",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": { "*": "allow" },
+        "bash": {
+          "*": "ask",
+          "git status": "allow",
+          "git diff": "allow",
+          "git log*": "allow"
+        },
+        "sonarqube_*": "allow",
         "agentmemory_*": "allow"
       }
     }
