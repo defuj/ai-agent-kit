@@ -5,7 +5,7 @@ export default [
   js.configs.recommended,
   prettier,
   {
-    files: ['bin/**/*.mjs', 'tests/**/*.mjs'],
+    files: ['bin/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -29,6 +29,6 @@ export default [
     },
   },
   {
-    ignores: ['node_modules/', 'template/', 'data/', 'coverage/'],
+    ignores: ['node_modules/', 'template/', 'data/'],
   },
 ];

@@ -26,9 +26,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "lint": "eslint bin/ tests/ --ext .mjs,.js",
-    "format": "prettier --write 'bin/**/*.mjs' 'tests/**/*.mjs' '*.md' '*.json'",
-    "format:check": "prettier --check 'bin/**/*.mjs' 'tests/**/*.mjs' '*.md' '*.json'",
+    "lint": "eslint bin/ --ext .mjs,.js",
+    "format": "prettier --write 'bin/**/*.mjs' '*.md' '*.json'",
+    "format:check": "prettier --check 'bin/**/*.mjs' '*.md' '*.json'",
     "generate-template": "bash scripts/generate-template.sh",
     "prepare": "node -e \"try { require('husky').install() } catch {}\""
   },
