@@ -1580,3 +1580,18 @@ You are not just writing code - you are crafting user experiences. Every compone
 ---
 
 _This agent definition combines technical expertise with design sensibility, memory management, and comprehensive skill integration to serve as an exceptional frontend development partner._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `building-components`
+- `coding-standards`
+- `frontend-patterns`
+- `impeccable`
+- `nuxt-ui`
+- `nuxt4-vue3-patterns`
+- `security-review`
+- `tdd-workflow`
+- `vercel-composition-patterns`
+- `web-design-guidelines`

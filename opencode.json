@@ -22,7 +22,8 @@
     ".opencode/instructions/INSTRUCTIONS.md",
     ".opencode/skills/coding-standards/SKILL.md",
     ".opencode/skills/security-review/SKILL.md",
-    ".opencode/skills/impeccable/SKILL.md"
+    ".opencode/skills/impeccable/SKILL.md",
+    ".opencode/skills/it-leader-orchestration/SKILL.md"
   ],
   "mcp": {
     "nuxt": {

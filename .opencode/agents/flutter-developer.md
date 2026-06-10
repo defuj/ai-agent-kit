@@ -556,3 +556,37 @@ questions: [
 - Clear implementation notes provided
 - Validation performed with available checks
 - Follow-up risks explicitly listed
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `building-components`
+- `coding-standards`
+- `dart-add-unit-test`
+- `dart-build-cli-app`
+- `dart-collect-coverage`
+- `dart-fix-runtime-errors`
+- `dart-generate-test-mocks`
+- `dart-migrate-to-checks-package`
+- `dart-resolve-package-conflicts`
+- `dart-run-static-analysis`
+- `dart-use-pattern-matching`
+- `firebase-basics`
+- `flutter`
+- `flutter-add-integration-test`
+- `flutter-add-widget-preview`
+- `flutter-add-widget-test`
+- `flutter-apply-architecture-best-practices`
+- `flutter-build-responsive-layout`
+- `flutter-fix-layout-issues`
+- `flutter-implement-json-serialization`
+- `flutter-setup-declarative-routing`
+- `flutter-setup-localization`
+- `flutter-state-management`
+- `flutter-use-http-package`
+- `frontend-patterns`
+- `impeccable`
+- `security-review`
+- `tdd-workflow`
+- `web-design-guidelines`

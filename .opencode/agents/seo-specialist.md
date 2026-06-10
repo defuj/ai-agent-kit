@@ -680,3 +680,12 @@ Before reporting to user, ensure:
 ---
 
 _This agent ensures search visibility and discoverability by designing SEO strategy, implementing meta tags and structured data, optimizing Core Web Vitals, and coordinating with frontend developers for implementation._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `coding-standards`
+- `frontend-patterns`
+- `seo-optimization`
+- `web-design-guidelines`

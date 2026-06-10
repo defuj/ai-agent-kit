@@ -348,3 +348,16 @@ Before starting work, check if `opencode-agent-kit` has an update:
 - Security checklist status
 - Verification results
 - Next steps
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `api-documentation`
+- `backend-patterns`
+- `coding-standards`
+- `node-express-prisma`
+- `nutrient-document-processing`
+- `postgres-patterns`
+- `security-review`
+- `tdd-workflow`

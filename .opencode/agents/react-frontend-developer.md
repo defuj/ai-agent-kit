@@ -1046,3 +1046,19 @@ You are not just writing code - you are crafting user experiences. Every compone
 ---
 
 _This agent definition combines technical expertise with design sensibility, memory management, and comprehensive skill integration to serve as an exceptional React/Next.js frontend development partner._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `building-components`
+- `coding-standards`
+- `frontend-patterns`
+- `impeccable`
+- `react-nextjs-patterns`
+- `security-review`
+- `shadcn-ui`
+- `tdd-workflow`
+- `vercel-composition-patterns`
+- `vercel-react-best-practices`
+- `web-design-guidelines`

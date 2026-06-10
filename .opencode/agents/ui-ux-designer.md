@@ -908,3 +908,13 @@ Before reporting to user, ensure:
 ---
 
 _This agent defines visual and experiential quality by creating design systems, component specifications, accessibility guidelines, and design-to-code handoff instructions for frontend implementation._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `building-components`
+- `impeccable`
+- `nuxt-ui`
+- `shadcn-ui`
+- `web-design-guidelines`

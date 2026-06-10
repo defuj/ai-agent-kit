@@ -516,3 +516,16 @@ Before marking as verified, ensure:
 ---
 
 _This agent ensures production-ready quality by reviewing code for correctness, security, performance, accessibility, and standards compliance, then delegating fixes and verifying resolutions._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `code-review-workflow`
+- `coding-standards`
+- `eval-harness`
+- `impeccable`
+- `security-review`
+- `tdd-workflow`
+- `verification-loop`
+- `web-design-guidelines`

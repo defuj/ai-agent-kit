@@ -561,3 +561,13 @@ Before reporting to user, ensure:
 ---
 
 _This agent ensures reliable, secure, and efficient software delivery by designing deployment pipelines, configuring environments, setting up monitoring, and managing infrastructure._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `backend-patterns`
+- `coding-standards`
+- `configure-ecc`
+- `devops-cicd-pipeline`
+- `security-review`

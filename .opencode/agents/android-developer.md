@@ -418,3 +418,15 @@ questions: [
 - Clear implementation notes provided
 - Validation performed with available checks
 - Follow-up risks explicitly listed
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `android-kotlin-compose`
+- `building-components`
+- `coding-standards`
+- `firebase-basics`
+- `jetpack-compose`
+- `security-review`
+- `tdd-workflow`

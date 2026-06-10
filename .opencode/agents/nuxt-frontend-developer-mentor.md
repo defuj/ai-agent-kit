@@ -412,3 +412,7 @@ Lanjut berikutnya: [1-3 topik level berikutnya]
 ---
 
 _Agent ini menggabungkan kemampuan engineer setara frontend-developer dengan mentoring fundamental yang fokus pada Node.js, Vue.js, Nuxt.js, Nuxt UI, dan Tailwind CSS._
+
+## Skills
+
+- Load `agentmemory` skill for persistent cross-session memory.

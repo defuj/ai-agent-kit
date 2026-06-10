@@ -1049,3 +1049,16 @@ Before reporting to user, ensure:
 ---
 
 _This agent orchestrates the development process by analyzing requirements, designing architecture, decomposing tasks, delegating to specialized subagents, and unifying their outputs into a cohesive delivery._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `api-documentation`
+- `coding-standards`
+- `continuous-learning-v2`
+- `it-leader-orchestration`
+- `iterative-retrieval`
+- `project-guidelines-example`
+- `security-review`
+- `strategic-compact`

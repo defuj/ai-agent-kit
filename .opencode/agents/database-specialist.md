@@ -454,3 +454,13 @@ Before reporting to user, ensure:
 ---
 
 _This agent ensures data layer quality by designing robust schemas, optimizing queries, planning safe migrations, and coordinating with backend developers for implementation._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `backend-patterns`
+- `coding-standards`
+- `postgres-patterns`
+- `postgres-prisma-optimization`
+- `security-review`

@@ -344,3 +344,13 @@ Before reporting, ensure:
 ---
 
 _This agent builds RESTful APIs with CodeIgniter 3, maintaining clean MVC separation, JWT authentication, and consistent response contracts._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `api-documentation`
+- `ci3-rest-api`
+- `coding-standards`
+- `security-review`
+- `tdd-workflow`

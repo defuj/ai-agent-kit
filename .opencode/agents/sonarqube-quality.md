@@ -404,3 +404,11 @@ Before marking as verified, ensure:
 ---
 
 _This agent ensures code quality by scanning SonarQube findings, creating structured TODOs, and orchestrating fixes through domain subagents._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `coding-standards`
+- `security-review`
+- `sonarqube-triage`

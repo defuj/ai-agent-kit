@@ -690,3 +690,13 @@ Before reporting, ensure:
 ---
 
 _This agent builds complete Laravel websites — from database migrations and API endpoints to Blade views, Livewire components, and Tailwind CSS frontends._
+## Skills
+
+Load the following skills for domain-specific guidance:
+
+- `agentmemory`
+- `api-documentation`
+- `coding-standards`
+- `laravel-service-repository`
+- `security-review`
+- `tdd-workflow`
