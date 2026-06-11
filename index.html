@@ -1,2328 +1,927 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Opencode Agent KIT — Multi-Stack Software Developer Agent
-      System</title>
-    <meta name="description"
-      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, 37 commands." />
-    <meta name="keywords"
-      content="opencode, ai agents, software development, nuxt, react, flutter, android, laravel, devops, seo, sonarqube, agentmemory" />
-    <meta name="author" content="defuj" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical"
-      href="https://github.com/defuj/opencode-agent-kit" />
-    <link rel="icon" type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f5f5f5'/><text x='16' y='22' text-anchor='middle' fill='%230a0a0a' font-size='18' font-weight='700' font-family='system-ui'>K</text></svg>" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenCode Agent Kit — 31 Specialized AI Agents for Software Development</title>
+  <meta name="description" content="OpenCode Agent Kit: 31 specialized AI agents, 201 skills, 46 commands. Portable multi-stack software development toolkit powered by MCP protocols." />
+  <meta name="keywords" content="opencode, AI agents, software development, MCP, agent kit, dev tools, autonomous agents" />
+  <meta name="author" content="defuj" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://github.com/defuj/opencode-agent-kit" />
 
-    <!-- Open Graph -->
-    <meta property="og:title"
-      content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
-    <meta property="og:description"
-      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, 37 commands." />
-    <meta property="og:image"
-      content="https://raw.githubusercontent.com/defuj/opencode-agent-kit/main/assets/og-image-2.webp" />
-    <meta property="og:url"
-      content="https://github.com/defuj/opencode-agent-kit" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Opencode Agent KIT" />
-    <meta property="og:locale" content="en_US" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23d4a04a'/%3E%3Ccircle cx='16' cy='14' r='6' fill='none' stroke='%2308080c' stroke-width='2'/%3E%3Cpath d='M14 18 L12 26 L20 26 L18 18' fill='none' stroke='%2308080c' stroke-width='2'/%3E%3C/svg%3E" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title"
-      content="Opencode Agent KIT — Multi-Stack Software Developer Agent System" />
-    <meta name="twitter:description"
-      content="A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, 37 commands." />
-    <meta name="twitter:image"
-      content="https://raw.githubusercontent.com/defuj/opencode-agent-kit/main/assets/og-image-2.webp" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="OpenCode Agent Kit — 31 Specialized AI Agents for Software Development" />
+  <meta property="og:description" content="31 specialized AI agents, 201 skills, 46 commands. Portable multi-stack software development toolkit." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/defuj/opencode-agent-kit/main/assets/og-image-2.webp" />
+  <meta property="og:url" content="https://github.com/defuj/opencode-agent-kit" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OpenCode Agent Kit" />
+  <meta property="og:locale" content="en_US" />
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OpenCode Agent Kit — 31 Specialized AI Agents for Software Development" />
+  <meta name="twitter:description" content="31 specialized AI agents, 201 skills, 46 commands. Portable multi-stack software development toolkit." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/defuj/opencode-agent-kit/main/assets/og-image-2.webp" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Opencode Agent KIT",
-      "description": "A portable multi-stack software developer agent toolkit for OpenCode with 13 specialized AI agents, 62 skills, 37 commands.",
+    "name": "OpenCode Agent Kit",
+    "description": "31 specialized AI agents, 201 skills, 46 commands. A portable multi-stack software developer agent toolkit for OpenCode.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "macOS, Linux, Windows",
-    "author": {
-      "@type": "Person",
-      "name": "defuj"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
+    "author": { "@type": "Person", "name": "defuj" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              display: ['Sora', 'system-ui', 'sans-serif'],
-              body: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
-            },
-            colors: {
-              bg: '#08080c',
-              surface: '#0e0e14',
-              raised: '#14141c',
-              accent: {
-                DEFAULT: '#d4a04a',
-                bright: '#e8b85e',
-                dim: 'rgba(212, 160, 74, 0.12)',
-                glow: 'rgba(212, 160, 74, 0.25)',
-              },
-              violet: {
-                DEFAULT: '#8b6cf6',
-                dim: 'rgba(139, 108, 246, 0.1)',
-                glow: 'rgba(139, 108, 246, 0.2)',
-              },
-              rose: {
-                DEFAULT: '#e06070',
-                dim: 'rgba(224, 96, 112, 0.1)',
-              },
-              teal: {
-                DEFAULT: '#4ac8b8',
-                dim: 'rgba(74, 200, 184, 0.1)',
-              },
-            },
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Sora', 'system-ui', 'sans-serif'],
+            body: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            bg: '#08080c',
+            surface: '#0e0e14',
+            raised: '#14141c',
+            border: '#1e1e28',
+            gold: { DEFAULT: '#d4a04a', bright: '#e8b85e', dim: 'rgba(212,160,74,0.12)', glow: 'rgba(212,160,74,0.25)' },
+            violet: { DEFAULT: '#8b6cf6', dim: 'rgba(139,108,246,0.1)', glow: 'rgba(139,108,246,0.2)' },
           },
         },
-      }
-    </script>
-    <style>
-      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      },
+    }
+  </script>
 
-      html { scroll-behavior: smooth; }
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      background: #08080c;
+      color: #8a8aa0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Sora', system-ui, sans-serif; color: #e8e8f0; }
 
-      body {
-        font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        background: var(--bg, #08080c);
-        color: oklch(0.55 0.01 260);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
-      }
+    /* ── Noise Overlay ── */
+    .noise {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
 
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Sora', system-ui, sans-serif;
-        color: oklch(0.92 0.005 260);
-      }
+    /* ── Ambient Glows ── */
+    .ambient { position: fixed; z-index: 0; pointer-events: none; border-radius: 50%; filter: blur(120px); }
+    .ambient-gold { width: 500px; height: 500px; top: -200px; right: -100px; background: radial-gradient(circle, rgba(212,160,74,0.04), transparent 70%); }
+    .ambient-violet { width: 450px; height: 450px; bottom: 10%; left: -120px; background: radial-gradient(circle, rgba(139,108,246,0.03), transparent 70%); }
+    .ambient-accent { width: 350px; height: 350px; top: 45%; right: 5%; background: radial-gradient(circle, rgba(212,160,74,0.015), transparent 70%); }
 
-      /* ===== NOISE OVERLAY ===== */
-      .noise-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        opacity: 0.025;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        background-size: 128px 128px;
-      }
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.1); }
 
-      /* ===== AMBIENT GLOWS ===== */
-      .ambient {
-        position: fixed;
-        z-index: 0;
-        pointer-events: none;
-        border-radius: 50%;
-        filter: blur(100px);
-      }
-      .ambient-1 {
-        width: 600px; height: 600px;
-        top: -200px; right: -100px;
-        background: radial-gradient(circle, rgba(212, 160, 74, 0.04), transparent 70%);
-      }
-      .ambient-2 {
-        width: 500px; height: 500px;
-        bottom: 10%; left: -150px;
-        background: radial-gradient(circle, rgba(139, 108, 246, 0.03), transparent 70%);
-      }
-      .ambient-3 {
-        width: 400px; height: 400px;
-        top: 50%; right: 10%;
-        background: radial-gradient(circle, rgba(224, 96, 112, 0.02), transparent 70%);
-      }
+    /* ── Animations ── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-1 { transition-delay: 0.1s; }
+    .reveal-2 { transition-delay: 0.2s; }
+    .reveal-3 { transition-delay: 0.3s; }
+    .reveal-4 { transition-delay: 0.4s; }
+    .reveal-5 { transition-delay: 0.5s; }
 
-      /* ===== SCROLL REVEAL ===== */
-      .reveal {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .reveal-delay-1 { transition-delay: 0.1s; }
-      .reveal-delay-2 { transition-delay: 0.2s; }
-      .reveal-delay-3 { transition-delay: 0.3s; }
-      .reveal-delay-4 { transition-delay: 0.4s; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroLine { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(212,160,74,0.1); } 50% { box-shadow: 0 0 40px rgba(212,160,74,0.2); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes countPop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+    @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 
-      /* ===== NAV ===== */
-      .nav-link {
-        position: relative;
-        color: oklch(0.4 0.005 260);
-        transition: color 0.2s ease;
-        font-size: 0.8rem;
-        letter-spacing: 0.02em;
-      }
-      .nav-link:hover { color: oklch(0.75 0.01 260); }
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -4px; left: 0;
-        width: 0; height: 1px;
-        background: var(--accent, #d4a04a);
-        transition: width 0.3s ease;
-      }
-      .nav-link:hover::after { width: 100%; }
+    .hero-hl { animation: heroLine 0.8s cubic-bezier(0.16,1,0.3,1) forwards; opacity: 0; }
+    .hero-hl:nth-child(1) { animation-delay: 0.1s; }
+    .hero-hl:nth-child(2) { animation-delay: 0.3s; }
+    .hero-hl:nth-child(3) { animation-delay: 0.5s; }
+    .hero-fade { animation: fadeUp 0.6s ease-out 0.7s forwards; opacity: 0; }
+    .stat-pop { animation: countPop 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .float-a { animation: float 7s ease-in-out infinite; }
+    .float-b { animation: float 9s ease-in-out infinite 1.5s; }
 
-      /* ===== HERO ===== */
-      .hero-title-line {
-        opacity: 0;
-        animation: line-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-      .hero-title-line:nth-child(1) { animation-delay: 0.15s; }
-      .hero-title-line:nth-child(2) { animation-delay: 0.35s; }
-      .hero-title-line:nth-child(3) { animation-delay: 0.55s; }
+    /* ── Cards ── */
+    .card {
+      background: #0e0e14;
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 16px;
+      transition: border-color 0.3s, background 0.3s, transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .card:hover { border-color: rgba(255,255,255,0.08); background: #14141c; transform: translateY(-2px); }
+    .card-glow { animation: pulseGlow 4s ease-in-out infinite; }
 
-      @keyframes line-reveal {
-        from { opacity: 0; transform: translateY(24px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+    /* ── Agent Group Cards ── */
+    .group-card {
+      background: linear-gradient(135deg, rgba(212,160,74,0.06), rgba(139,108,246,0.04));
+      border: 1px solid rgba(212,160,74,0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .group-card:hover {
+      border-color: rgba(212,160,74,0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
 
-      .hero-badge {
-        opacity: 0;
-        animation: fade-up 0.6s ease-out 0.05s forwards;
-      }
-      .hero-cta {
-        opacity: 0;
-        animation: fade-up 0.6s ease-out 0.75s forwards;
-      }
+    /* ── CLI Tab Styling ── */
+    .cli-tab { transition: all 0.2s ease; cursor: pointer; }
+    .cli-tab.active { background: rgba(212,160,74,0.12); border-color: rgba(212,160,74,0.25); color: #d4a04a; }
+    .cli-content { display: none; }
+    .cli-content.active { display: block; }
 
-      @keyframes fade-up {
-        from { opacity: 0; transform: translateY(16px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+    /* ── Section Dividers ── */
+    .divider { height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%); }
 
-      /* ===== ACCENT LINE ===== */
-      .accent-line {
-        width: 40px;
-        height: 2px;
-        background: var(--accent, #d4a04a);
-        border-radius: 1px;
-      }
+    /* ── Marquee ── */
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .marquee-track { animation: marquee 40s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
 
-      /* ===== SECTION DIVIDER ===== */
-      .section-divider {
-        height: 1px;
-        background: linear-gradient(90deg, transparent 0%, oklch(0.5 0.01 260 / 0.15) 50%, transparent 100%);
-      }
+    /* ── Gradient Text ── */
+    .gradient-gold { background: linear-gradient(135deg, #d4a04a, #e8b85e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-violet { background: linear-gradient(135deg, #8b6cf6, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-      /* ===== ORBITAL ===== */
-      .orbital-container {
-        position: relative;
-        width: 100%;
-        max-width: 480px;
-        aspect-ratio: 1 / 1;
-        margin: 0 auto;
-      }
+    /* ── Grid for 31 agents ── */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+      gap: 8px;
+    }
+    .agent-dot {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .agent-dot:hover { transform: scale(1.15); z-index: 10; }
+    .agent-dot.core { background: rgba(212,160,74,0.12); border-color: rgba(212,160,74,0.2); color: #d4a04a; }
+    .agent-dot.core:hover { background: rgba(212,160,74,0.2); }
+    .agent-dot.mobile { background: rgba(139,108,246,0.12); border-color: rgba(139,108,246,0.2); color: #8b6cf6; }
+    .agent-dot.mobile:hover { background: rgba(139,108,246,0.2); }
+    .agent-dot.lang { background: rgba(74,200,184,0.1); border-color: rgba(74,200,184,0.15); color: #4ac8b8; }
+    .agent-dot.lang:hover { background: rgba(74,200,184,0.2); }
+    .agent-dot.spec { background: rgba(212,160,74,0.06); border-color: rgba(212,160,74,0.1); color: #d4a04a; }
+    .agent-dot.spec:hover { background: rgba(212,160,74,0.14); }
+    .agent-dot.qual { background: rgba(224,96,112,0.08); border-color: rgba(224,96,112,0.12); color: #e06070; }
+    .agent-dot.qual:hover { background: rgba(224,96,112,0.16); }
+  </style>
+</head>
+<body>
 
-      .orbital-ring {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-      }
-      .orbital-ring-1 {
-        width: 180px; height: 180px;
-        border: 1px solid oklch(0.6 0.08 70 / 0.15);
-      }
-      .orbital-ring-2 {
-        width: 300px; height: 300px;
-        border: 1px solid oklch(0.6 0.06 280 / 0.1);
-      }
-      .orbital-ring-3 {
-        width: 420px; height: 420px;
-        border: 1px solid oklch(0.6 0.05 170 / 0.07);
-      }
+  <!-- Ambient Glows -->
+  <div class="noise"></div>
+  <div class="ambient ambient-gold"></div>
+  <div class="ambient ambient-violet"></div>
+  <div class="ambient ambient-accent"></div>
 
-      .orbital-center {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10;
-      }
-
-       .orbital-node {
-        position: absolute;
-        width: 40px; height: 40px;
-        border-radius: 10px;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 10px; font-weight: 700; font-family: 'JetBrains Mono', monospace;
-        z-index: 10;
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.3s ease;
-        cursor: default;
-      }
-      .orbital-node:hover {
-        transform: scale(1.25);
-      }
-
-      /* ===== POWER BARS ===== */
-      .power-track {
-        height: 3px;
-        border-radius: 2px;
-        background: oklch(0.25 0.005 260 / 0.4);
-        overflow: hidden;
-      }
-      .power-fill {
-        height: 100%;
-        border-radius: 2px;
-        background: linear-gradient(90deg, var(--accent, #d4a04a), oklch(0.65 0.1 280));
-        transform-origin: left;
-        transform: scaleX(0);
-        transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .power-fill.animate {
-        transform: scaleX(1);
-      }
-
-      /* ===== BENTO CARD ===== */
-      .bento-card {
-        background: var(--surface, #0e0e14);
-        border: 1px solid oklch(1 0 0 / 0.05);
-        border-radius: 16px;
-        transition: border-color 0.3s ease,
-                    background 0.3s ease,
-                    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .bento-card:hover {
-        border-color: oklch(1 0 0 / 0.1);
-        background: var(--raised, #14141c);
-      }
-
-      /* ===== AGENT CARD VARIANTS ===== */
-      .agent-card {
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.4s ease;
-      }
-      .agent-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 40px oklch(0 0 0 / 0.3);
-      }
-
-      /* Solid accent card */
-      .agent-card--accent {
-        background: linear-gradient(135deg, oklch(0.6 0.1 70 / 0.12), oklch(0.6 0.08 70 / 0.04));
-        border-color: oklch(0.6 0.08 70 / 0.2);
-      }
-
-      /* Dot pattern card */
-      .agent-card--dots::before {
-        content: '';
-        position: absolute;
-        top: 12px; right: 12px;
-        width: 40px; height: 40px;
-        background-image: radial-gradient(circle, oklch(1 0 0 / 0.08) 1px, transparent 1px);
-        background-size: 8px 8px;
-        pointer-events: none;
-      }
-
-      /* Corner accent card */
-      .agent-card--corner {
-        border-top-right-radius: 4px;
-      }
-      .agent-card--corner::after {
-        content: '';
-        position: absolute;
-        top: 0; right: 0;
-        width: 24px; height: 24px;
-        background: linear-gradient(135deg, transparent 50%, oklch(1 0 0 / 0.03) 50%);
-        pointer-events: none;
-      }
-
-      /* ===== MCP ROW ===== */
-      .mcp-row {
-        border-bottom: 1px solid oklch(1 0 0 / 0.04);
-        transition: background 0.2s ease;
-      }
-      .mcp-row:first-child { border-top: 1px solid oklch(1 0 0 / 0.04); }
-      .mcp-row:hover { background: oklch(1 0 0 / 0.02); }
-
-      .status-dot {
-        width: 6px; height: 6px;
-        border-radius: 50%;
-        display: inline-block;
-        flex-shrink: 0;
-      }
-      .status-active {
-        background: var(--accent, #d4a04a);
-        box-shadow: 0 0 8px oklch(0.6 0.1 70 / 0.5);
-      }
-      .status-inactive {
-        background: oklch(0.3 0.005 260 / 0.5);
-      }
-
-      /* ===== CODE BLOCK ===== */
-      .code-block {
-        background: oklch(0.08 0.002 260);
-        border: 1px solid oklch(1 0 0 / 0.04);
-        border-radius: 12px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* ===== INSTALL CTA ===== */
-      .install-cta {
-        position: relative;
-        display: inline-flex;
-        overflow: hidden;
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.3s ease;
-      }
-      .install-cta::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, var(--accent, #d4a04a), oklch(0.65 0.1 280));
-      }
-      .install-cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px oklch(0.6 0.1 70 / 0.2);
-      }
-      .install-cta span {
-        position: relative;
-        z-index: 1;
-      }
-
-      /* ===== COMMAND CHIPS ===== */
-      .cmd-chip {
-        transition: all 0.2s ease;
-      }
-      .cmd-chip:hover {
-        background: oklch(0.6 0.08 70 / 0.06);
-        border-color: oklch(0.6 0.08 70 / 0.15);
-      }
-
-      /* ===== SCROLLBAR ===== */
-      ::-webkit-scrollbar { width: 5px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: oklch(0.25 0.005 260 / 0.5); border-radius: 3px; }
-      ::-webkit-scrollbar-thumb:hover { background: oklch(0.35 0.005 260 / 0.6); }
-
-       /* ===== RESPONSIVE ORBITAL ===== */
-       @media (max-width: 639px) {
-        .orbital-container { max-width: 280px; }
-        .orbital-ring-1 { width: 120px; height: 120px; }
-        .orbital-ring-2 { width: 195px; height: 195px; }
-        .orbital-ring-3 { width: 270px; height: 270px; }
-        .orbital-node { width: 32px; height: 32px; font-size: 9px; border-radius: 8px; }
-        .orbital-center > div { width: 52px; height: 52px; }
-        .orbital-center > div > span:first-child { font-size: 11px; }
-        .orbital-center > div > span:last-child { font-size: 6px; }
-      }
-
-      @media (min-width: 640px) and (max-width: 1023px) {
-        .orbital-container { max-width: 380px; }
-        .orbital-ring-1 { width: 160px; height: 160px; }
-        .orbital-ring-2 { width: 260px; height: 260px; }
-        .orbital-ring-3 { width: 350px; height: 350px; }
-        .orbital-node { width: 36px; height: 36px; font-size: 10px; border-radius: 9px; }
-      }
-
-       /* ===== ORBITAL ROTATION ===== */
-       @keyframes orbital-spin {
-         from { transform: translate(-50%, -50%) rotate(0deg); }
-         to { transform: translate(-50%, -50%) rotate(360deg); }
-       }
-       @keyframes orbital-spin-reverse {
-         from { transform: translate(-50%, -50%) rotate(360deg); }
-         to { transform: translate(-50%, -50%) rotate(0deg); }
-       }
-       .orbital-ring-1 {
-         animation: orbital-spin 80s linear infinite;
-       }
-       .orbital-ring-2 {
-         animation: orbital-spin-reverse 120s linear infinite;
-       }
-       .orbital-ring-3 {
-         animation: orbital-spin 160s linear infinite;
-       }
-       /* Pause on hover for readability */
-       .orbital-container:hover .orbital-ring {
-         animation-play-state: paused;
-       }
-
-       /* ===== MARQUEE ===== */
-      @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .marquee-track {
-        animation: marquee 30s linear infinite;
-      }
-      .marquee-track:hover {
-        animation-play-state: paused;
-      }
-
-      /* ===== COUNTER ===== */
-      @keyframes count-pop {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.08); }
-        100% { transform: scale(1); }
-      }
-      .stat-pop {
-        animation: count-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      /* ===== FLOATING SHAPES ===== */
-      @keyframes float {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(3deg); }
-      }
-      .float-slow { animation: float 8s ease-in-out infinite; }
-      .float-medium { animation: float 6s ease-in-out infinite 1s; }
-      .float-fast { animation: float 5s ease-in-out infinite 2s; }
-
-      /* ===== HORIZONTAL RULE ACCENT ===== */
-      .hr-accent {
-        position: relative;
-        height: 1px;
-        background: oklch(1 0 0 / 0.04);
-      }
-      .hr-accent::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: -1px;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, transparent, var(--accent, #d4a04a), transparent);
-        border-radius: 2px;
-      }
-
-      /* ===== HERO CREATIVE ELEMENTS ===== */
-      @keyframes beam-sweep {
-        0%, 100% { transform: translateX(-100%) rotate(15deg); }
-        50% { transform: translateX(200%) rotate(15deg); }
-      }
-      .hero-beam {
-        position: absolute;
-        width: 200px;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, var(--accent, #d4a04a), transparent);
-        opacity: 0.15;
-        animation: beam-sweep 8s ease-in-out infinite;
-      }
-      .hero-beam-1 { top: 20%; left: -100px; animation-delay: 0s; }
-      .hero-beam-2 { top: 60%; left: -100px; animation-delay: 3s; }
-      .hero-beam-3 { top: 80%; left: -100px; animation-delay: 5s; }
-
-      @keyframes cross-rotate {
-        0%, 100% { transform: rotate(0deg) scale(1); }
-        50% { transform: rotate(180deg) scale(1.1); }
-      }
-      .hero-cross {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        opacity: 0.1;
-        animation: cross-rotate 20s linear infinite;
-      }
-      .hero-cross::before,
-      .hero-cross::after {
-        content: '';
-        position: absolute;
-        background: var(--accent, #d4a04a);
-      }
-      .hero-cross::before {
-        top: 50%; left: 0;
-        width: 100%; height: 1px;
-        transform: translateY(-50%);
-      }
-      .hero-cross::after {
-        top: 0; left: 50%;
-        width: 1px; height: 100%;
-        transform: translateX(-50%);
-      }
-      .hero-cross-1 { top: 15%; right: 15%; animation-duration: 25s; }
-      .hero-cross-2 { bottom: 25%; right: 25%; animation-duration: 30s; animation-direction: reverse; }
-      .hero-cross-3 { top: 45%; right: 5%; animation-duration: 20s; }
-
-      @keyframes square-float {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        33% { transform: translateY(-15px) rotate(120deg); }
-        66% { transform: translateY(10px) rotate(240deg); }
-      }
-      .hero-square {
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        border: 1px solid oklch(1 0 0 / 0.08);
-        animation: square-float 12s ease-in-out infinite;
-      }
-      .hero-square-1 { top: 25%; right: 20%; animation-delay: 0s; }
-      .hero-square-2 { bottom: 35%; right: 10%; animation-delay: 4s; width: 8px; height: 8px; }
-      .hero-square-3 { top: 60%; right: 30%; animation-delay: 8s; width: 16px; height: 16px; }
-
-      /* Terminal preview */
-      .terminal-preview {
-        background: oklch(0.06 0.002 260);
-        border: 1px solid oklch(1 0 0 / 0.06);
-        border-radius: 12px;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-      }
-      .terminal-header {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 10px 14px;
-        background: oklch(1 0 0 / 0.02);
-        border-bottom: 1px solid oklch(1 0 0 / 0.04);
-      }
-      .terminal-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-      }
-      .terminal-body {
-        padding: 14px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        line-height: 1.8;
-        color: oklch(0.5 0.01 260);
-      }
-      .terminal-line {
-        opacity: 0;
-        animation: terminal-type 0.3s ease-out forwards;
-      }
-      .terminal-line:nth-child(1) { animation-delay: 1s; }
-      .terminal-line:nth-child(2) { animation-delay: 1.8s; }
-      .terminal-line:nth-child(3) { animation-delay: 2.6s; }
-      .terminal-line:nth-child(4) { animation-delay: 3.4s; }
-      .terminal-line:nth-child(5) { animation-delay: 4.2s; }
-      .terminal-line:nth-child(6) { animation-delay: 5s; }
-.terminal-line:nth-child(7) { animation-delay: 5.8s; }
-
-      @keyframes terminal-type {
-        from { opacity: 0; transform: translateX(-8px); }
-        to { opacity: 1; transform: translateX(0); }
-      }
-
-      .terminal-prompt { color: var(--accent, #d4a04a); }
-      .terminal-success { color: oklch(0.65 0.15 145); }
-      .terminal-info { color: oklch(0.6 0.1 200); }
-      .terminal-dim { color: oklch(0.35 0.005 260); }
-
-      /* Title underline accent */
-      .title-underline {
-        display: block;
-        width: 80px;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent, #d4a04a), transparent);
-        border-radius: 2px;
-        margin-top: 16px;
-        opacity: 0;
-        animation: line-expand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
-      }
-      @keyframes line-expand {
-        from { opacity: 0; width: 0; }
-        to { opacity: 1; width: 80px; }
-      }
-
-      /* Agent badges */
-      .agent-badge {
-        opacity: 0;
-        animation: badge-fade-in 0.5s ease-out forwards;
-      }
-      .agent-badge:nth-child(1) { animation-delay: 2s; }
-      .agent-badge:nth-child(2) { animation-delay: 2.5s; }
-      .agent-badge:nth-child(3) { animation-delay: 3s; }
-
-      @keyframes badge-fade-in {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
-  </head>
-  <body>
-
-    <!-- ===== BACKGROUND LAYERS ===== -->
-    <div class="noise-overlay"></div>
-    <div class="ambient ambient-1"></div>
-    <div class="ambient ambient-2"></div>
-    <div class="ambient ambient-3"></div>
-
-    <!-- ===== NAV ===== -->
-    <nav
-      class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.03] bg-[#08080c]/85 backdrop-blur-xl">
-      <div
-        class="max-w-6xl mx-auto px-6 lg:px-8 h-14 flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <span
-            class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-accent text-black text-xs font-bold font-mono shadow-lg shadow-accent/20">K</span>
-          <span
-            class="text-sm font-medium text-white/60 tracking-tight">Opencode
-            Agent KIT</span>
+  <!-- ─── NAV ─── -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl" style="background: rgba(8,8,12,0.8); border-bottom: 1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: rgba(212,160,74,0.12);">
+          <svg class="w-4 h-4" style="color:#d4a04a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         </div>
-        <!-- Desktop nav -->
-        <div class="flex items-center gap-5">
-          <a href="#leader" class="nav-link hidden sm:block">IT Leader</a>
-          <a href="#agents" class="nav-link hidden sm:block">Agents</a>
-          <a href="#capabilities"
-            class="nav-link hidden sm:block">Capabilities</a>
-          <a href="#install" class="nav-link hidden sm:block">Install</a>
-          <a href="https://github.com/defuj/opencode-agent-kit"
-            target="_blank" rel="noopener"
-            class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-white/50 hover:text-white/70 transition-all text-xs border border-white/[0.04]">
-            <svg class="w-3.5 h-3.5" fill="currentColor"
-              viewBox="0 0 24 24"><path
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
-            <span>GitHub</span>
+        <span class="font-display font-semibold text-sm tracking-tight" style="color:#e8e8f0;">Agent Kit</span>
+      </a>
+      <div class="hidden sm:flex items-center gap-6">
+        <a href="#agents" class="font-body text-xs tracking-wider uppercase" style="color:#6a6a80; transition:color 0.2s;" onmouseover="this.style.color='#d4a04a'" onmouseout="this.style.color='#6a6a80'">Agents</a>
+        <a href="#capabilities" class="font-body text-xs tracking-wider uppercase" style="color:#6a6a80; transition:color 0.2s;" onmouseover="this.style.color='#d4a04a'" onmouseout="this.style.color='#6a6a80'">Capabilities</a>
+        <a href="#cli" class="font-body text-xs tracking-wider uppercase" style="color:#6a6a80; transition:color 0.2s;" onmouseover="this.style.color='#d4a04a'" onmouseout="this.style.color='#6a6a80'">CLI</a>
+        <a href="#stats" class="font-body text-xs tracking-wider uppercase" style="color:#6a6a80; transition:color 0.2s;" onmouseover="this.style.color='#d4a04a'" onmouseout="this.style.color='#6a6a80'">Stats</a>
+      </div>
+      <a href="https://github.com/defuj/opencode-agent-kit" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-all" style="background: rgba(212,160,74,0.1); color:#d4a04a; border:1px solid rgba(212,160,74,0.15);" onmouseover="this.style.background='rgba(212,160,74,0.18)'" onmouseout="this.style.background='rgba(212,160,74,0.1)'">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <button id="mobile-menu-btn" class="sm:hidden p-2 rounded-lg" style="color:#8a8aa0;">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden px-4 pb-4 space-y-2">
+      <a href="#agents" class="block px-3 py-2 rounded-lg text-xs font-body" style="color:#8a8aa0;">Agents</a>
+      <a href="#capabilities" class="block px-3 py-2 rounded-lg text-xs font-body" style="color:#8a8aa0;">Capabilities</a>
+      <a href="#cli" class="block px-3 py-2 rounded-lg text-xs font-body" style="color:#8a8aa0;">CLI</a>
+      <a href="#stats" class="block px-3 py-2 rounded-lg text-xs font-body" style="color:#8a8aa0;">Stats</a>
+      <a href="https://github.com/defuj/opencode-agent-kit" target="_blank" class="block px-3 py-2 rounded-lg text-xs font-body" style="color:#d4a04a;">GitHub →</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="relative min-h-screen flex items-center pt-20 pb-16 sm:pb-24 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Badge -->
+        <div class="hero-fade inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium mb-8" style="background: rgba(139,108,246,0.08); border: 1px solid rgba(139,108,246,0.12); color: #8b6cf6;">
+          <span class="w-1.5 h-1.5 rounded-full" style="background:#8b6cf6; box-shadow:0 0 6px rgba(139,108,246,0.5);"></span>
+          v1.2.0 — Open Source
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display">
+          <div class="hero-hl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
+            <span class="gradient-gold">31 Agents.</span>
+          </div>
+          <div class="hero-hl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight mt-2">
+            <span class="gradient-violet">201 Skills.</span>
+          </div>
+          <div class="hero-hl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight mt-2">
+            <span style="color:#e8e8f0;">One Command.</span>
+          </div>
+        </h1>
+
+        <p class="hero-fade mt-6 text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style="color:#8a8aa0;">
+          A portable multi-stack software developer agent system for OpenCode.
+          Deploy a full team of specialized AI agents — from architecture to deployment.
+        </p>
+
+        <!-- CTA -->
+        <div class="hero-fade mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#cli" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all" style="background:#d4a04a; color:#08080c;" onmouseover="this.style.background='#e8b85e'" onmouseout="this.style.background='#d4a04a'">
+            <code style="font-size:0.8rem;">npx opencode-agent-kit init</code>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </a>
-          <!-- Hamburger -->
-          <button id="menu-btn"
-            class="sm:hidden flex items-center justify-center w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-white/50 hover:text-white/70 transition-all"
-            aria-label="Menu">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          <a href="https://github.com/defuj/opencode-agent-kit" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all" style="border:1px solid rgba(255,255,255,0.06); color:#b0b0c8;" onmouseover="this.style.borderColor='rgba(212,160,74,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+            View on GitHub
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu"
-          class="hidden sm:hidden absolute top-full left-0 right-0 bg-[#08080c]/95 backdrop-blur-xl border-b border-white/[0.03] px-6 py-4 flex flex-col gap-2">
-          <a href="#leader" class="nav-link block py-2 text-sm">IT Leader</a>
-          <a href="#agents" class="nav-link block py-2 text-sm">Agents</a>
-          <a href="#capabilities"
-            class="nav-link block py-2 text-sm">Capabilities</a>
-          <a href="#install" class="nav-link block py-2 text-sm">Install</a>
-          <a href="https://github.com/defuj/opencode-agent-kit" target="_blank"
-            rel="noopener"
-            class="flex items-center gap-2 py-2 text-sm text-white/40 hover:text-white/60">GitHub</a>
-        </div>
-      </div>
-    </nav>
 
-    <!-- ===== HERO ===== -->
-    <section
-      class="relative min-h-screen flex flex-col justify-center pt-14 overflow-hidden">
-      <div
-        class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-24 lg:py-0 w-full">
-
-        <!-- Creative background elements -->
-        <div class="hero-beam hero-beam-1 hidden lg:block"></div>
-        <div class="hero-beam hero-beam-2 hidden lg:block"></div>
-        <div class="hero-beam hero-beam-3 hidden lg:block"></div>
-        <div class="hero-cross hero-cross-1 hidden lg:block"></div>
-        <div class="hero-cross hero-cross-2 hidden lg:block"></div>
-        <div class="hero-cross hero-cross-3 hidden lg:block"></div>
-        <div class="hero-square hero-square-1 hidden lg:block"></div>
-        <div class="hero-square hero-square-2 hidden lg:block"></div>
-        <div class="hero-square hero-square-3 hidden lg:block"></div>
-
-        <!-- Two-column layout -->
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          <!-- LEFT: Content -->
-          <div class="relative">
-            <div
-              class="absolute -top-20 -left-10 w-64 h-64 bg-accent/[0.04] blur-[120px] rounded-full pointer-events-none"></div>
-
-            <div class="flex flex-wrap items-center gap-3 mb-8">
-              <div
-                class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-accent/8 border border-accent/20 text-accent/85 text-xs font-mono tracking-tight">
-                <span
-                  class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_6px_rgba(212,160,74,0.6)]"></span>
-                v1.2.0 &mdash; 31 agents &middot; 201 skills &middot; 37 commands
-              </div>
-            </div>
-
-            <h1
-              class="relative text-4xl sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[0.92] tracking-tight mb-6">
-              <span
-                class="hero-title-line block text-white/45 font-normal text-2xl sm:text-3xl lg:text-4xl">Multi-Stack
-                AI</span>
-              <span class="hero-title-line block">Agent Orchestrator</span>
-              <span class="hero-title-line block">
-                <span class="text-white/45 font-normal">for </span>
-                <span class="text-accent">OpenCode</span>
-              </span>
-              <span class="title-underline"></span>
-            </h1>
-
-            <p
-              class="text-sm sm:text-base text-white/35 leading-relaxed mb-10 max-w-md">
-              An <strong class="text-white/60 font-medium">IT-Leader</strong>
-              that plans, delegates to <strong
-                class="text-white/60 font-medium">13 specialized
-                subagents</strong>, and integrates results. One command installs
-              an entire AI development team.
-            </p>
-
-            <div class="hero-cta flex flex-wrap gap-3 mb-12">
-              <a href="#install"
-                class="install-cta rounded-xl px-6 py-3 text-sm font-bold font-mono text-black tracking-tight">
-                <span>npx opencode-agent-kit init</span>
-              </a>
-              <a href="#leader"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/[0.03] text-white/55 text-sm font-medium hover:bg-white/[0.06] hover:text-white/75 transition-all border border-white/[0.06] hover:border-accent/15">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24"><path stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                See how it works
-              </a>
-            </div>
-
-            <!-- Stats row (compact) -->
-            <div class="stats-row grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div
-                class="stat-card stat-featured group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-accent/20 bg-accent/[0.03] hover:bg-accent/[0.06] transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
-                <div
-                  class="absolute -right-4 -top-4 w-20 h-20 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors"></div>
-                <div class="relative">
-                  <div class="flex items-baseline gap-1 mb-1">
-                    <span
-                      class="text-3xl sm:text-4xl font-black text-accent font-display stat-number"
-                      data-count="31">0</span>
-                    <span class="text-xs text-accent/50 font-mono">+</span>
-                  </div>
-                  <div
-                    class="text-[10px] text-white/30 uppercase tracking-[0.15em] font-medium">Agents</div>
-                </div>
-              </div>
-              <div
-                class="stat-card group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
-                <div class="relative">
-                  <div class="flex items-baseline gap-1 mb-1">
-                    <span
-                      class="text-3xl sm:text-4xl font-black text-white/80 font-display stat-number"
-                      data-count="62">0</span>
-                    <span class="text-xs text-white/20 font-mono">+</span>
-                  </div>
-                  <div
-                    class="text-[10px] text-white/25 uppercase tracking-[0.15em] font-medium">Skills</div>
-                </div>
-              </div>
-              <div
-                class="stat-card group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
-                <div class="relative">
-                  <div class="flex items-baseline gap-1 mb-1">
-                    <span
-                      class="text-3xl sm:text-4xl font-black text-white/80 font-display stat-number"
-                      data-count="37">0</span>
-                    <span class="text-xs text-white/20 font-mono">+</span>
-                  </div>
-                  <div
-                    class="text-[10px] text-white/25 uppercase tracking-[0.15em] font-medium">Commands</div>
-                </div>
-              </div>
-              <div
-                class="stat-card group relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/[0.08]">
-                <div class="relative">
-                  <div class="flex items-baseline gap-1 mb-1">
-                    <span
-                      class="text-3xl sm:text-4xl font-black text-white/80 font-display stat-number"
-                      data-count="8">0</span>
-                  </div>
-                  <div
-                    class="text-[10px] text-white/25 uppercase tracking-[0.15em] font-medium">MCP</div>
-                </div>
-              </div>
-            </div>
+        <!-- Quick Stats -->
+        <div class="hero-fade mt-16 grid grid-cols-3 gap-4 max-w-md mx-auto">
+          <div class="card p-4 text-center">
+            <div class="font-display text-2xl sm:text-3xl font-bold gradient-gold">31</div>
+            <div class="text-xs mt-1" style="color:#6a6a80;">Agents</div>
           </div>
-
-          <!-- RIGHT: Terminal + Visual -->
-          <div class="relative hidden lg:block">
-            <!-- Ambient glow behind terminal -->
-            <div
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/[0.03] blur-[100px] rounded-full pointer-events-none"></div>
-
-            <!-- Terminal Preview -->
-            <div class="terminal-preview relative">
-              <div class="terminal-header">
-                <span class="terminal-dot bg-red-400/60"></span>
-                <span class="terminal-dot bg-yellow-400/60"></span>
-                <span class="terminal-dot bg-green-400/60"></span>
-                <span class="terminal-dim text-[10px] font-mono ml-2">agent-kit
-                  — installation</span>
-              </div>
-              <div class="terminal-body">
-                <div class="terminal-line"><span
-                    class="terminal-prompt">$</span> npx opencode-agent-kit
-                  init</div>
-                <div class="terminal-line"><span class="terminal-dim">⠋
-                    Resolving agent configurations...</span></div>
-                <div class="terminal-line"><span
-                    class="terminal-success">✓</span> <span
-                    class="terminal-info">IT Leader</span> <span
-                    class="terminal-dim">orchestrator ready</span></div>
-                <div class="terminal-line"><span
-                    class="terminal-success">✓</span> <span
-                    class="terminal-info">13 subagents</span> <span
-                    class="terminal-dim">loaded</span></div>
-                <div class="terminal-line"><span
-                    class="terminal-success">✓</span> <span
-                    class="terminal-info">62 skills</span> <span
-                    class="terminal-dim">+ 37 commands</span></div>
-                <div class="terminal-line"><span
-                    class="terminal-success">✓</span> <span
-                    class="terminal-info">agentmemory</span> <span
-                    class="terminal-dim">persistent memory ready</span></div>
-                <div class="terminal-line"><span
-                    class="terminal-prompt">▶</span> <span
-                    class="terminal-success">AI team ready. What shall we
-                    build?</span></div>
-              </div>
-            </div>
-
-            <!-- Floating agent badges around terminal -->
-            <div class="absolute -top-6 -right-6 agent-badge float-slow">
-              <div
-                class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
-                <span class="w-2 h-2 rounded-full bg-emerald-400/60"></span>
-                <span
-                  class="text-[10px] text-white/40 font-mono">frontend-nuxt</span>
-              </div>
-            </div>
-            <div class="absolute -bottom-4 -left-6 agent-badge float-medium">
-              <div
-                class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
-                <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
-                <span class="text-[10px] text-white/40 font-mono">backend</span>
-              </div>
-            </div>
-            <div class="absolute top-1/2 -right-8 agent-badge float-fast">
-              <div
-                class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
-                <span class="w-2 h-2 rounded-full bg-purple-400/60"></span>
-                <span
-                  class="text-[10px] text-white/40 font-mono">designer</span>
-              </div>
-            </div>
+          <div class="card p-4 text-center">
+            <div class="font-display text-2xl sm:text-3xl font-bold gradient-violet">201</div>
+            <div class="text-xs mt-1" style="color:#6a6a80;">Skills</div>
+          </div>
+          <div class="card p-4 text-center">
+            <div class="font-display text-2xl sm:text-3xl font-bold" style="color:#e8e8f0;">46</div>
+            <div class="text-xs mt-1" style="color:#6a6a80;">Commands</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <div class="hr-accent max-w-6xl mx-auto"></div>
+    <!-- Decorative elements -->
+    <div class="absolute bottom-0 left-0 right-0 h-px divider"></div>
+  </section>
 
-    <!-- ===== IT-LEADER SPOTLIGHT ===== -->
-    <section id="leader" class="relative py-20 lg:py-32">
-      <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+  <!-- ─── AGENT ECOSYSTEM ─── -->
+  <section id="agents" class="relative py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4" style="background:rgba(212,160,74,0.08); color:#d4a04a; border:1px solid rgba(212,160,74,0.1);">Agent Ecosystem</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight" style="color:#e8e8f0;">
+          31 Agents, <span class="gradient-gold">Organized by Domain</span>
+        </h2>
+        <p class="mt-4 text-sm sm:text-base leading-relaxed" style="color:#8a8aa0;">
+          Five specialized squads covering every stage of the software development lifecycle.
+        </p>
+      </div>
 
-        <div class="reveal text-center max-w-2xl mx-auto mb-16">
-          <div class="accent-line mx-auto mb-8"></div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Meet the <span class="text-accent">IT Leader</span>
-          </h2>
-          <p class="text-white/30 text-sm sm:text-base leading-relaxed">
-            The IT-Leader never writes code. It analyzes requirements, designs
-            architecture, decomposes tasks, delegates to specialized subagents,
-            and integrates the results.
+      <!-- Groups Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+        <!-- Core Dev (7) -->
+        <div class="group-card p-5 reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-display font-semibold text-sm" style="color:#d4a04a;">Core Dev</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded" style="background:rgba(212,160,74,0.1); color:#d4a04a;">7</span>
+          </div>
+          <div class="space-y-1.5 text-xs" style="color:#8a8aa0;">
+            <div>agent-engineer</div>
+            <div>architect-agent</div>
+            <div>infra-engineer</div>
+            <div>data-engineer</div>
+            <div>api-developer</div>
+            <div>backend-lead</div>
+            <div>fullstack-dev</div>
+          </div>
+        </div>
+
+        <!-- Mobile (3) -->
+        <div class="group-card p-5 reveal reveal-1">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-display font-semibold text-sm" style="color:#8b6cf6;">Mobile</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded" style="background:rgba(139,108,246,0.1); color:#8b6cf6;">3</span>
+          </div>
+          <div class="space-y-1.5 text-xs" style="color:#8a8aa0;">
+            <div>flutter-dev</div>
+            <div>android-dev</div>
+            <div>react-native-dev</div>
+          </div>
+        </div>
+
+        <!-- Languages (7) -->
+        <div class="group-card p-5 reveal reveal-2">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-display font-semibold text-sm" style="color:#4ac8b8;">Languages</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded" style="background:rgba(74,200,184,0.1); color:#4ac8b8;">7</span>
+          </div>
+          <div class="space-y-1.5 text-xs" style="color:#8a8aa0;">
+            <div>golang-dev</div>
+            <div>rust-engineer</div>
+            <div>python-dev</div>
+            <div>dotnet-dev</div>
+            <div>nodejs-dev</div>
+            <div>kotlin-dev</div>
+            <div>swift-dev</div>
+          </div>
+        </div>
+
+        <!-- Specialists (10) -->
+        <div class="group-card p-5 reveal reveal-3">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-display font-semibold text-sm" style="color:#d4a04a;">Specialists</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded" style="background:rgba(212,160,74,0.1); color:#d4a04a;">10</span>
+          </div>
+          <div class="space-y-1.5 text-xs" style="color:#8a8aa0;">
+            <div>seo-specialist</div>
+            <div>laravel-dev</div>
+            <div>devops-engineer</div>
+            <div>security-analyst</div>
+            <div>ux-designer</div>
+            <div>database-admin</div>
+            <div>testing-lead</div>
+            <div>docs-writer</div>
+            <div>ci-cd-specialist</div>
+            <div>monitoring-eng</div>
+          </div>
+        </div>
+
+        <!-- Quality (4) -->
+        <div class="group-card p-5 reveal reveal-4">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-display font-semibold text-sm" style="color:#e06070;">Quality</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded" style="background:rgba(224,96,112,0.1); color:#e06070;">4</span>
+          </div>
+          <div class="space-y-1.5 text-xs" style="color:#8a8aa0;">
+            <div>code-reviewer</div>
+            <div>qa-automation</div>
+            <div>sonarqube-eng</div>
+            <div>perf-analyst</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Agent Grid — 31 Dots -->
+      <div class="card p-6 sm:p-8 reveal reveal-3">
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="font-display font-semibold text-sm" style="color:#e8e8f0;">All 31 Agents</h3>
+          <div class="flex items-center gap-3 text-[10px]" style="color:#6a6a80;">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#d4a04a;"></span>Core</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#8b6cf6;"></span>Mobile</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#4ac8b8;"></span>Lang</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#d4a04a; opacity:0.6;"></span>Spec</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#e06070;"></span>Quality</span>
+          </div>
+        </div>
+        <div class="agent-grid">
+          <!-- Core Dev: A1-A7 -->
+          <div class="agent-dot core" title="agent-engineer">A1</div>
+          <div class="agent-dot core" title="architect-agent">A2</div>
+          <div class="agent-dot core" title="infra-engineer">A3</div>
+          <div class="agent-dot core" title="data-engineer">A4</div>
+          <div class="agent-dot core" title="api-developer">A5</div>
+          <div class="agent-dot core" title="backend-lead">A6</div>
+          <div class="agent-dot core" title="fullstack-dev">A7</div>
+          <!-- Mobile: B1-B3 -->
+          <div class="agent-dot mobile" title="flutter-dev">B1</div>
+          <div class="agent-dot mobile" title="android-dev">B2</div>
+          <div class="agent-dot mobile" title="react-native-dev">B3</div>
+          <!-- Languages: C1-C7 -->
+          <div class="agent-dot lang" title="golang-dev">C1</div>
+          <div class="agent-dot lang" title="rust-engineer">C2</div>
+          <div class="agent-dot lang" title="python-dev">C3</div>
+          <div class="agent-dot lang" title="dotnet-dev">C4</div>
+          <div class="agent-dot lang" title="nodejs-dev">C5</div>
+          <div class="agent-dot lang" title="kotlin-dev">C6</div>
+          <div class="agent-dot lang" title="swift-dev">C7</div>
+          <!-- Specialists: D1-D10 -->
+          <div class="agent-dot spec" title="seo-specialist">D1</div>
+          <div class="agent-dot spec" title="laravel-dev">D2</div>
+          <div class="agent-dot spec" title="devops-engineer">D3</div>
+          <div class="agent-dot spec" title="security-analyst">D4</div>
+          <div class="agent-dot spec" title="ux-designer">D5</div>
+          <div class="agent-dot spec" title="database-admin">D6</div>
+          <div class="agent-dot spec" title="testing-lead">D7</div>
+          <div class="agent-dot spec" title="docs-writer">D8</div>
+          <div class="agent-dot spec" title="ci-cd-specialist">D9</div>
+          <div class="agent-dot spec" title="monitoring-eng">D10</div>
+          <!-- Quality: E1-E4 -->
+          <div class="agent-dot qual" title="code-reviewer">E1</div>
+          <div class="agent-dot qual" title="qa-automation">E2</div>
+          <div class="agent-dot qual" title="sonarqube-eng">E3</div>
+          <div class="agent-dot qual" title="perf-analyst">E4</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="divider"></div></div>
+
+  <!-- ─── CAPABILITIES ─── -->
+  <section id="capabilities" class="relative py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4" style="background:rgba(139,108,246,0.08); color:#8b6cf6; border:1px solid rgba(139,108,246,0.1);">Capabilities</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight" style="color:#e8e8f0;">
+          Three Layers of <span class="gradient-gold">Power</span>
+        </h2>
+        <p class="mt-4 text-sm sm:text-base leading-relaxed" style="color:#8a8aa0;">
+          From low-level protocol to high-level orchestration — everything you need to ship.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- MCP -->
+        <div class="card p-6 sm:p-8 reveal">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background:rgba(212,160,74,0.1);">
+            <svg class="w-5 h-5" style="color:#d4a04a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2" style="color:#e8e8f0;">MCP Protocol</h3>
+          <p class="text-sm leading-relaxed" style="color:#8a8aa0;">
+            Model Context Protocol integration. Agents communicate via typed, structured channels. 
+            Extend with custom MCP servers for your stack.
           </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          <!-- Orbital Visualization -->
-          <div class="reveal">
-            <div class="orbital-container">
-              <div class="orbital-ring orbital-ring-1"></div>
-              <div class="orbital-ring orbital-ring-2"></div>
-              <div class="orbital-ring orbital-ring-3"></div>
-
-              <div class="orbital-center">
-                <div
-                  class="w-16 h-16 rounded-2xl bg-accent flex flex-col items-center justify-center shadow-2xl shadow-accent/25">
-                  <span class="text-black text-sm font-bold font-mono">TL</span>
-                  <span
-                    class="text-black/50 text-[7px] font-mono uppercase tracking-widest">Leader</span>
-                </div>
-              </div>
-
-              <!-- Ring 1: Core Dev -->
-              <div class="orbital-node"
-                style="top: 3%; left: 50%; transform: translateX(-50%); background: oklch(0.6 0.12 230 / 0.12); color: oklch(0.75 0.1 230); border: 1px solid oklch(0.6 0.12 230 / 0.2);">NU</div>
-              <div class="orbital-node"
-                style="top: 18%; right: 5%; background: oklch(0.65 0.12 190 / 0.12); color: oklch(0.75 0.1 190); border: 1px solid oklch(0.65 0.12 190 / 0.2);">RE</div>
-              <div class="orbital-node"
-                style="bottom: 18%; right: 5%; background: oklch(0.6 0.12 160 / 0.12); color: oklch(0.75 0.1 160); border: 1px solid oklch(0.6 0.12 160 / 0.2);">ND</div>
-              <div class="orbital-node"
-                style="bottom: 3%; left: 50%; transform: translateX(-50%); background: oklch(0.65 0.15 35 / 0.12); color: oklch(0.75 0.12 35); border: 1px solid oklch(0.65 0.15 35 / 0.2);">LA</div>
-
-              <!-- Ring 2: Supporting -->
-              <div class="orbital-node"
-                style="top: 8%; left: 10%; background: oklch(0.65 0.12 100 / 0.12); color: oklch(0.75 0.1 100); border: 1px solid oklch(0.65 0.12 100 / 0.2);">CI</div>
-              <div class="orbital-node"
-                style="top: 35%; left: 0; background: oklch(0.7 0.14 80 / 0.12); color: oklch(0.75 0.12 80); border: 1px solid oklch(0.7 0.14 80 / 0.2);">DE</div>
-              <div class="orbital-node"
-                style="bottom: 35%; left: 0; background: oklch(0.6 0.15 25 / 0.12); color: oklch(0.75 0.12 25); border: 1px solid oklch(0.6 0.15 25 / 0.2);">RV</div>
-              <div class="orbital-node"
-                style="bottom: 8%; left: 10%; background: oklch(0.6 0.14 145 / 0.12); color: oklch(0.75 0.12 145); border: 1px solid oklch(0.6 0.14 145 / 0.2);">AN</div>
-
-              <!-- Ring 3: Specialists -->
-              <div class="orbital-node"
-                style="top: 0; left: 28%; background: oklch(0.65 0.12 190 / 0.12); color: oklch(0.75 0.1 190); border: 1px solid oklch(0.65 0.12 190 / 0.2);">DB</div>
-              <div class="orbital-node"
-                style="top: 18%; right: 2%; background: oklch(0.7 0.15 45 / 0.12); color: oklch(0.8 0.14 45); border: 1px solid oklch(0.7 0.15 45 / 0.2);">SQ</div>
-              <div class="orbital-node"
-                style="top: 28%; right: 0; background: oklch(0.6 0.1 270 / 0.12); color: oklch(0.75 0.08 270); border: 1px solid oklch(0.6 0.1 270 / 0.2);">DV</div>
-              <div class="orbital-node"
-                style="bottom: 28%; right: 0; background: oklch(0.65 0.12 100 / 0.12); color: oklch(0.75 0.1 100); border: 1px solid oklch(0.65 0.12 100 / 0.2);">SE</div>
-              <div class="orbital-node"
-                style="bottom: 0; left: 28%; background: oklch(0.65 0.12 210 / 0.12); color: oklch(0.75 0.1 210); border: 1px solid oklch(0.65 0.12 210 / 0.2);">FL</div>
-            </div>
-          </div>
-
-          <!-- Powers -->
-          <div class="space-y-5">
-            <div class="reveal">
-              <h3 class="text-lg font-semibold mb-1">Core Identity</h3>
-              <p class="text-white/25 text-sm">Senior IT Leader &middot;
-                Technical Project Manager &middot; Solution Architect</p>
-            </div>
-
-            <div class="reveal reveal-delay-1 space-y-4">
-              <div class="bento-card p-4">
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center gap-2.5">
-                    <svg class="w-4 h-4 text-accent" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24"><path
-                        stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                    <span class="text-sm font-medium">Requirements
-                      Analysis</span>
-                  </div>
-                  <span class="text-accent/50 text-xs font-mono">100%</span>
-                </div>
-                <div class="power-track"><div class="power-fill"
-                    data-width="100%" style="width: 100%"></div></div>
-              </div>
-
-              <div class="bento-card p-4">
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center gap-2.5">
-                    <svg class="w-4 h-4 text-accent" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24"><path
-                        stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-                    <span class="text-sm font-medium">Architecture Design</span>
-                  </div>
-                  <span class="text-accent/50 text-xs font-mono">100%</span>
-                </div>
-                <div class="power-track"><div class="power-fill"
-                    data-width="100%" style="width: 100%"></div></div>
-              </div>
-
-              <div class="bento-card p-4">
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center gap-2.5">
-                    <svg class="w-4 h-4 text-accent" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24"><path
-                        stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-                    <span class="text-sm font-medium">Task Decomposition</span>
-                  </div>
-                  <span class="text-accent/50 text-xs font-mono">100%</span>
-                </div>
-                <div class="power-track"><div class="power-fill"
-                    data-width="100%" style="width: 100%"></div></div>
-              </div>
-
-              <div class="bento-card p-4">
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center gap-2.5">
-                    <svg class="w-4 h-4 text-accent" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24"><path
-                        stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    <span class="text-sm font-medium">Mandatory
-                      Delegation</span>
-                  </div>
-                  <span class="text-accent/50 text-xs font-mono">100%</span>
-                </div>
-                <div class="power-track"><div class="power-fill"
-                    data-width="100%" style="width: 100%"></div></div>
-              </div>
-
-              <div class="bento-card p-4">
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center gap-2.5">
-                    <svg class="w-4 h-4 text-accent" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24"><path
-                        stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                    <span class="text-sm font-medium">Integration &amp;
-                      Unification</span>
-                  </div>
-                  <span class="text-accent/50 text-xs font-mono">100%</span>
-                </div>
-                <div class="power-track"><div class="power-fill"
-                    data-width="100%" style="width: 100%"></div></div>
-              </div>
-            </div>
-
-            <div class="reveal reveal-delay-2 bento-card p-5 border-accent/10">
-              <div class="flex items-start gap-3">
-                <span
-                  class="text-accent text-lg leading-none mt-0.5">&#9889;</span>
-                <div>
-                  <p class="text-white/60 text-sm font-medium mb-1">Golden
-                    Rule</p>
-                  <p class="text-white/25 text-xs leading-relaxed">The IT-Leader
-                    <strong class="text-white/45">never writes code</strong>. It
-                    plans, delegates, and integrates. Every code change goes
-                    through specialized subagents.</p>
-                </div>
-              </div>
-            </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(212,160,74,0.06); color:#d4a04a; border:1px solid rgba(212,160,74,0.08);">filesystem</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(212,160,74,0.06); color:#d4a04a; border:1px solid rgba(212,160,74,0.08);">github</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(212,160,74,0.06); color:#d4a04a; border:1px solid rgba(212,160,74,0.08);">shell</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(212,160,74,0.06); color:#d4a04a; border:1px solid rgba(212,160,74,0.08);">custom</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <div class="hr-accent max-w-6xl mx-auto"></div>
-
-    <!-- ===== MARQUEE ===== -->
-    <section
-      class="relative py-6 overflow-hidden border-y border-white/[0.03] bg-white/[0.01]">
-      <div class="relative z-10 flex whitespace-nowrap">
-        <div class="marquee-track flex items-center gap-6">
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-400/60"></span>Nuxt
-            Frontend
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400/60"></span>React
-            Frontend
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/60"></span>Node
-            Backend
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-orange-400/60"></span>Laravel
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-lime-400/60"></span>CodeIgniter
-            3
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-green-400/60"></span>Android
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-sky-400/60"></span>Flutter
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400/60"></span>UI/UX
-            Design
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-red-400/60"></span>Code
-            Review
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-cyan-400/60"></span>Database
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-indigo-400/60"></span>DevOps
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-lime-400/60"></span>SEO
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-yellow-400/60"></span>SonarQube
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-accent/60"></span>Agentmemory
-          </span>
-          <!-- Duplicate for seamless loop -->
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-400/60"></span>Nuxt
-            Frontend
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400/60"></span>React
-            Frontend
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/60"></span>Node
-            Backend
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-orange-400/60"></span>Laravel
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-lime-400/60"></span>CodeIgniter
-            3
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-green-400/60"></span>Android
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-sky-400/60"></span>Flutter
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400/60"></span>UI/UX
-            Design
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-red-400/60"></span>Code
-            Review
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-cyan-400/60"></span>Database
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-indigo-400/60"></span>DevOps
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span class="w-1.5 h-1.5 rounded-full bg-lime-400/60"></span>SEO
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-yellow-400/60"></span>SonarQube
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-mono tracking-tight">
-            <span
-              class="w-1.5 h-1.5 rounded-full bg-accent/60"></span>Agentmemory
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== AGENT TEAM ===== -->
-    <section id="agents" class="relative py-20 lg:py-32">
-      <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-
-        <div class="reveal text-center max-w-2xl mx-auto mb-14">
-          <div class="accent-line mx-auto mb-8"></div>
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">13 Agents, One
-            Mission</h2>
-          <p class="text-white/25 text-sm sm:text-base leading-relaxed">
-            Each agent is a specialist. The IT Leader orchestrates them all
-            &mdash; breaking down requirements, delegating work, and integrating
-            results.
+        <!-- Skills -->
+        <div class="card p-6 sm:p-8 reveal reveal-1">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background:rgba(139,108,246,0.1);">
+            <svg class="w-5 h-5" style="color:#8b6cf6;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2" style="color:#e8e8f0;">Skills Library</h3>
+          <p class="text-sm leading-relaxed" style="color:#8a8aa0;">
+            201 pre-built skills covering testing, code review, architecture, security, 
+            performance, localization, and more.
           </p>
-        </div>
-
-        <!-- Leader Card (featured, wide) -->
-        <div class="reveal mb-6">
-          <div
-            class="bento-card p-6 lg:p-8 border-accent/10 relative overflow-hidden">
-            <div
-              class="absolute top-0 right-0 w-64 h-64 bg-accent/[0.02] rounded-full -translate-y-32 translate-x-32 blur-3xl pointer-events-none"></div>
-            <div
-              class="relative flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <div
-                class="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shadow-lg shadow-accent/20 shrink-0">
-                <span class="text-black text-sm font-bold font-mono">TL</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2 flex-wrap">
-                  <span class="font-semibold text-lg">IT Leader</span>
-                  <span
-                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-accent/10 text-accent border border-accent/15">PRIMARY</span>
-                  <code class="text-xs text-white/20 font-mono">@leader</code>
-                </div>
-                <p class="text-white/25 text-sm mt-1">Orchestration &middot;
-                  Planning &middot; Architecture &middot; Integration &middot;
-                  Quality Gates</p>
-              </div>
-              <div
-                class="flex items-center gap-2 text-xs text-white/20 font-mono">
-                <span class="status-dot status-active"></span>
-                Always Active
-              </div>
-            </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(139,108,246,0.06); color:#8b6cf6; border:1px solid rgba(139,108,246,0.08);">testing</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(139,108,246,0.06); color:#8b6cf6; border:1px solid rgba(139,108,246,0.08);">review</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(139,108,246,0.06); color:#8b6cf6; border:1px solid rgba(139,108,246,0.08);">patterns</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(139,108,246,0.06); color:#8b6cf6; border:1px solid rgba(139,108,246,0.08);">security</span>
           </div>
         </div>
 
-        <!-- Bento Grid for subagents -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-
-          <!-- @frontend-nuxt -->
-          <div class="reveal agent-card bento-card p-5 agent-card--dots">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-500/15">
-                <span
-                  class="text-blue-400 text-[11px] font-bold font-mono">NU</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-medium text-sm">Nuxt Frontend</span>
-                </div>
-                <p class="text-white/20 text-xs leading-relaxed">Vue 3 &middot;
-                  Nuxt 4 &middot; Nuxt UI &middot; TypeScript &middot;
-                  Playwright</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-500/10 text-blue-400">Nuxt
-                    4</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@frontend-nuxt</code>
-                </div>
-              </div>
-            </div>
+        <!-- Commands -->
+        <div class="card p-6 sm:p-8 reveal reveal-2">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background:rgba(74,200,184,0.1);">
+            <svg class="w-5 h-5" style="color:#4ac8b8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
-
-          <!-- @frontend-react -->
-          <div
-            class="reveal reveal-delay-1 agent-card bento-card p-5 agent-card--corner">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0 border border-cyan-500/15">
-                <span
-                  class="text-cyan-400 text-[11px] font-bold font-mono">RE</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">React Frontend</div>
-                <p class="text-white/20 text-xs leading-relaxed">React 19
-                  &middot; Next.js 15 &middot; shadcn/ui &middot; TanStack
-                  Query</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-400">React
-                    19</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@frontend-react</code>
-                </div>
-              </div>
-            </div>
+          <h3 class="font-display font-semibold text-lg mb-2" style="color:#e8e8f0;">Commands</h3>
+          <p class="text-sm leading-relaxed" style="color:#8a8aa0;">
+            46 CLI commands to initialize, configure, upgrade, debug, and manage 
+            your agent workspace across all platforms.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(74,200,184,0.06); color:#4ac8b8; border:1px solid rgba(74,200,184,0.08);">init</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(74,200,184,0.06); color:#4ac8b8; border:1px solid rgba(74,200,184,0.08);">upgrade</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(74,200,184,0.06); color:#4ac8b8; border:1px solid rgba(74,200,184,0.08);">doctor</span>
+            <span class="text-[10px] px-2 py-1 rounded" style="background:rgba(74,200,184,0.06); color:#4ac8b8; border:1px solid rgba(74,200,184,0.08);">uninstall</span>
           </div>
-
-          <!-- @backend -->
-          <div
-            class="reveal reveal-delay-2 agent-card bento-card p-5 agent-card--dots">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/15">
-                <span
-                  class="text-emerald-400 text-[11px] font-bold font-mono">ND</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">Node Backend</div>
-                <p class="text-white/20 text-xs leading-relaxed">Express 5
-                  &middot; Prisma &middot; PostgreSQL &middot; DTO &middot;
-                  JWT</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400">Express
-                    5</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@backend</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @laravel -->
-          <div class="reveal agent-card bento-card p-5 agent-card--corner">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 border border-orange-500/15">
-                <span
-                  class="text-orange-400 text-[11px] font-bold font-mono">LA</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">Laravel Backend</div>
-                <p class="text-white/20 text-xs leading-relaxed">Laravel 10+
-                  &middot; Service/Repository &middot; Eloquent &middot; JWT</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-orange-500/10 text-orange-400">Laravel</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@laravel</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @ci3 -->
-          <div
-            class="reveal reveal-delay-1 agent-card bento-card p-5 agent-card--dots">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-lime-500/10 flex items-center justify-center shrink-0 border border-lime-500/15">
-                <span
-                  class="text-lime-400 text-[11px] font-bold font-mono">CI</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">CodeIgniter 3</div>
-                <p class="text-white/20 text-xs leading-relaxed">CI3 MVC
-                  &middot; REST API &middot; JWT &middot; MySQL/PostgreSQL</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-lime-500/10 text-lime-400">CI3</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@ci3</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @designer -->
-          <div
-            class="reveal reveal-delay-2 agent-card bento-card p-5 agent-card--accent">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-500/15">
-                <span
-                  class="text-amber-400 text-[11px] font-bold font-mono">DE</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">UI/UX Designer</div>
-                <p class="text-white/20 text-xs leading-relaxed">Impeccable
-                  design &middot; Figma &middot; Stitch &middot; WCAG 2.1</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-400">Design</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@designer</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @reviewer -->
-          <div class="reveal agent-card bento-card p-5 agent-card--corner">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0 border border-red-500/15">
-                <span
-                  class="text-red-400 text-[11px] font-bold font-mono">RV</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">Code Reviewer / QA</div>
-                <p class="text-white/20 text-xs leading-relaxed">Quality audit
-                  &middot; Security &middot; Testing strategy &middot; E2E</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-red-500/10 text-red-400">QA</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@reviewer</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @database -->
-          <div
-            class="reveal reveal-delay-1 agent-card bento-card p-5 agent-card--dots">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0 border border-cyan-500/15">
-                <span
-                  class="text-cyan-400 text-[11px] font-bold font-mono">DB</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">Database Specialist</div>
-                <p class="text-white/20 text-xs leading-relaxed">PostgreSQL
-                  &middot; Prisma &middot; Migrations &middot; Query
-                  optimization</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-400">SQL</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@database</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @devops -->
-          <div
-            class="reveal reveal-delay-2 agent-card bento-card p-5 agent-card--corner">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-500/15">
-                <span
-                  class="text-indigo-400 text-[11px] font-bold font-mono">DV</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">DevOps Engineer</div>
-                <p class="text-white/20 text-xs leading-relaxed">CI/CD &middot;
-                  Docker &middot; Vercel/Cloudflare &middot; GitHub Actions</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-indigo-500/10 text-indigo-400">CI/CD</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@devops</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @seo -->
-          <div class="reveal agent-card bento-card p-5 agent-card--dots">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-lime-500/10 flex items-center justify-center shrink-0 border border-lime-500/15">
-                <span
-                  class="text-lime-400 text-[11px] font-bold font-mono">SE</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">SEO Specialist</div>
-                <p class="text-white/20 text-xs leading-relaxed">Meta tags
-                  &middot; JSON-LD &middot; Core Web Vitals &middot;
-                  Sitemaps</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-lime-500/10 text-lime-400">SEO</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@seo</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @android -->
-          <div
-            class="reveal reveal-delay-1 agent-card bento-card p-5 agent-card--corner">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0 border border-green-500/15">
-                <span
-                  class="text-green-400 text-[11px] font-bold font-mono">AN</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">Android Developer</div>
-                <p class="text-white/20 text-xs leading-relaxed">Kotlin &middot;
-                  Jetpack Compose &middot; Material 3 &middot; Google Play</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-green-500/10 text-green-400">Kotlin</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@android</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @flutter -->
-          <div
-            class="reveal reveal-delay-2 agent-card bento-card p-5 agent-card--dots">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center shrink-0 border border-sky-500/15">
-                <span
-                  class="text-sky-400 text-[11px] font-bold font-mono">FL</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">Flutter Developer</div>
-                <p class="text-white/20 text-xs leading-relaxed">Dart &middot;
-                  Flutter SDK &middot; Material 3 &middot; Bloc/Riverpod</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-sky-500/10 text-sky-400">Flutter</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@flutter</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- @sonarqube -->
-          <div
-            class="reveal agent-card bento-card p-5 agent-card--accent">
-            <div class="flex items-start gap-3">
-              <div
-                class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-500/15">
-                <span
-                  class="text-yellow-400 text-[11px] font-bold font-mono">SQ</span>
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm mb-1">SonarQube Quality</div>
-                <p class="text-white/20 text-xs leading-relaxed">Code quality
-                  scans &middot; Security hotspots &middot; Duplication &middot;
-                  Coverage</p>
-                <div class="flex items-center gap-2 mt-3">
-                  <span
-                    class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-yellow-500/10 text-yellow-400">Quality</span>
-                  <code
-                    class="text-[10px] text-white/20 font-mono ml-auto">@sonarqube</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <div class="hr-accent max-w-6xl mx-auto"></div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="divider"></div></div>
 
-    <!-- ===== CAPABILITIES ===== -->
-    <section id="capabilities" class="relative py-20 lg:py-32">
-      <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+  <!-- ─── CLI SECTION ─── -->
+  <section id="cli" class="relative py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4" style="background:rgba(212,160,74,0.08); color:#d4a04a; border:1px solid rgba(212,160,74,0.1);">CLI</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight" style="color:#e8e8f0;">
+          One CLI to <span class="gradient-gold">Rule Them All</span>
+        </h2>
+        <p class="mt-4 text-sm sm:text-base leading-relaxed" style="color:#8a8aa0;">
+          Cross-platform commands to manage your entire agent ecosystem.
+        </p>
+      </div>
 
-          <!-- Left: TOC -->
-          <div class="reveal lg:col-span-4">
-            <div class="accent-line mb-8"></div>
-            <h2 class="text-2xl sm:text-3xl font-bold mb-3">Capabilities</h2>
-            <p class="text-white/25 text-sm leading-relaxed mb-8">
-              Everything your AI team needs, pre-configured and ready.
-            </p>
-            <div class="hidden lg:block space-y-1 text-sm sticky top-20">
-              <a href="#cap-mcp"
-                class="block py-2 px-3 rounded-lg text-white/25 hover:text-white/55 hover:bg-white/[0.02] transition-all">MCP
-                Servers</a>
-              <a href="#cap-skills"
-                class="block py-2 px-3 rounded-lg text-white/25 hover:text-white/55 hover:bg-white/[0.02] transition-all">Skill
-                Playbooks</a>
-              <a href="#cap-commands"
-                class="block py-2 px-3 rounded-lg text-white/25 hover:text-white/55 hover:bg-white/[0.02] transition-all">Slash
-                Commands</a>
-            </div>
-          </div>
+      <!-- Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <button class="cli-tab active px-5 py-2 rounded-lg text-xs font-medium border" style="background:rgba(212,160,74,0.12); border-color:rgba(212,160,74,0.25); color:#d4a04a;" data-tab="tab-init">init</button>
+        <button class="cli-tab px-5 py-2 rounded-lg text-xs font-medium border" style="border-color:rgba(255,255,255,0.04); color:#8a8aa0;" data-tab="tab-upgrade">upgrade</button>
+        <button class="cli-tab px-5 py-2 rounded-lg text-xs font-medium border" style="border-color:rgba(255,255,255,0.04); color:#8a8aa0;" data-tab="tab-doctor">doctor</button>
+        <button class="cli-tab px-5 py-2 rounded-lg text-xs font-medium border" style="border-color:rgba(255,255,255,0.04); color:#8a8aa0;" data-tab="tab-uninstall">uninstall</button>
+      </div>
 
-          <!-- Right: Content -->
-          <div class="lg:col-span-8 space-y-14">
-
-            <!-- MCP Servers -->
-            <div id="cap-mcp" class="reveal">
-              <div class="flex items-center gap-3 mb-6">
-                <div
-                  class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
-                  <svg class="w-4 h-4 text-accent" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold">8 MCP Servers</h3>
-                  <span class="text-white/20 text-xs font-mono">Model Context
-                    Protocol</span>
-                </div>
+      <!-- Tab Contents -->
+      <div class="max-w-2xl mx-auto">
+        <!-- init -->
+        <div id="tab-init" class="cli-content active">
+          <div class="card p-5 sm:p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(212,160,74,0.1);">
+                <svg class="w-4 h-4" style="color:#d4a04a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
               </div>
-              <div class="bento-card overflow-hidden">
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-active"></span>
-                    <span class="text-sm font-medium">Nuxt</span>
-                    <span class="text-white/20 text-xs font-mono">remote</span>
-                  </div>
-                  <span class="text-white/20 text-xs hidden sm:block">Docs,
-                    blog, deployment guides</span>
-                </div>
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-active"></span>
-                    <span class="text-sm font-medium">Nuxt UI</span>
-                    <span class="text-white/20 text-xs font-mono">remote</span>
-                  </div>
-                  <span class="text-white/20 text-xs hidden sm:block">Component
-                    docs &middot; Examples</span>
-                </div>
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-active"></span>
-                    <span class="text-sm font-medium">Playwright</span>
-                    <span class="text-white/20 text-xs font-mono">stdio</span>
-                  </div>
-                  <span class="text-white/20 text-xs hidden sm:block">Browser
-                    automation &middot; E2E</span>
-                </div>
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-active"></span>
-                    <span class="text-sm font-medium">Postman</span>
-                    <span class="text-white/20 text-xs font-mono">remote</span>
-                  </div>
-                  <span class="text-white/20 text-xs hidden sm:block">API
-                    management &middot; Collections</span>
-                </div>
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-active"></span>
-                    <span class="text-sm font-medium">SonarQube</span>
-                    <span class="text-white/20 text-xs font-mono">remote</span>
-                  </div>
-                  <span class="text-white/20 text-xs hidden sm:block">Code
-                    quality &middot; Security &middot; Coverage</span>
-                </div>
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-inactive"></span>
-                    <span class="text-white/40 text-sm font-medium">Figma</span>
-                    <span class="text-white/20 text-xs font-mono">stdio</span>
-                  </div>
-                  <span class="text-white/15 text-xs hidden sm:block">Design
-                    file access (token required)</span>
-                </div>
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-inactive"></span>
-                    <span class="text-white/40 text-sm font-medium">Google
-                      Stitch</span>
-                    <span class="text-white/20 text-xs font-mono">remote</span>
-                  </div>
-                  <span class="text-white/15 text-xs hidden sm:block">AI design
-                    generation</span>
-                </div>
-                <div
-                  class="mcp-row py-4 px-5 flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <span class="status-dot status-active"></span>
-                    <span class="text-sm font-medium">Agentmemory</span>
-                    <span class="text-white/20 text-xs font-mono">local</span>
-                  </div>
-                  <span class="text-white/20 text-xs hidden sm:block">Persistent
-                    memory &middot; 53 tools</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Skills -->
-            <div id="cap-skills" class="reveal">
-              <div class="flex items-center gap-3 mb-6">
-                <div
-                  class="w-8 h-8 rounded-lg bg-violet/10 flex items-center justify-center">
-                  <svg class="w-4 h-4 text-violet" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold">62 Skill Playbooks</h3>
-                  <span class="text-white/20 text-xs font-mono">Domain
-                    expertise, auto-loaded</span>
-                </div>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <div class="bento-card p-4 hover:bg-raised transition-colors">
-                  <div
-                    class="text-white/50 text-xs font-semibold mb-1.5">Core</div>
-                  <div
-                    class="text-white/20 text-[10px] leading-relaxed">coding-standards,
-                    security-review, tdd-workflow, impeccable, nuxt-ui,
-                    agentmemory &middot;
-                    <strong class="text-white/35">17 skills</strong></div>
-                </div>
-                <div class="bento-card p-4 hover:bg-raised transition-colors">
-                  <div
-                    class="text-white/50 text-xs font-semibold mb-1.5">Flutter</div>
-                  <div
-                    class="text-white/20 text-[10px] leading-relaxed">widget-test,
-                    responsive-layout, routing, localization, http &middot;
-                    <strong class="text-white/35">11 skills</strong></div>
-                </div>
-                <div class="bento-card p-4 hover:bg-raised transition-colors">
-                  <div
-                    class="text-white/50 text-xs font-semibold mb-1.5">Dart</div>
-                  <div
-                    class="text-white/20 text-[10px] leading-relaxed">unit-test,
-                    cli-app, coverage, static-analysis, pattern-matching
-                    &middot; <strong class="text-white/35">9
-                      skills</strong></div>
-                </div>
-                <div class="bento-card p-4 hover:bg-raised transition-colors">
-                  <div
-                    class="text-white/50 text-xs font-semibold mb-1.5">Android</div>
-                  <div
-                    class="text-white/20 text-[10px] leading-relaxed">jetpack-compose,
-                    navigation-3, firebase, edge-to-edge, billing &middot;
-                    <strong class="text-white/35">9 skills</strong></div>
-                </div>
-                <div class="bento-card p-4 hover:bg-raised transition-colors">
-                  <div
-                    class="text-white/50 text-xs font-semibold mb-1.5">Backend
-                    &amp; DB</div>
-                  <div
-                    class="text-white/20 text-[10px] leading-relaxed">postgres-patterns,
-                    springboot* (7), django* (4), jpa &middot; <strong
-                      class="text-white/35">14 skills</strong></div>
-                </div>
-                <div class="bento-card p-4 hover:bg-raised transition-colors">
-                  <div class="text-white/50 text-xs font-semibold mb-1.5">Go
-                    &bull; Python</div>
-                  <div
-                    class="text-white/20 text-[10px] leading-relaxed">golang-patterns,
-                    golang-testing, python-patterns, python-testing &middot;
-                    <strong class="text-white/35">4 skills</strong></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Commands -->
-            <div id="cap-commands" class="reveal">
-              <div class="flex items-center gap-3 mb-6">
-                <div
-                  class="w-8 h-8 rounded-lg bg-teal/10 flex items-center justify-center">
-                  <svg class="w-4 h-4 text-teal" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold">37 Slash Commands</h3>
-                  <span class="text-white/20 text-xs font-mono">Trigger
-                    workflows instantly</span>
-                </div>
-              </div>
-              <div class="grid sm:grid-cols-2 gap-2">
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/plan</code>
-                  <span class="text-white/20 text-[10px]">Implementation
-                    plan</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/orchestrate</code>
-                  <span class="text-white/20 text-[10px]">Multi-agent
-                    workflow</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/code-review</code>
-                  <span class="text-white/20 text-[10px]">Quality &amp;
-                    security</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/security</code>
-                  <span class="text-white/20 text-[10px]">Vulnerability
-                    audit</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/tdd</code>
-                  <span class="text-white/20 text-[10px]">TDD workflow</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/e2e</code>
-                  <span class="text-white/20 text-[10px]">E2E test
-                    generation</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/build-fix</code>
-                  <span class="text-white/20 text-[10px]">Fix build
-                    errors</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/refactor-clean</code>
-                  <span class="text-white/20 text-[10px]">Dead code
-                    removal</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/android-build</code>
-                  <span class="text-white/20 text-[10px]">Build APK/AAB</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/flutter-build</code>
-                  <span class="text-white/20 text-[10px]">Build Flutter</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/gpc-release</code>
-                  <span class="text-white/20 text-[10px]">Play Store
-                    publish</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/update-docs</code>
-                  <span class="text-white/20 text-[10px]">Documentation</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <code
-                    class="text-accent/70 text-xs font-mono font-medium">/recall</code>
-                  <span class="text-white/20 text-[10px]">Search memory</span>
-                </div>
-                <div
-                  class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                  <div
-                    class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                    <code
-                      class="text-accent/70 text-xs font-mono font-medium">/sonarqube-scan</code>
-                    <span class="text-white/20 text-[10px]">Quality scan</span>
-                  </div>
-                  <div
-                    class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                    <code
-                      class="text-accent/70 text-xs font-mono font-medium">/recall</code>
-                    <span class="text-white/20 text-[10px]">Search memory</span>
-                  </div>
-                  <div
-                    class="cmd-chip bento-card px-4 py-3 flex items-center justify-between border-white/[0.04]">
-                    <code
-                      class="text-accent/70 text-xs font-mono font-medium">/remember</code>
-                    <span class="text-white/20 text-[10px]">Save insight</span>
-                  </div>
-                </div>
-
-                <!-- NEW: CLI commands -->
-                <div class="mt-6 bento-card p-5 border-accent/10">
-                  <div class="text-xs text-white/35 font-mono mb-3"># CLI
-                    (opencode-agent-kit)</div>
-                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    <div
-                      class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                      <span
-                        class="text-emerald-400/60 text-[10px] font-mono">upgrade</span>
-                      <span class="text-white/15 text-[9px]">Self-update</span>
-                    </div>
-                    <div
-                      class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                      <span
-                        class="text-amber-400/60 text-[10px] font-mono">doctor</span>
-                      <span class="text-white/15 text-[9px]">Diagnose</span>
-                    </div>
-                    <div
-                      class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                      <span
-                        class="text-red-400/60 text-[10px] font-mono">uninstall</span>
-                      <span class="text-white/15 text-[9px]">Clean remove</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="hr-accent max-w-6xl mx-auto"></div>
-
-      <!-- ===== INSTALL ===== -->
-      <section id="install" class="relative py-20 lg:py-32">
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-          <div class="reveal text-center max-w-2xl mx-auto mb-14">
-            <div class="accent-line mx-auto mb-8"></div>
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4">One command. Full
-              team.</h2>
-            <p class="text-white/25 text-sm sm:text-base leading-relaxed">
-              Zero config. Works in any project directory. Your AI team is ready
-              instantly.
-            </p>
-          </div>
-
-          <div class="reveal grid lg:grid-cols-2 gap-6">
-            <!-- Quick install -->
-            <div class="bento-card p-7 relative overflow-hidden">
-              <div
-                class="absolute top-0 right-0 w-40 h-40 bg-accent/[0.02] rounded-full -translate-y-20 translate-x-20 blur-3xl pointer-events-none"></div>
-              <div class="relative flex items-center gap-2 mb-5">
-                <span
-                  class="px-2 py-0.5 rounded text-[10px] font-mono bg-accent/10 text-accent border border-accent/15">recommended</span>
-                <h3 class="font-semibold text-sm">Quick install</h3>
-              </div>
-              <div class="code-block p-4 mb-5">
-                <code class="text-xs font-mono leading-loose block">
-                  <span class="text-white/20"># In your project
-                    directory</span><br />
-                  <span class="text-accent/90">npx opencode-agent-kit
-                    init</span>
-                </code>
-              </div>
-              <ul class="text-white/20 text-xs space-y-2.5">
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  Copies <span
-                    class="font-mono text-white/35">opencode.json</span>, <span
-                    class="font-mono text-white/35">.opencode/</span>, <span
-                    class="font-mono text-white/35">AGENTS.md</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  Merges with existing config (no overwrite)
-                </li>
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  Installs <span
-                    class="font-mono text-white/35">@opencode-ai/plugin</span>
-                  dependency
-                </li>
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  Pass <span class="font-mono text-white/35">--force</span> to
-                  overwrite
-                </li>
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  Installs <span
-                    class="font-mono text-white/35">agentmemory</span> global
-                  &mdash; auto-starts with OpenCode
-                </li>
-              </ul>
-            </div>
-
-            <!-- Global install -->
-            <div class="bento-card p-7 relative overflow-hidden">
-              <h3 class="font-semibold text-sm mb-5">Global install</h3>
-              <div class="code-block p-4 mb-5">
-                <code class="text-xs font-mono leading-loose block">
-                  <span class="text-white/20"># Install once, use
-                    everywhere</span><br />
-                  <span class="text-accent/90">npm install -g
-                    opencode-agent-kit</span><br /><br />
-                  <span class="text-white/20"># Then init any
-                    project</span><br />
-                  <span class="text-accent/90">cd my-project &&
-                    opencode-agent-kit
-                    init</span>
-                </code>
-              </div>
-              <ul class="text-white/20 text-xs space-y-2.5">
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  All 13 agents available project-wide
-                </li>
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  Commands, skills, rules included
-                </li>
-                <li class="flex items-start gap-2">
-                  <svg class="w-3.5 h-3.5 text-accent/40 mt-0.5 shrink-0"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path
-                      stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                  MCP servers: Nuxt, Nuxt UI, Playwright, Postman, Agentmemory
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="hr-accent max-w-6xl mx-auto"></div>
-
-      <!-- ===== USAGE ===== -->
-      <section id="start" class="relative py-20 lg:py-32">
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-          <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-
-            <!-- Left: text -->
-            <div>
-              <div class="accent-line mb-8"></div>
-              <h2 class="text-2xl sm:text-3xl font-bold mb-3">Usage</h2>
-              <p class="text-white/25 text-sm leading-relaxed mb-8">
-                After install, just run <span
-                  class="font-mono text-accent/50">opencode</span>. The <strong
-                  class="text-white/50 font-medium">IT Leader</strong> activates
-                automatically.
-              </p>
-              <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <span
-                    class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-accent/10 text-accent/60 font-mono text-xs shrink-0">1</span>
-                  <div>
-                    <div class="text-white/50 text-sm font-medium">IT Leader
-                      orchestrates</div>
-                    <div class="text-white/20 text-xs mt-0.5">Give it a feature
-                      request &mdash; it plans, delegates, and integrates.</div>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-accent/10 text-accent/60 font-mono text-xs shrink-0">2</span>
-                  <div>
-                    <div class="text-white/50 text-sm font-medium">Or call
-                      subagents directly</div>
-                    <div class="text-white/20 text-xs mt-0.5">Use <span
-                        class="font-mono text-white/35">@mention</span> for
-                      specific tasks.</div>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-accent/10 text-accent/60 font-mono text-xs shrink-0">3</span>
-                  <div>
-                    <div class="text-white/50 text-sm font-medium">Use slash
-                      commands</div>
-                    <div class="text-white/20 text-xs mt-0.5"><span
-                        class="font-mono text-white/35">/plan</span>, <span
-                        class="font-mono text-white/35">/tdd</span>, <span
-                        class="font-mono text-white/35">/code-review</span>, and
-                      35 more.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: code -->
-            <div class="code-block p-5">
-              <code class="text-xs font-mono leading-loose block">
-                <span class="text-white/20"># Let the IT Leader handle complex
-                  features</span><br />
-                <span class="text-white/45">Buat fitur marketplace dengan
-                  halaman
-                  listing, detail,<br />
-                  dan form create. Backend API untuk CRUD markets.<br />
-                  Setup CI/CD pipeline dan optimasi SEO.</span><br /><br />
-                <span class="text-white/20"># Or call subagents
-                  directly</span><br />
-                <span class="text-blue-400/60">@frontend-nuxt</span> <span
-                  class="text-white/45">Buat halaman login dengan Nuxt
-                  UI.</span><br />
-                <span class="text-emerald-400/60">@backend</span> <span
-                  class="text-white/45">Add endpoint POST
-                  /api/auth/login.</span><br />
-                <span class="text-green-400/60">@android</span> <span
-                  class="text-white/45">Buat login screen dengan Jetpack
-                  Compose.</span><br />
-                <span class="text-sky-400/60">@flutter</span> <span
-                  class="text-white/45">Buat screen product list dengan Bloc
-                  pattern.</span><br />
-                <span class="text-amber-400/60">@designer</span> <span
-                  class="text-white/45">Review UX flow halaman
-                  checkout.</span><br />
-                <span class="text-red-400/60">@reviewer</span> <span
-                  class="text-white/45">Audit security untuk authentication
-                  module.</span>
-              </code>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <div class="hr-accent max-w-6xl mx-auto"></div>
-
-      <!-- ===== FOOTER ===== -->
-      <footer class="relative py-10">
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-          <div
-            class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div class="flex items-center gap-2.5">
-              <span
-                class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-accent text-black text-xs font-bold font-mono shadow-lg shadow-accent/20">K</span>
               <div>
-                <div class="text-white/50 text-xs font-medium">Opencode Agent
-                  KIT</div>
-                <div class="text-white/15 text-[10px]">Software Developer Agent
-                  System</div>
+                <h4 class="font-display text-sm font-semibold" style="color:#e8e8f0;">Initialize a project</h4>
+                <p class="text-xs" style="color:#6a6a80;">Install 31 agents into any OpenCode project.</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 text-xs text-white/20">
-              <a href="https://github.com/defuj/opencode-agent-kit"
-                target="_blank" rel="noopener"
-                class="flex items-center gap-1.5 hover:text-white/45 transition-colors">
-                <svg class="w-3.5 h-3.5" fill="currentColor"
-                  viewBox="0 0 24 24"><path
-                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
-                GitHub
-              </a>
-              <span>v1.2.0</span>
-              <span>MIT</span>
+            <div class="rounded-xl overflow-hidden" style="background:#06060a; border:1px solid rgba(255,255,255,0.03);">
+              <div class="flex items-center gap-1.5 px-4 pt-3 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.03);">
+                <span class="w-2 h-2 rounded-full" style="background:#e06070;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#d4a04a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#4ac8b8;"></span>
+                <span class="text-[10px] ml-2 font-mono" style="color:#6a6a80;">terminal</span>
+              </div>
+              <pre class="px-4 py-3 font-mono text-xs leading-relaxed overflow-x-auto" style="color:#b0b0c8;"><span style="color:#d4a04a;">$</span> npx opencode-agent-kit init
+<span style="color:#6a6a80;"># Run inside your project directory</span>
+<span style="color:#6a6a80;"># macOS / Linux / Windows (WSL)</span>
+<span style="color:#8a8aa0;">  ✓ Copying .opencode/ configuration</span>
+<span style="color:#8a8aa0;">  ✓ Merging opencode.json</span>
+<span style="color:#8a8aa0;">  ✓ Installing dependencies</span>
+<span style="color:#8a8aa0;">  ✓ Setting up agentmemory</span>
+<span style="color:#4ac8b8;">  ✦ 31 agents ready. Run 'opencode' to start.</span>
+
+<span style="color:#6a6a80;"># Windows (PowerShell)</span>
+<span style="color:#d4a04a;">PS&gt;</span> <span style="color:#b0b0c8;">npx opencode-agent-kit init</span></pre>
             </div>
           </div>
-          <div
-            class="mt-6 pt-4 border-t border-white/[0.03] text-white/10 text-[10px] text-center sm:text-left">
-            Built with OpenCode. Designed for AI-native development teams.
+        </div>
+
+        <!-- upgrade -->
+        <div id="tab-upgrade" class="cli-content">
+          <div class="card p-5 sm:p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(139,108,246,0.1);">
+                <svg class="w-4 h-4" style="color:#8b6cf6;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              </div>
+              <div>
+                <h4 class="font-display text-sm font-semibold" style="color:#e8e8f0;">Upgrade agents & skills</h4>
+                <p class="text-xs" style="color:#6a6a80;">Keep your agent ecosystem up to date.</p>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden" style="background:#06060a; border:1px solid rgba(255,255,255,0.03);">
+              <div class="flex items-center gap-1.5 px-4 pt-3 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.03);">
+                <span class="w-2 h-2 rounded-full" style="background:#e06070;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#d4a04a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#4ac8b8;"></span>
+                <span class="text-[10px] ml-2 font-mono" style="color:#6a6a80;">terminal</span>
+              </div>
+              <pre class="px-4 py-3 font-mono text-xs leading-relaxed overflow-x-auto" style="color:#b0b0c8;"><span style="color:#d4a04a;">$</span> npx opencode-agent-kit upgrade
+<span style="color:#6a6a80;"># All platforms (macOS / Linux / Windows)</span>
+<span style="color:#8a8aa0;">  ✓ Checking npm registry...</span>
+<span style="color:#8a8aa0;">  ✓ Current version: v1.2.0</span>
+<span style="color:#8a8aa0;">  ✓ Upgraded to latest</span>
+<span style="color:#4ac8b8;">  ✦ opencode-agent-kit is up to date</span></pre>
+            </div>
           </div>
         </div>
-      </footer>
 
-      <!-- ===== SCRIPTS ===== -->
-      <script>
-      // Intersection Observer for scroll reveal
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
+        <!-- doctor -->
+        <div id="tab-doctor" class="cli-content">
+          <div class="card p-5 sm:p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(74,200,184,0.1);">
+                <svg class="w-4 h-4" style="color:#4ac8b8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-display text-sm font-semibold" style="color:#e8e8f0;">Diagnose your setup</h4>
+                <p class="text-xs" style="color:#6a6a80;">Check system health and fix common issues.</p>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden" style="background:#06060a; border:1px solid rgba(255,255,255,0.03);">
+              <div class="flex items-center gap-1.5 px-4 pt-3 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.03);">
+                <span class="w-2 h-2 rounded-full" style="background:#e06070;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#d4a04a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#4ac8b8;"></span>
+                <span class="text-[10px] ml-2 font-mono" style="color:#6a6a80;">terminal</span>
+              </div>
+              <pre class="px-4 py-3 font-mono text-xs leading-relaxed overflow-x-auto" style="color:#b0b0c8;"><span style="color:#d4a04a;">$</span> npx opencode-agent-kit doctor
+<span style="color:#6a6a80;"># macOS / Linux / Windows</span>
+<span style="color:#4ac8b8;">  ✓</span> <span style="color:#8a8aa0;">Node.js v18+</span>
+<span style="color:#4ac8b8;">  ✓</span> <span style="color:#8a8aa0;">opencode.json found</span>
+<span style="color:#4ac8b8;">  ✓</span> <span style="color:#8a8aa0;">.opencode/ directory complete</span>
+<span style="color:#4ac8b8;">  ✓</span> <span style="color:#8a8aa0;">agentmemory installed</span>
+
+<span style="color:#6a6a80;"># Windows (PowerShell)</span>
+<span style="color:#d4a04a;">PS&gt;</span> <span style="color:#b0b0c8;">npx opencode-agent-kit doctor</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- uninstall -->
+        <div id="tab-uninstall" class="cli-content">
+          <div class="card p-5 sm:p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(224,96,112,0.1);">
+                <svg class="w-4 h-4" style="color:#e06070;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+              </div>
+              <div>
+                <h4 class="font-display text-sm font-semibold" style="color:#e8e8f0;">Uninstall cleanly</h4>
+                <p class="text-xs" style="color:#6a6a80;">Remove agents, skills, and config — no leftover cruft.</p>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden" style="background:#06060a; border:1px solid rgba(255,255,255,0.03);">
+              <div class="flex items-center gap-1.5 px-4 pt-3 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.03);">
+                <span class="w-2 h-2 rounded-full" style="background:#e06070;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#d4a04a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#4ac8b8;"></span>
+                <span class="text-[10px] ml-2 font-mono" style="color:#6a6a80;">terminal</span>
+              </div>
+              <pre class="px-4 py-3 font-mono text-xs leading-relaxed overflow-x-auto" style="color:#b0b0c8;"><span style="color:#d4a04a;">$</span> npx opencode-agent-kit uninstall
+<span style="color:#6a6a80;"># All platforms (macOS / Linux / Windows)</span>
+<span style="color:#e06070;">  !</span> <span style="color:#8a8aa0;">This will remove .opencode/ and opencode.json</span>
+<span style="color:#e06070;">  !</span> <span style="color:#8a8aa0;">Type 'y' to confirm: y</span>
+<span style="color:#8a8aa0;">  ✓ Removing .opencode/ directory</span>
+<span style="color:#8a8aa0;">  ✓ Removing opencode.json</span>
+<span style="color:#8a8aa0;">  ✓ Cleaning .gitignore</span>
+<span style="color:#4ac8b8;">  ✦ opencode-agent-kit removed from project</span>
+
+<span style="color:#6a6a80;"># Windows (PowerShell)</span>
+<span style="color:#d4a04a;">PS&gt;</span> <span style="color:#b0b0c8;">npx opencode-agent-kit uninstall</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="divider"></div></div>
+
+  <!-- ─── STATS COUNTER ─── -->
+  <section id="stats" class="relative py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4" style="background:rgba(139,108,246,0.08); color:#8b6cf6; border:1px solid rgba(139,108,246,0.1);">By the Numbers</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight" style="color:#e8e8f0;">
+          Built for <span class="gradient-gold">Scale</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <!-- Stat 1 -->
+        <div class="card p-6 text-center reveal">
+          <div class="font-display text-4xl sm:text-5xl font-bold" style="color:#d4a04a;">
+            <span class="stat-counter" data-target="31">0</span>
+          </div>
+          <div class="text-xs mt-2 uppercase tracking-wider" style="color:#6a6a80;">Specialized Agents</div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="card p-6 text-center reveal reveal-1">
+          <div class="font-display text-4xl sm:text-5xl font-bold" style="color:#8b6cf6;">
+            <span class="stat-counter" data-target="201">0</span>
+          </div>
+          <div class="text-xs mt-2 uppercase tracking-wider" style="color:#6a6a80;">Crafted Skills</div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="card p-6 text-center reveal reveal-2">
+          <div class="font-display text-4xl sm:text-5xl font-bold" style="color:#4ac8b8;">
+            <span class="stat-counter" data-target="46">0</span>
+          </div>
+          <div class="text-xs mt-2 uppercase tracking-wider" style="color:#6a6a80;">CLI Commands</div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="card p-6 text-center reveal reveal-3">
+          <div class="font-display text-4xl sm:text-5xl font-bold" style="color:#d4a04a;">
+            <span class="stat-counter" data-target="3">0</span>
+          </div>
+          <div class="text-xs mt-2 uppercase tracking-wider" style="color:#6a6a80;">Supported Platforms</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="divider"></div></div>
+
+  <!-- ─── CTA BANNER ─── -->
+  <section class="relative py-20 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <div class="card p-8 sm:p-12 max-w-2xl mx-auto card-glow">
+        <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tight mb-4" style="color:#e8e8f0;">
+          Ready to <span class="gradient-gold">Ship Faster?</span>
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed mb-8 max-w-md mx-auto" style="color:#8a8aa0;">
+          Deploy 31 AI agents to your project in one command. Open source, extensible, and built for real development workflows.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://github.com/defuj/opencode-agent-kit" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all" style="background:#d4a04a; color:#08080c;" onmouseover="this.style.background='#e8b85e'" onmouseout="this.style.background='#d4a04a'">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Get Started on GitHub
+          </a>
+          <a href="#agents" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all" style="border:1px solid rgba(255,255,255,0.06); color:#b0b0c8;" onmouseover="this.style.borderColor='rgba(139,108,246,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+            Browse Agents
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="relative py-12 sm:py-16" style="border-top:1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-7 h-7 rounded-lg flex items-center justify-center" style="background:rgba(212,160,74,0.12);">
+              <svg class="w-3.5 h-3.5" style="color:#d4a04a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <span class="font-display font-semibold text-sm" style="color:#e8e8f0;">opencode-agent-kit</span>
+          </div>
+          <p class="text-xs leading-relaxed max-w-xs" style="color:#6a6a80;">
+            A portable multi-stack software developer agent toolkit for OpenCode. 31 agents, 201 skills, 46 commands.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="sm:text-center">
+          <h5 class="font-display text-xs font-semibold uppercase tracking-wider mb-4" style="color:#e8e8f0;">Resources</h5>
+          <div class="space-y-2 text-xs" style="color:#6a6a80;">
+            <div><a href="https://github.com/defuj/opencode-agent-kit" target="_blank" class="hover:underline" style="color:#8a8aa0;">GitHub</a></div>
+            <div><a href="https://github.com/defuj/opencode-agent-kit/issues" target="_blank" class="hover:underline" style="color:#8a8aa0;">Issues</a></div>
+            <div><a href="https://github.com/defuj/opencode-agent-kit/releases" target="_blank" class="hover:underline" style="color:#8a8aa0;">Releases</a></div>
+          </div>
+        </div>
+
+        <!-- Stack -->
+        <div class="sm:text-right">
+          <h5 class="font-display text-xs font-semibold uppercase tracking-wider mb-4" style="color:#e8e8f0;">Stack</h5>
+          <div class="space-y-2 text-xs" style="color:#6a6a80;">
+            <div style="color:#8a8aa0;">Built for OpenCode</div>
+            <div style="color:#8a8aa0;">MCP-native architecture</div>
+            <div style="color:#8a8aa0;">Open source (MIT)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider mb-6"></div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs" style="color:#6a6a80;">
+        <span>&copy; 2025 OpenCode Agent Kit. Open source.</span>
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full" style="background:#d4a04a;"></span>
+            <span style="color:#8a8aa0;">v1.2.0</span>
+          </span>
+          <span style="color:#6a6a80;">Built with intent.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ─── -->
+  <script>
+    // ── Mobile Menu Toggle ──
+    (function() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if (btn && menu) {
+        btn.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+
+    // ── Scroll Reveal ──
+    (function() {
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
-
-              // Animate power bars when visible
-              entry.target.querySelectorAll('.power-fill').forEach((bar) => {
-                bar.classList.add('animate');
-              });
             }
           });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-      );
-
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-      // Counter animation
-      const counterObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const el = entry.target;
-              const target = parseInt(el.dataset.count);
-              let current = 0;
-              const duration = 1200;
-              const step = target / (duration / 16);
-
-              const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                  current = target;
-                  clearInterval(timer);
-                }
-                el.textContent = Math.floor(current);
-              }, 16);
-
-              el.classList.add('stat-pop');
-              counterObserver.unobserve(el);
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      document.querySelectorAll('[data-count]').forEach((el) => counterObserver.observe(el));
-
-      // Mobile menu toggle
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-        // Close on link click
-        mobileMenu.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-          });
-        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      } else {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
       }
+    })();
 
-      // Smooth scroll for nav links
-      document.querySelectorAll('a[href^="#"]').forEach((link) => {
-        link.addEventListener('click', (e) => {
+    // ── Stats Counter Animation ──
+    (function() {
+      const counters = document.querySelectorAll('.stat-counter');
+      if (counters.length === 0) return;
+
+      const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        if (isNaN(target) || target === 0) { el.textContent = '0'; return; }
+        const duration = 2000;
+        const start = performance.now();
+        const step = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // ease-out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(eased * target);
+          el.textContent = current;
+          if (current !== target) {
+            el.classList.add('stat-pop');
+            setTimeout(() => el.classList.remove('stat-pop'), 500);
+          }
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(el => observer.observe(el));
+    })();
+
+    // ── CLI Tabs ──
+    (function() {
+      const tabs = document.querySelectorAll('.cli-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-tab');
+          // Deactivate all tabs and contents
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.style.background = 'transparent';
+            t.style.borderColor = 'rgba(255,255,255,0.04)';
+            t.style.color = '#8a8aa0';
+          });
+          // Activate clicked tab
+          this.classList.add('active');
+          this.style.background = 'rgba(212,160,74,0.12)';
+          this.style.borderColor = 'rgba(212,160,74,0.25)';
+          this.style.color = '#d4a04a';
+          // Show target content
+          document.querySelectorAll('.cli-content').forEach(c => c.classList.remove('active'));
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) targetEl.classList.add('active');
+        });
+      });
+    })();
+
+    // ── Smooth Nav Scroll ──
+    (function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
           e.preventDefault();
-          const target = document.querySelector(link.getAttribute('href'));
+          const target = document.querySelector(href);
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       });
+    })();
+  </script>
 
-      // Nav background on scroll
-      const nav = document.querySelector('nav');
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-        if (currentScroll > 100) {
-          nav.style.borderBottomColor = 'oklch(1 0 0 / 0.06)';
-        } else {
-          nav.style.borderBottomColor = 'oklch(1 0 0 / 0.03)';
-        }
-        lastScroll = currentScroll;
-      }, { passive: true });
-    </script>
-
-    </body>
-  </html>
+</body>
+</html>
