@@ -535,6 +535,68 @@ agentmemory                    # Start the memory server on :3111
 
 Open `http://localhost:3113` for the real-time memory viewer.
 
+---
+
+## Agent Memory — Persistent Cross-Session Intelligence
+
+<a href="https://github.com/rohitg00/agentmemory" target="_blank">agentmemory</a> is the memory layer for your AI agents. It gives every agent persistent cross-session recall — they remember decisions, insights, and patterns from yesterday's session today.
+
+### Why It Matters
+
+Without memory, every session starts from zero. With agentmemory:
+- **53 MCP tools** — `memory_save`, `memory_recall`, `memory_smart_search`, `memory_sessions`, `memory_file_history`, `memory_lesson_save`, `memory_patterns`, and more
+- **Cross-session persistence** — Start a new session tomorrow; agents recall yesterday's context, decisions, and code insights
+- **Auto-learning** — 22 lifecycle hooks auto-capture sessions, messages, decisions, errors, tool calls, and file changes
+- **Real-time viewer** — Dashboard at `http://localhost:3113` shows memory state, patterns, and consolidated observations
+
+### How It Works
+
+```
+1. Agent Captures → 2. Memory Stored → 3. Smart Recall
+```
+
+1. **Agent Captures** — 22 lifecycle events auto-capture: sessions, messages, decisions, errors, tool calls, file interactions
+2. **Memory Stored** — Insights and patterns saved to persistent storage with metadata, confidence scores, and session context
+3. **Smart Recall** — Hybrid semantic + keyword search injects relevant past observations into the current agent session
+
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `/recall [query]` | Search past observations and lessons by keyword or semantic context |
+| `/remember [text]` | Save an insight or decision to persistent memory |
+| `localhost:3113` | Real-time memory viewer dashboard |
+
+### Quick Start
+
+agentmemory is automatically enabled after `npx opencode-agent-kit init`. The memory server starts alongside OpenCode. No manual configuration needed.
+
+To verify it's running:
+```bash
+open http://localhost:3113    # memory dashboard
+```
+
+Or to start manually:
+```bash
+npm install -g @agentmemory/agentmemory
+agentmemory
+```
+
+### Memory Tools Reference
+
+| Tool | Description |
+|------|-------------|
+| `memory_save` | Save a memory with metadata |
+| `memory_recall` | Retrieve memories by query |
+| `memory_smart_search` | Semantic + keyword hybrid search |
+| `memory_sessions` | Track session history |
+| `memory_file_history` | Track file change history |
+| `memory_lesson_save` | Save a learned lesson |
+| `memory_lesson_recall` | Retrieve past lessons |
+| `memory_patterns` | Detect and store recurring patterns |
+
+All 53 tools are available as MCP endpoints. Use `/recall` and `/remember` for quick access.
+
 To enable Google Stitch MCP:
 
 ```bash
