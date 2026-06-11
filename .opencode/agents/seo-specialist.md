@@ -689,3 +689,5 @@ Load the following skills for domain-specific guidance:
 - `frontend-patterns`
 - `seo-optimization`
 - `web-design-guidelines`
+- `article-writing`
+- `seo`

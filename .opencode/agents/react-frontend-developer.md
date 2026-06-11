@@ -1062,3 +1062,13 @@ Load the following skills for domain-specific guidance:
 - `vercel-composition-patterns`
 - `vercel-react-best-practices`
 - `web-design-guidelines`
+- `accessibility`
+- `browser-qa`
+- `design-system`
+- `e2e-testing`
+- `make-interfaces-feel-better`
+- `motion-foundations`
+- `motion-patterns`
+- `react-patterns`
+- `react-performance`
+- `react-testing`

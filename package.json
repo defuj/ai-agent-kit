@@ -1,6 +1,6 @@
 {
   "name": "opencode-agent-kit",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Multi-stack OpenCode agent toolkit — 13 specialized AI agents (Nuxt, React, Node.js, Laravel, CI3, Android, Flutter, DevOps, SEO, SonarQube) with 62 skills, 37 commands, and 7 MCP servers",
   "type": "module",
   "bin": {

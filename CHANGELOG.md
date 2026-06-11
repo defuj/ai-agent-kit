@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] - 2025-06-09
+
+### Added
+
+- **17 new agents** — @python, @rust, @swift, @dotnet, @angular, @cpp, @ai-agent (total 31 agents)
+- **91 new skills from ECC** — total 201 skills, covering Python/ML, Rust, Swift, C++, C#/.NET, Angular, AI agent engineering, cross-cutting workflows
+- **Full agent infrastructure** — prompts, config, permissions, skill references for all new agents
+
+### Changed
+
+- Agent count: 14 → **21**
+- Skills count: 74 → **201**
+- Template files: 380 → **~450**
+
+---
+
 ## [1.1.1] - 2025-06-09
 
 ### Added

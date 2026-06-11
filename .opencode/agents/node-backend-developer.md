@@ -353,11 +353,19 @@ Before starting work, check if `opencode-agent-kit` has an update:
 Load the following skills for domain-specific guidance:
 
 - `agentmemory`
+- `api-design`
 - `api-documentation`
 - `backend-patterns`
 - `coding-standards`
+- `database-migrations`
+- `deployment-patterns`
+- `docker-patterns`
+- `error-handling`
+- `mysql-patterns`
 - `node-express-prisma`
 - `nutrient-document-processing`
 - `postgres-patterns`
+- `prisma-patterns`
+- `redis-patterns`
 - `security-review`
 - `tdd-workflow`

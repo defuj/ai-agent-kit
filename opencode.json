@@ -23,7 +23,11 @@
     ".opencode/skills/coding-standards/SKILL.md",
     ".opencode/skills/security-review/SKILL.md",
     ".opencode/skills/impeccable/SKILL.md",
-    ".opencode/skills/it-leader-orchestration/SKILL.md"
+    ".opencode/skills/it-leader-orchestration/SKILL.md",
+    ".opencode/skills/eval-harness/SKILL.md",
+    ".opencode/skills/verification-loop/SKILL.md",
+    ".opencode/skills/strategic-compact/SKILL.md",
+    ".opencode/skills/api-design/SKILL.md"
   ],
   "mcp": {
     "nuxt": {
@@ -45,7 +49,10 @@
     "playwright": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-playwright"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-playwright"
+      ],
       "enabled": true,
       "description": "Browser automation and E2E testing with Playwright"
     },
@@ -77,15 +84,20 @@
     },
     "agentmemory": {
       "type": "local",
-      "command": ["bash", ".opencode/hooks/agentmemory-start.sh"],
+      "command": [
+        "bash",
+        ".opencode/hooks/agentmemory-start.sh"
+      ],
       "enabled": true,
       "description": "Persistent cross-session memory with 53 tools (save, recall, smart search, sessions, file history, lessons)"
     }
   },
-  "plugin": [".opencode/plugins/agentmemory-capture.ts"],
+  "plugin": [
+    ".opencode/plugins/agentmemory-capture.ts"
+  ],
   "agent": {
     "leader": {
-      "description": "IT Leader & Technical Project Manager — analyzes requirements, designs architecture, decomposes tasks, delegates to subagents, and unifies outputs",
+      "description": "IT Leader & Technical Project Manager \u2014 analyzes requirements, designs architecture, decomposes tasks, delegates to subagents, and unifies outputs",
       "mode": "primary",
       "prompt": "{file:.opencode/agents/it-leader.md}",
       "temperature": 0.4,
@@ -93,7 +105,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "npm *": "allow",
@@ -109,7 +123,9 @@
         "postman_*": "allow",
         "agentmemory_*": "allow",
         "sonarqube_*": "allow",
-        "task": { "*": "allow" }
+        "task": {
+          "*": "allow"
+        }
       }
     },
     "frontend-nuxt": {
@@ -120,7 +136,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "npm *": "allow",
@@ -144,7 +162,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "npm *": "allow",
@@ -166,7 +186,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "npm *": "allow",
@@ -186,7 +208,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "git status": "allow",
@@ -205,7 +229,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "git status": "allow",
@@ -224,7 +250,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "git status": "allow",
@@ -245,7 +273,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "npm *": "allow",
@@ -266,7 +296,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "npm *": "allow",
@@ -285,7 +317,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "npm *": "allow",
@@ -305,7 +339,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "git status": "allow",
@@ -324,7 +360,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "./gradlew *": "allow",
@@ -343,7 +381,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "flutter *": "allow",
@@ -355,14 +395,16 @@
       }
     },
     "sonarqube": {
-      "description": "SonarQube Quality Auditor & Fix Orchestrator — scans codebases, categorizes findings, creates TODOs, and delegates fixes to domain subagents (subagent of IT Leader)",
+      "description": "SonarQube Quality Auditor & Fix Orchestrator \u2014 scans codebases, categorizes findings, creates TODOs, and delegates fixes to domain subagents (subagent of IT Leader)",
       "mode": "subagent",
       "prompt": "{file:.opencode/agents/sonarqube-quality.md}",
       "color": "#eab308",
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "skill": { "*": "allow" },
+        "skill": {
+          "*": "allow"
+        },
         "bash": {
           "*": "ask",
           "git status": "allow",
@@ -370,6 +412,329 @@
           "git log*": "allow"
         },
         "sonarqube_*": "allow",
+        "agentmemory_*": "allow"
+      }
+    },
+    "python": {
+      "description": "Python developer for Django, FastAPI, data science, and ML engineering",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/python-developer.md}",
+      "color": "#3776AB",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "pip*": "allow",
+          "poetry*": "allow",
+          "uv*": "allow",
+          "pytest*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "rust": {
+      "description": "Rust systems programmer for performance-critical applications, CLI tools, and embedded systems",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/rust-developer.md}",
+      "color": "#DEA584",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "cargo*": "allow",
+          "rustup*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "swift": {
+      "description": "Swift/SwiftUI developer for iOS, macOS, and Apple platform applications",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/swift-developer.md}",
+      "color": "#F05138",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "swift*": "allow",
+          "xcodebuild*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "dotnet": {
+      "description": "C#/.NET/F# developer for ASP.NET Core, Blazor, MAUI, and Azure cloud applications",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/dotnet-developer.md}",
+      "color": "#512BD4",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "dotnet*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "angular": {
+      "description": "Angular/TypeScript frontend developer for web applications with standalone components, NgRx, and RxJS",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/angular-developer.md}",
+      "color": "#DD0031",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "ng*": "allow",
+          "npm*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "cpp": {
+      "description": "C++ developer for modern C++17/20/23 systems programming, performance-critical applications, and embedded systems",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/cpp-developer.md}",
+      "color": "#00599C",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "cmake*": "allow",
+          "make*": "allow",
+          "g++*": "allow",
+          "clang*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "python-reviewer": {
+      "description": "Python code review specialist \u2014 reviews Python code for type safety, PEP 8, Django/FastAPI patterns, and security",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/python-reviewer.md}",
+      "color": "#3776AB",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "pip*": "allow",
+          "pytest*": "allow",
+          "ruff*": "allow",
+          "mypy*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "rust-reviewer": {
+      "description": "Rust code review specialist \u2014 reviews Rust code for memory safety, ownership, concurrency, and idiomatic patterns",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/rust-reviewer.md}",
+      "color": "#DEA584",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "cargo*": "allow",
+          "rustup*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "cpp-reviewer": {
+      "description": "C++ code review specialist \u2014 reviews C++ code for memory safety, RAII, modern C++ patterns, and performance",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/cpp-reviewer.md}",
+      "color": "#00599C",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "cmake*": "allow",
+          "make*": "allow",
+          "clang*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "java-reviewer": {
+      "description": "Java/Spring Boot code review specialist \u2014 reviews Java code for JPA, Spring patterns, concurrency, and security",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/java-reviewer.md}",
+      "color": "#ED8B00",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "mvn*": "allow",
+          "gradle*": "allow",
+          "java*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "php-reviewer": {
+      "description": "PHP/Laravel code review specialist \u2014 reviews PHP code for PSR standards, Laravel patterns, Eloquent, and security",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/php-reviewer.md}",
+      "color": "#777BB4",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "composer*": "allow",
+          "php*": "allow",
+          "artisan*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "kotlin-reviewer": {
+      "description": "Kotlin/Android code review specialist \u2014 reviews Kotlin code for coroutines, Compose, clean architecture, and Android security",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/kotlin-reviewer.md}",
+      "color": "#7F52FF",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "gradle*": "allow",
+          "java*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "go-reviewer": {
+      "description": "Go code review specialist \u2014 reviews Go code for error handling, concurrency, idiomatic patterns, and security",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/go-reviewer.md}",
+      "color": "#00ADD8",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "go*": "allow"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "harness-optimizer": {
+      "description": "Agent harness optimizer \u2014 analyzes and improves agent configuration for reliability, cost efficiency, and throughput",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/harness-optimizer.md}",
+      "color": "#8B5CF6",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "loop-operator": {
+      "description": "Autonomous loop operator \u2014 operates, monitors, and intervenes in autonomous agent loops with quality gates",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/loop-operator.md}",
+      "color": "#EC4899",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "docs-lookup": {
+      "description": "Documentation lookup specialist \u2014 fetches current library and API documentation via MCP with code examples",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/docs-lookup.md}",
+      "color": "#6366F1",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask"
+        },
+        "agentmemory_*": "allow"
+      }
+    },
+    "agent-engineer": {
+      "description": "AI Agent Engineer \u2014 builds agent orchestration systems, evaluation harnesses, autonomous loops, and safety guardrails",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agents/agent-engineer.md}",
+      "color": "#8B5CF6",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "skill": {
+          "*": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "agentmemory*": "allow"
+        },
         "agentmemory_*": "allow"
       }
     }

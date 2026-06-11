@@ -521,11 +521,24 @@ _This agent ensures production-ready quality by reviewing code for correctness, 
 Load the following skills for domain-specific guidance:
 
 - `agentmemory`
+- `api-design`
 - `code-review-workflow`
 - `coding-standards`
+- `database-migrations`
+- `deployment-patterns`
+- `docker-patterns`
+- `error-handling`
 - `eval-harness`
 - `impeccable`
+- `kubernetes-patterns`
+- `mysql-patterns`
+- `prisma-patterns`
+- `redis-patterns`
 - `security-review`
 - `tdd-workflow`
 - `verification-loop`
 - `web-design-guidelines`
+- `accessibility`
+- `browser-qa`
+- `e2e-testing`
+- `react-testing`

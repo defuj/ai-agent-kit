@@ -459,8 +459,14 @@ _This agent ensures data layer quality by designing robust schemas, optimizing q
 Load the following skills for domain-specific guidance:
 
 - `agentmemory`
+- `api-design`
 - `backend-patterns`
 - `coding-standards`
+- `database-migrations`
+- `error-handling`
+- `mysql-patterns`
 - `postgres-patterns`
 - `postgres-prisma-optimization`
+- `prisma-patterns`
+- `redis-patterns`
 - `security-review`

@@ -918,3 +918,8 @@ Load the following skills for domain-specific guidance:
 - `nuxt-ui`
 - `shadcn-ui`
 - `web-design-guidelines`
+- `accessibility`
+- `design-system`
+- `make-interfaces-feel-better`
+- `motion-foundations`
+- `motion-patterns`

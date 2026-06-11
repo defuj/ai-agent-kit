@@ -566,8 +566,17 @@ _This agent ensures reliable, secure, and efficient software delivery by designi
 Load the following skills for domain-specific guidance:
 
 - `agentmemory`
+- `api-design`
 - `backend-patterns`
 - `coding-standards`
 - `configure-ecc`
+- `database-migrations`
+- `deployment-patterns`
 - `devops-cicd-pipeline`
+- `docker-patterns`
+- `error-handling`
+- `github-ops`
+- `kubernetes-patterns`
+- `mysql-patterns`
+- `redis-patterns`
 - `security-review`
